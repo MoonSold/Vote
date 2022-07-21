@@ -45,7 +45,7 @@ function sendRegisterJSONA() {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            $('.write').text(this.response);
+            location.reload();
         }
     };
     var data = JSON.stringify({ "username":username.value, "name": name.value, "password": password.value});

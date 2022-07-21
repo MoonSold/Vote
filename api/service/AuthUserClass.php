@@ -3,22 +3,29 @@
 namespace service;
 
 use Entity;
+use http\Exception;
 
 require_once dirname(__DIR__)."/config/bootstrap.php";
-require_once dirname(__DIR__)."/Entity/UsersEntity.php";
 
 class AuthUserClass
 {
-    public static function authUser($login,$password)
+    public static function authUser($login,$password):array
     {
-        global $entityManager;
-        $user = $entityManager->getRepository(Entity\UsersEntity::class)->findOneBy(array('login'=>$login));
-        if ($user->getPasswordHash() == md5($password)) {
-            $_COOKIE['token'] = md5($user->getId());
-            $_SESSION["username"] = $user->getUserName();
-            $_SESSION["id"] = $user->getId();
-            $token = $entityManager->getRepository(Entity\TokenHashEntity::class)->findOneBy(array('userid'=>$_SESSION["id"]));
-            die();
+        try {
+            global $entityManager;
+            $user = $entityManager->getRepository(Entity\UsersEntity::class)->findOneBy(array('login' => $login));
+            if ($user->getPasswordHash() == md5($password)) {
+                $_SESSION["username"] = $user->getUserName();
+                $_SESSION["id"] = $user->getId();
+                $token = $entityManager->getRepository(Entity\TokenHashEntity::class)->findOneBy(array('userid' => $_SESSION["id"]));
+                return ["auth"=>true];
+            }
+            else {
+                return ["auth"=>false];
+            }
+        }
+        catch(Exception $e){
+            return ["auth"=>$e];
         }
     }
 }
