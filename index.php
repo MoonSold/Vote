@@ -1,23 +1,28 @@
 <?php
 
-
-
-//setcookie('token','not authorized',time()+3600);
-//setcookie('username','not authorized',time()+3600);
-session_start();
-
 require_once 'api/vendor/autoload.php';
 require_once 'api/controller/controller.php';
-require_once 'front/MainPage.html';
+
+register_shutdown_function(function () {
+    var_dump(error_get_last());
+    die;
+});
+
+setcookie('token','not auth',time()-3600);
+setcookie('username','not auth',time()-3600);
+session_start();
 
 if (isset($_POST)){
-    if (count($_POST) == 2){
+    if(count($_POST) == 2){
         controllerFunction('auth');
+        header('Location: ');
     }
     else{
         controllerFunction('register');
+        header('Location: ');
     }
 }
 
+require_once 'front/MainPage.html';
 
 
