@@ -15,7 +15,18 @@ $('.close-popup-auth').click(function (){
     $('#auth-form').fadeOut(600);
 });
 
-if (!(document.cookie('token')=='not auth')){
-    document.getElementById('auth').className = "hide";
-    document.getElementById('register').className = "hide";
+let token = $.cookie('username');
+
+if (typeof token === 'undefined'){
+    $("#register").css("display", "block"); // Для скрытия
+    $("#auth").css("display", "block"); // Для скрытия
+    $("#exit").css("display", "none"); // Для показа
+    $(".go-vote").attr('disabled', true);
+
+}
+else {
+    $("#register").css("display", "none"); // Для скрытия
+    $("#auth").css("display", "none"); // Для скрытия
+    $("#exit").css("display", "block"); // Для показа
+    $(".go-vote").attr('disabled', false);
 }

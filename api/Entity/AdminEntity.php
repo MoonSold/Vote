@@ -15,26 +15,25 @@ class AdminEntity
      * @ORM\GeneratedValue
      * @var integer
      */
-    private $id;
+    private int $id;
     /**
-     * @ORM\Column(type="string",nullable = true,name="adminname",unique=true)
+     * @ORM\Column(type="string",nullable = true,name="admin_name",unique=true)
      * @var string
      */
-    private $adminname;
+    private string $admin_name;
     /**
-     * @ORM\Column(type="string",nullable = true,name="passwordhash")
+     * @ORM\Column(type="string",nullable = true,name="password_hash")
      * @var string
      */
-    private $passwordhash;
-
+    private string $password_hash;
 
     public function getAdminName(): string
     {
-        return $this->adminname;
+        return $this->admin_name;
     }
 
     public function getPasswordHash(): string
     {
-        return $this->passwordhash;
+        return $this->password_hash;
     }
 }

@@ -16,46 +16,46 @@ class UsersEntity
      * @ORM\GeneratedValue
      * @var integer
      */
-    private $id;
+    private int $id;
     /**
-     * @ORM\Column(type="string",nullable = true,name="username",unique=true)
+     * @ORM\Column(type="string",nullable = true,name="user_name",unique=true)
      * @var string
      */
-    private $username;
+    private string $user_name;
     /**
-     * @ORM\Column(type="string",nullable = true,name="passwordhash")
+     * @ORM\Column(type="string",nullable = true,name="password_hash")
      * @var string
      */
-    private $passwordhash;
+    private string $password_hash;
     /**
      * @ORM\Column(type="string",nullable = true,name="login",unique=true)
      * @var string
      */
-    private $login;
+    private string $login;
 
-    public function getId(): string
+    public function getId(): int
     {
         return $this->id;
     }
 
     public function getUserName(): string
     {
-        return $this->username;
+        return $this->user_name;
     }
 
-    public function setUserName(string $username): void
+    public function setUserName(string $user_name): void
     {
-        $this->username = $username;
+        $this->user_name = $user_name;
     }
 
     public function getPasswordHash(): string
     {
-        return $this->passwordhash;
+        return $this->password_hash;
     }
 
-    public function setPasswordHash(string $passwordhash): void
+    public function setPasswordHash(string $password_hash): void
     {
-        $this->passwordhash = $passwordhash;
+        $this->password_hash = $password_hash;
     }
 
     public function getLogin(): string
@@ -67,5 +67,4 @@ class UsersEntity
     {
         $this->login = $login;
     }
-
 }

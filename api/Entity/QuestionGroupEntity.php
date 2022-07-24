@@ -16,26 +16,39 @@ class QuestionGroupEntity
      * @ORM\GeneratedValue
      * @var integer
      */
-    private $id;
+    private int $id;
     /**
-     * @ORM\Column(type="string",nullable = true,name="groupname",unique=true)
+     * @ORM\Column(type="string",nullable = true,name="group_name",unique=true)
      * @var string
      */
-    private $groupname;
+    private string $group_name;
+    /**
+     * @ORM\Column(type="string",nullable = true,name="description",unique=true)
+     * @var string
+     */
+    private string $description;
     /**
      * @ORM\OneToMany(targetEntity="QuestionGroupEntity",mappedBy="question")
      */
-    private $questions;
-
+    private object $questions;
 
     public function getGroupName(): string
     {
-        return $this->groupname;
+        return $this->group_name;
     }
 
-    public function setGroupName(string $groupname): void
+    public function setGroupName(string $group_name): void
     {
-        $this->groupname = $groupname;
+        $this->group_name = $group_name;
     }
 
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
 }

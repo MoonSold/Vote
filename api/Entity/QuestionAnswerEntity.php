@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="questionsanswer")
+ * @ORM\Table(name="question_answer")
  */
 class QuestionAnswerEntity
 {
@@ -16,19 +16,19 @@ class QuestionAnswerEntity
      * @ORM\GeneratedValue
      * @var integer
      */
-    private $id;
+    private int $id;
     /**
      * @ORM\OneToOne(targetEntity="UsersEntity")
      */
-    private $user;
+    private object $user;
     /**
      * @ORM\OneToOne(targetEntity="QuestionsEntity")
      */
-    private $question;
+    private object $question;
     /**
      * @ORM\Column(type="string",nullable = true,name="answer")
      */
-    private $answer;
+    private string $answer;
 
     public function getAnswer(): string
     {

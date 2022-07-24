@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="tokens")
  */
-class TokenHashEntity
+class TokensEntity
 {
     /**
      * @ORM\Id
@@ -18,33 +18,33 @@ class TokenHashEntity
      */
     private $id;
     /**
-     * @ORM\Column(type="integer",nullable = true,name="userid",unique=true)
-     * @var string
+     * @ORM\Column(type="integer",nullable = true,name="user_id",unique=true)
+     * @var integer
      */
-    private $userid;
+    private int $user_id;
     /**
      * @ORM\Column(type="string",nullable = true,name="token")
      * @var string
      */
-    private $hashId;
+    private string $hash_id;
 
     public function getUserId(): string
     {
-        return $this->userid;
+        return $this->user_id;
     }
 
-    public function setUserId(string $userid): void
+    public function setUserId(string $user_id): void
     {
-        $this->userid = $userid;
+        $this->user_id = $user_id;
     }
 
     public function getToken(): string
     {
-        return $this->hashId;
+        return $this->hash_id;
     }
 
-    public function setToken(string $hashId): void
+    public function setToken(string $hash_id): void
     {
-        $this->hashId = $hashId;
+        $this->hash_id = $hash_id;
     }
 }

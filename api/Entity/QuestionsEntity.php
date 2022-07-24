@@ -12,25 +12,23 @@ class QuestionsEntity
 {
     /**
      * @ORM\Id
-     * @ORM\Id
-     * @ORM\Id
      * @ORM\Column(type="integer",name = "id")
      * @ORM\GeneratedValue
      * @var integer
      */
-    private $id;
+    private int $id;
     /**
      * @ORM\Column(type="string",nullable = true,name="question",unique=true)
      */
-    private $question;
+    private string $question;
     /**
      * @ORM\ManyToOne(targetEntity="QuestionGroupEntity")
      */
-    private $questiongroup;
+    private object $question_group;
     /**
      * @ORM\Column(type="string",nullable = true,name="answer")
      */
-    private $answer;
+    private string $answer;
 
     public function getQuestion(): string
     {
@@ -53,11 +51,11 @@ class QuestionsEntity
     }
     public function getQuestionGroup(): string
     {
-        return $this->questiongroup;
+        return $this->question_group;
     }
 
-    public function setQuestionGroup($questiongroup): void
+    public function setQuestionGroup($question_group): void
     {
-        $this->questiongroup = $question;
+        $this->question_group = $question_group;
     }
 }

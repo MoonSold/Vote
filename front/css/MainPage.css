@@ -18,6 +18,19 @@
     overflow: hidden;
     outline: none;
 }
+#exit{
+    position: absolute;
+    color: black;
+    right: 1%;
+    top: 20%;
+    font-weight: 500;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
 
 #register{
     position: absolute;
@@ -82,4 +95,19 @@
 
 .write{
     margin-top: 5%;
+    margin-bottom: 1%;
+}
+
+.go-vote{
+    color: blue;
+    position: relative;
+    top:3%;
+    bottom: 0;
+    font-weight: 500;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
 }
