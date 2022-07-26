@@ -10,6 +10,7 @@
         "psr-0": {"Entity\\": "Entity/"},
         "psr-4":{
             "service\\":"service/",
+            "controller\\": "controller/",
             "Entity\\": "Entity/"
         }
     }

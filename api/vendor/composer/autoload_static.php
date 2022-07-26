@@ -23,6 +23,10 @@ class ComposerStaticInitdc496fe12a341a4e32281ea30e8049b4
         array (
             'service\\' => 8,
         ),
+        'c' => 
+        array (
+            'controller\\' => 11,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -70,6 +74,10 @@ class ComposerStaticInitdc496fe12a341a4e32281ea30e8049b4
         'service\\' => 
         array (
             0 => __DIR__ . '/../..' . '/service',
+        ),
+        'controller\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controller',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
