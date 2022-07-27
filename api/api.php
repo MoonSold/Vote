@@ -12,7 +12,6 @@ $_REQUEST = array_merge($_REQUEST, $phpInput === null ? [] : $phpInput);
 
 $service = new service\UserService($entityManager);
 $userController = new controller\UserController($service);
-var_dump($_GET);
 if ($_REQUEST["actor"] == "user"){
     $service = new service\UserService($entityManager);
     $userController = new controller\UserController($service);
@@ -47,9 +46,7 @@ if ($_REQUEST["actor"] == "user"){
 //        session_destroy();
 //    }
 //}
-    if (!empty($response)) {
-        echo json_encode($response);
-    }
+
 
 
 
