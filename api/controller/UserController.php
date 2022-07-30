@@ -14,16 +14,16 @@ class UserController
     }
 
     //регистрация пользователей
-    public function controllerRegistrationFunction(array $request,bool $save = false): array
+    public function controllerRegistrationFunction(array $request,bool $check = false): array
     {
-        $_SESSION['save'] = $save;
+        $_SESSION['check'] = $check;
         return $this->userService->registerUser($request['login'],$request['password'],$request['username']);
     }
 
     //авторизация пользователей
-    public function controllerAuthFunction(array $request,bool $save = false): array
+    public function controllerAuthFunction(array $request,bool $check = false): array
     {
-        $_SESSION['save'] = $save;
+        $_SESSION['check'] = $check;
         $server_response = $this->userService->authUser($request['login'],$request['password']);
         if ($server_response["auth"] === true){
             setcookie("token", strval($server_response["token"]), time() + 3600);

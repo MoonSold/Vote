@@ -1,25 +1,20 @@
-Ext.define('app.controller.Users', {
+Ext.define('app.controller.VoteGroup', {
     extend: 'Ext.app.Controller',
 
     views: ['AllVoteGroup'],
-    models: ['VoteGroup'],
     init: function () {
-        this.control({
-            'viewport > booklist': {
-                itemdblclick: this.editBook
-            },
-            'bookwindow button[action=new]': {
-                click: this.createBook
-            },
-            'bookwindow button[action=save]': {
-                click: this.updateBook
-            },
-            'bookwindow button[action=delete]': {
-                click: this.deleteBook
-            },
-            'bookwindow button[action=clear]': {
-                click: this.clearForm
+        Ext.Ajax.request({
+            url: 'api/api.php',
+            method: "get",
+            params: {"actor":"user","method":"controllerGetQuestionGroup"},
+            success: function(response){
+                console.log(response.responseText);
+                let data = Ext.decode(response.responseText)
+                let store = Ext.getStore('app.store.VoteGroupStore');
+                store.load(data);
+                console.log(store)
             }
         });
+        this.callParent();
     }
 });

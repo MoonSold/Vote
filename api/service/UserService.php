@@ -80,7 +80,7 @@ class UserService
         $all_vote_group = [];
         $vote_group = $this->entityManager->getRepository(Entity\QuestionGroupEntity::class)->findAll();
         foreach($vote_group as $group){
-            $all_vote_group[$group->getGroupName()] = $group->getDescription();
+            $all_vote_group[] = [$group->getId(),$group->getGroupName(),$group->getDescription()];
         }
         return $all_vote_group;
     }

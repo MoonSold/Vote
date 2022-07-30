@@ -32,6 +32,10 @@ class QuestionGroupEntity
      */
     private object $questions;
 
+    public function getId():int
+    {
+        return $this->id;
+    }
     public function getGroupName(): string
     {
         return $this->group_name;

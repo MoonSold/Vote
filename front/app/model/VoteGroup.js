@@ -1,4 +1,4 @@
-Ext.define('app.model.QuestionGroup', {
+Ext.define('app.model.VoteGroup', {
     extend: 'Ext.data.Model',
     fields: ['id','QuestionGroup', 'Description']
 });

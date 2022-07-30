@@ -1,4 +1,9 @@
 <?php
+//
+//register_shutdown_function(function () {
+//    var_dump(error_get_last());
+//    die;
+//});
 
 require_once 'vendor/autoload.php';
 require_once "bootstrap.php";
@@ -18,7 +23,7 @@ if ($_REQUEST["actor"] == "user"){
     $response = $userController->{$_REQUEST['method']}($_REQUEST);
     if (!empty($response)) {
         echo json_encode($response);
-    }
+        }
 }
 //echo json_encode($userController->controllerGetQuestionGroup());
 //
