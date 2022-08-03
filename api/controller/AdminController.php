@@ -16,12 +16,7 @@ class AdminController
 
     public function controllerAdminAuthFunction(array $request): array
     {
-        $server_response = $this->adminService->authAdmin($request['login'],$request['password']);
-        if ($server_response["auth"] === true){
-            setcookie("token", strval($server_response["token"]), time() + 3600);
-            setcookie("username", strval($server_response["username"]), time() + 3600);
-        }
-        return $server_response;
+        return $this->adminService->authAdmin($request['login'],$request['password']);
     }
 
     public function controllerGetAllQuestionsFunction(int $idVote): array

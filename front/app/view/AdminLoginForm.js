@@ -1,8 +1,9 @@
-Ext.define('app.view.LoginForm', { // #1
-    alias: "widget.LoginForm",
+Ext.define('app.view.AdminLoginForm', { // #1
+    alias: "widget.AdminLoginForm",
     extend: 'Ext.window.Window',
-    xtype: 'form',// #3
-    // кнопки формы
+    xtype: 'form',
+    region: 'center',
+    width: 250,
     defaultType: 'textfield',
     defaults: {
         anchor: '100%'
@@ -12,25 +13,19 @@ Ext.define('app.view.LoginForm', { // #1
     items: [
         {
             allowBlank: false,
-            id: "auth-login",
-            fieldLabel: 'Логин',
-            name: 'login',
-            emptyText: 'логин'
+            id: "admin_name",
+            fieldLabel: 'Имя Админа',
+            name: 'admin_name',
+            emptyText: 'Имя Админа'
         },
         {
             allowBlank: false,
             fieldLabel: 'Пароль',
             name: 'password',
-            id: "auth-password",
+            id: "admin_password",
             emptyText: 'пароль',
             inputType: 'password'
         },
-        {
-            xtype:'checkbox',
-            id: "auth-remember",
-            fieldLabel: 'Запомнить меня',
-            name: 'remember'
-        }
     ],
     buttons: [{
         text: 'Отмена',
@@ -41,7 +36,7 @@ Ext.define('app.view.LoginForm', { // #1
     }],
     autoShow: true,
     iconCls: 'fa fa-key fa-lg',
-    title: 'Авторизация',
+    title: 'Авторизация Админа',
     closeAction: 'hide',
     closable: false,
     draggable: false,

@@ -3,12 +3,14 @@
 namespace Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="questionsgroup")
+ * @ORM\Table(name="vote_group")
  */
-class QuestionGroupEntity
+class VoteGroupEntity
 {
     /**
      * @ORM\Id
@@ -28,14 +30,16 @@ class QuestionGroupEntity
      */
     private string $description;
     /**
-     * @ORM\OneToMany(targetEntity="QuestionGroupEntity",mappedBy="question")
+     * @var Collection
+     * @ORM\OneToMany(targetEntity="ChooseEntity",mappedBy="vote_group")
      */
-    private object $questions;
+    private $vote;
 
     public function getId():int
     {
         return $this->id;
     }
+
     public function getGroupName(): string
     {
         return $this->group_name;

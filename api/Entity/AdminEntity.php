@@ -17,10 +17,10 @@ class AdminEntity
      */
     private int $id;
     /**
-     * @ORM\Column(type="string",nullable = true,name="admin_name",unique=true)
+     * @ORM\Column(type="string",nullable = true,name="name",unique=true)
      * @var string
      */
-    private string $admin_name;
+    private string $name;
     /**
      * @ORM\Column(type="string",nullable = true,name="password_hash")
      * @var string
@@ -29,7 +29,7 @@ class AdminEntity
 
     public function getAdminName(): string
     {
-        return $this->admin_name;
+        return $this->name;
     }
 
     public function getPasswordHash(): string

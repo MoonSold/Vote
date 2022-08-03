@@ -1,4 +1,4 @@
-Ext.define('app.controller.Register', {
+Ext.define('app.controller.RegisterFormController', {
     extend: 'Ext.app.Controller',
     views: ['RegisterForm'],
     RegisterUser: function (button) {
@@ -15,7 +15,7 @@ Ext.define('app.controller.Register', {
                 let data = Ext.decode(response.responseText)
                 Ext.util.Cookies.set('token',data.token);
                 Ext.util.Cookies.set('username', data.username);
-
+                location.reload();
             }
         });
     },

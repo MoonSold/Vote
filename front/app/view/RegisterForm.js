@@ -41,7 +41,7 @@ Ext.define('app.view.RegisterForm', { // #1
     ],
     buttons: [{
         text: 'Отмена',
-        handler: function () { this.up('window').close(); }
+        handler: function () { this.up('window').destroy(); }
 
     }, {
         text: 'Войти',

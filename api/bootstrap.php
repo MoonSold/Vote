@@ -10,7 +10,7 @@ $isDevMode = true;
 $proxyDir = null;
 $cache = null;
 $useSimpleAnnotationReader = false;
-$config = Setup::createAnnotationMetadataConfiguration(array("/Entity"), $isDevMode, $proxyDir, $cache, $useSimpleAnnotationReader);
+$config = Setup::createAnnotationMetadataConfiguration(array("Entity"), $isDevMode, $proxyDir, $cache, $useSimpleAnnotationReader);
 
 // database configuration parameters
 $conn = array(

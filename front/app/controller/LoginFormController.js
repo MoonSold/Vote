@@ -1,4 +1,4 @@
-Ext.define('app.controller.Login', {
+Ext.define('app.controller.LoginFormController', {
     extend: 'Ext.app.Controller',
     views: ['LoginForm'],
     AuthUser: function (button) {
@@ -14,7 +14,7 @@ Ext.define('app.controller.Login', {
                 let data = Ext.decode(response.responseText)
                 Ext.util.Cookies.set('token',data.token);
                 Ext.util.Cookies.set('username', data.username);
-
+                location.reload();
             }
         });
     },

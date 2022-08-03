@@ -6,9 +6,9 @@ Ext.Loader.setConfig({
 
 
 Ext.application({
-    requires: ["app.view.AllVoteGroup","app.view.TopPanel","app.view.LoginForm", "app.view.RegisterForm"],
-    controllers: ["VoteGroup",'TopPanel',"Register","Login"],
-    stores: ["app.store.VoteGroupStore"],
+    requires: ["app.view.VoteElementGrid","app.view.AllVoteGroupGrid","app.view.TopPanel","app.view.LoginForm", "app.view.RegisterForm"],
+    controllers: ["VoteGroupController",'TopPanelController',"RegisterFormController","LoginFormController","VoteElementController"],
+    stores: ["app.store.VoteGroupStore","app.store.VoteElementStore"],
     name: 'app',
     appFolder: 'front/app',
     launch: function() {
@@ -16,7 +16,17 @@ Ext.application({
             height: 100,
             renderTo:Ext.getBody()
         });
-        Ext.createWidget("AllVoteGroup",{
+        if (Ext.util.Cookies.get('token')){
+            Ext.getCmp('auth-button').hide();
+            Ext.getCmp('register-button').hide();
+            Ext.getCmp('exit-button').show();
+        }
+        else {
+            Ext.getCmp('auth-button').show();
+            Ext.getCmp('register-button').show();
+            Ext.getCmp('exit-button').hide();
+        }
+        Ext.createWidget("AllVoteGroupGrid",{
             flex: 1,
             renderTo:Ext.getBody()
         })

@@ -8,14 +8,16 @@ Ext.define('app.view.TopPanel', {
             text: 'Авторизация',
             id: "auth-button",
             action: "auth",
-        },'-',{
+        },{
             xtype: 'button',
             text : 'Регистрация',
             id: "register-button",
             action: "register"
-        },'-',{
+        },{
             xtype: 'button',
             text : 'Выход',
+            id: "exit-button",
             action: "exit"
         }]
+
 });
