@@ -18,7 +18,7 @@ Ext.define('app.controller.AdminViewWindowController', {
                         Ext.Ajax.request({
                             url: 'api/api.php',
                             method: "post",
-                            params: {'id':Ext.util.Cookies.get('group_id'),"group_name":name,"description":description,"actor":"admin","method":"controllerAdminUpdateVoteGroup"},
+                            params: {'id':localStorage.getItem('group_id'),"group_name":name,"description":description,"actor":"admin","method":"controllerAdminUpdateVoteGroup"},
                             success: function(response){
                                 Ext.getCmp('update_window').destroy();
                                 Ext.Msg.alert('Запись обновлена');
@@ -40,7 +40,7 @@ Ext.define('app.controller.AdminViewWindowController', {
         Ext.Ajax.request({
             url: 'api/api.php',
             method: "post",
-            params: {'id':Ext.util.Cookies.get('group_id'),"actor":"admin","method":"controllerAdminDeleteVoteGroup"},
+            params: {'id':localStorage.getItem('group_id'),"actor":"admin","method":"controllerAdminDeleteVoteGroup"},
             success: function(response){
                 Ext.Msg.alert('Запись удалена');
                 let store = Ext.widget('AdminAllGroupGrid').getStore();
@@ -95,7 +95,7 @@ Ext.define('app.controller.AdminViewWindowController', {
                             width: 120,
                             height: 40,
                             text: "Добавить",
-                            style:'margin-left:60px; margin-top:70px;',
+                            style:'margin-left:80px; margin-top:70px;margin-right:80px;',
                             action: 'add'
                         }]
                     })

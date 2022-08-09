@@ -22,7 +22,8 @@ Ext.define('app.view.AdminElementGrid', {
         }],
     listeners: {
         cellclick: function (gridView, htmlElement, columnIndex, dataRecord) {
-            localStorage.setItem('element_id',dataRecord.data[0]);
+            localStorage.setItem('element_id',dataRecord.data['id']);
+            console.log(localStorage.getItem('element_id'));
             Ext.createWidget('AdminElementWindow', {
                 renderTo: Ext.getBody(),
                 id: 'choose_window'

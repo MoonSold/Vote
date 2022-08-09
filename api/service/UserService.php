@@ -3,6 +3,7 @@
 namespace service;
 
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
 use Entity;
 
@@ -16,7 +17,9 @@ class UserService
         $this->entityManager = $entityManager;
     }
 
-    //Авторизация Пользователя
+    /**
+     * Авторизация пользователя
+     */
     public function authUser(string $login, string $password,bool $check):array
     {
         $_SESSION["check"]  = $check;
@@ -32,13 +35,15 @@ class UserService
         }
     }
 
-    //Регистрация Пользователя
-    public function registerUser(string $login, string $password,string $username,bool $check):array
+    /**
+     * Метод Регистрации пользователя
+     * @throws OptimisticLockException
+     * @throws ORMException
+     */
+    public function registerUser(string $login, string $password, string $username, bool $check):array
     {
-
         $_SESSION["check"]  = $check;
         $validation = self::validator($login, $password, $username);
-//        var_dump($validation);
         if ($validation === true) {
             $new_user = new Entity\UsersEntity();
             $password = md5($password);
@@ -64,7 +69,9 @@ class UserService
         }
     }
 
-    //Валидатор
+    /**
+     * Валидатор
+     */
     public static function validator(string $login, string $password,string $username):bool
     {
         return (preg_match("/^[a-zA-Z0-9-_]{5,20}$/i",$login)
@@ -72,14 +79,11 @@ class UserService
             && preg_match("/^[а-яёА-ЯЁ]+$/u",$username));
     }
 
-    //Вязтие всех групп голосований
-
+    /**
+     * Метод Взятия всех групп для голосования с проверкой на то, чтобы пользователь не голосовал больше 1 раза
+     */
     public function getVoteGroup(string $token):array
     {
-//        register_shutdown_function(function (){
-//            var_dump(error_get_last());
-//            die;
-//        });
         if($token !== '') {
             $user_id = $this->entityManager
                 ->getRepository(Entity\TokensEntity::class)
@@ -112,7 +116,9 @@ class UserService
         return $all_vote_group;
     }
 
-    //Получение Токена по id
+    /**
+     * Получение токена юзера по id
+     */
     public function getToken(string $login):string
     {
         $id = $this->entityManager
@@ -125,6 +131,9 @@ class UserService
             ->getToken();
     }
 
+    /**
+     * Получение списка кандидатов по id группы
+     */
     public function getVoteElement(int $id):array
     {
         $all_question = [];
@@ -141,12 +150,13 @@ class UserService
         return $all_question;
     }
 
-    public function setResult(int $element_id,string $user_token):bool
+    /**
+     * Отправка результата
+     * @throws OptimisticLockException
+     * @throws ORMException
+     */
+    public function setResult(int $element_id, string $user_token):bool
     {
-        register_shutdown_function(function (){
-            var_dump(error_get_last());
-            die;
-        });
         $element = $this->entityManager
             ->getRepository(Entity\VoteElementEntity::class)
             ->findBy(['id'=>$element_id]);

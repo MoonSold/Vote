@@ -9,8 +9,11 @@ Ext.define('app.controller.AdminElementWindowController', {
             params: {'id':localStorage.getItem('element_id'),"actor":"admin","method":"controllerAdminDeleteVoteElement"},
             success: function(response){
                 Ext.Msg.alert('Кандидат Удалён');
-                let store = Ext.widget('AdminElementGrid').getStore();
-                store.reload();
+                Ext.getCmp('element_grid').destroy();
+                Ext.createWidget('AdminElementGrid',{
+                    renderTo:Ext.getBody(),
+                    id: 'element_grid'
+                })
             }
         });
     },
@@ -40,8 +43,11 @@ Ext.define('app.controller.AdminElementWindowController', {
                         success: function(response){
                             Ext.getCmp('add_window').destroy();
                             Ext.Msg.alert('Добавлена новая группа');
-                            let store = Ext.widget('AdminElementGrid').getStore();
-                            store.reload();
+                            Ext.getCmp('element_grid').destroy();
+                            Ext.createWidget('AdminElementGrid',{
+                                renderTo:Ext.getBody(),
+                                id: 'element_grid'
+                            })
                         }
                     });
                 }

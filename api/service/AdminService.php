@@ -3,6 +3,7 @@
 namespace service;
 
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
 use Entity;
 
@@ -15,12 +16,11 @@ class AdminService
         $this->entityManager = $entityManager;
     }
 
+    /**
+     * Авторизация Администратора
+     */
     public function authAdmin(string $login, string $password):array
     {
-        register_shutdown_function(function () {
-            var_dump(error_get_last());
-            die;
-        });
         $admin = $this->entityManager->getRepository(Entity\AdminEntity::class)->findOneBy(array('name' => $login));
         if (md5($password) == $admin->getPasswordHash()) {
             $_SESSION['auth'] = true;
@@ -31,6 +31,9 @@ class AdminService
         }
     }
 
+    /**
+     * Получение всех групп для голосования
+     */
     public function getVoteGroup():array
     {
         $all_vote_group = [];
@@ -41,6 +44,11 @@ class AdminService
         return $all_vote_group;
     }
 
+    /**
+     * Удаление группы
+     * @throws OptimisticLockException
+     * @throws ORMException
+     */
     public function deleteVoteGroup(int $id):bool
     {
         $vote_group = $this->entityManager->getRepository(Entity\VoteGroupEntity::class)->findOneBy(['id'=>$id]);
@@ -59,12 +67,13 @@ class AdminService
         return true;
     }
 
+    /**
+     * Обновление группы
+     * @throws OptimisticLockException
+     * @throws ORMException
+     */
     public function updateVoteGroup(int $id, string $group_name, string $description): bool
     {
-        register_shutdown_function(function () {
-            var_dump(error_get_last());
-            die;
-        });
         $vote_group = $this->entityManager->getRepository(Entity\VoteGroupEntity::class)->findOneBy(['id'=>$id]);
         $vote_group->setGroupName($group_name);
         $vote_group->setDescription($description);
@@ -72,6 +81,11 @@ class AdminService
         return true;
     }
 
+    /**
+     * Добавление новой группы
+     * @throws OptimisticLockException
+     * @throws ORMException
+     */
     public function addVoteGroup(string $group_name, string $description): bool
     {
         $vote_group = new Entity\VoteGroupEntity();
@@ -82,6 +96,9 @@ class AdminService
         return true;
     }
 
+    /**
+     * Получение кандидатов данной группы
+     */
     public function getVoteElement(int $id):array
     {
         $all_question = [];
@@ -97,12 +114,13 @@ class AdminService
         return $all_question;
     }
 
-    public function addVoteElement(int $id,string $element_name):bool
+    /**
+     * Добавление нового кандидата
+     * @throws OptimisticLockException
+     * @throws ORMException
+     */
+    public function addVoteElement(int $id, string $element_name):bool
     {
-        register_shutdown_function(function () {
-            var_dump(error_get_last());
-            die;
-        });
         $element = new Entity\VoteElementEntity();
         $group = $this->entityManager
             ->getRepository(Entity\VoteGroupEntity::class)
@@ -114,23 +132,24 @@ class AdminService
         return true;
     }
 
+    /**
+     * Удаление кандидата данной группы
+     * @throws OptimisticLockException
+     * @throws ORMException
+     */
     public function deleteVoteElement(int $id):bool
     {
-        register_shutdown_function(function () {
-            var_dump(error_get_last());
-            die;
-        });
         $vote_group = $this->entityManager->getRepository(Entity\VoteElementEntity::class)->findOneBy(['id'=>$id]);
         $this->entityManager->remove($vote_group);
         $this->entityManager->flush();
         return true;
     }
+
+    /**
+     * Получение результатов
+     */
     public function getResult():array
     {
-        register_shutdown_function(function () {
-            var_dump(error_get_last());
-            die;
-        });
         $all_result = [];
         $result = $this->entityManager->getRepository(Entity\ChooseVoteEntity::class)->findAll();
         foreach ($result as $res){
