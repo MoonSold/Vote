@@ -29,16 +29,11 @@ Ext.define('app.view.VoteElementGrid', {
                 params: {"actor":"user","method":"controllerSetResult","id":dataRecord.raw[0],"token":Ext.util.Cookies.get("token")},
                 success: function(response){
                     console.log(response.responseText);
-<<<<<<< HEAD
                     location.reload();
                     Ext.Msg.alert("Ваш голос учтён");
                 },
                 failure: function(response, opts) {
                     Ext.Msg.alert("Авторизируйтесь","Только авторизированные пользователи могут голосовать");
-=======
-                    Ext.Msg.alert("Ваш голос учтён");
-                    location.reload();
->>>>>>> stage
                 }
             });
         }

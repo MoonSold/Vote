@@ -1,16 +1,11 @@
 <?php
-<<<<<<< HEAD
-if (isset($_GET['all_result'])) {
-    die;
+if (isset($_REQUEST['result'])) {
+    setcookie('result','get',time() + 2);
 }
-elseif ($_SESSION['all_result'] === true){
-    require_once 'result.php';
-    session_destroy();
-    die;
+elseif ($_COOKIE['result'] === 'get'){
+    unset($_COOKIE['result']);
+    require_once 'api/pdf.php';
 }
-
-require_once "front/admin.html";
-=======
-//Вызов админки
-require_once "front/admin.html";
->>>>>>> stage
+else {
+    require_once "front/admin.html";
+}

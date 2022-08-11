@@ -23,10 +23,11 @@ Ext.define('app.controller.AdminViewWindowController', {
                                 Ext.getCmp('update_window').destroy();
                                 Ext.Msg.alert('Запись обновлена');
                                 let store = Ext.widget('AdminAllGroupGrid').getStore();
-                                Store.sync({
-                                    success: function () {
-                                        store.reload()
-                                    }
+                                store.removeAll()
+                                Ext.getCmp('vote_group_table').destroy(),
+                                Ext.createWidget('AdminAllGroupGrid',{
+                                    renderTo:Ext.getBody(),
+                                    id:'vote_group_table'
                                 })
                             }
                         });
@@ -44,7 +45,12 @@ Ext.define('app.controller.AdminViewWindowController', {
             success: function(response){
                 Ext.Msg.alert('Запись удалена');
                 let store = Ext.widget('AdminAllGroupGrid').getStore();
-                store.reload();
+                store.removeAll()
+                Ext.getCmp('vote_group_table').destroy(),
+                    Ext.createWidget('AdminAllGroupGrid',{
+                        renderTo:Ext.getBody(),
+                        id:'vote_group_table'
+                    })
             }
         });
     },
@@ -70,7 +76,12 @@ Ext.define('app.controller.AdminViewWindowController', {
                             Ext.getCmp('add_window').destroy();
                             Ext.Msg.alert('Добавлена новая группа');
                             let store = Ext.widget('AdminAllGroupGrid').getStore();
-                            store.reload();
+                            store.removeAll()
+                            Ext.getCmp('vote_group_table').destroy(),
+                                Ext.createWidget('AdminAllGroupGrid',{
+                                    renderTo:Ext.getBody(),
+                                    id:'vote_group_table'
+                                })
                         }
                     });
                 }
@@ -100,17 +111,15 @@ Ext.define('app.controller.AdminViewWindowController', {
                         }]
                     })
                 }
-                else {
-                    let store = Ext.widget('AdminElementGrid').getStore();
-                    store.add(Ext.decode(response.responseText));
-                }
             }
         });
         Ext.getCmp('choose_window').destroy();
+        let store = Ext.widget('AdminAllGroupGrid').getStore();
+        store.removeAll()
         Ext.getCmp('vote_group_table').destroy()
         Ext.createWidget('AdminElementGrid', {
             renderTo: Ext.getBody(),
-            id:"element_table"
+            id:"element_grid"
         })
         Ext.getCmp('all_vote_group').show();
     },

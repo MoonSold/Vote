@@ -11,7 +11,6 @@ Ext.define('app.controller.RegisterFormController', {
             method: "post",
             params: {"login":login,"password":password,"username":username,"check":check,"actor":"user","method":"controllerRegistrationFunction"},
             success: function(response){
-<<<<<<< HEAD
                 let data = Ext.decode(response.responseText);
                 if (data['register'] === false){
                     Ext.Msg.alert("Что-то пошло не так","Неверно введённые данные или логин занят");
@@ -25,13 +24,6 @@ Ext.define('app.controller.RegisterFormController', {
             },
             failure: function(response, opts) {
                 Ext.Msg.alert("Что-то пошло не так","Неверно введённые данные или логин занят");
-=======
-                button.up('form').destroy();
-                let data = Ext.decode(response.responseText)
-                Ext.util.Cookies.set('token',data.token);
-                Ext.util.Cookies.set('username', data.username);
-                location.reload();
->>>>>>> stage
             }
         });
     },

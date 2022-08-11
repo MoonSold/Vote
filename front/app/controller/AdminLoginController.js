@@ -4,17 +4,12 @@ Ext.define('app.controller.AdminLoginController', {
     AuthAdmin: function (button) {
         let login = Ext.getCmp("admin_name").getValue();
         let password = Ext.getCmp("admin_password").getValue();
-<<<<<<< HEAD
-=======
-        console.log(login,password);
->>>>>>> stage
         Ext.Ajax.request({
             url: 'api/api.php',
             method: "post",
             params: {"login":login,"password":password,"actor":"admin","method":"controllerAdminAuthFunction"},
             success: function(response){
                 button.up('form').destroy();
-<<<<<<< HEAD
                 Ext.createWidget('AdminTopPanel',{
                     renderTo:Ext.getBody()
                 });
@@ -23,9 +18,6 @@ Ext.define('app.controller.AdminLoginController', {
                     id: 'vote_group_table'
                 });
                 Ext.getCmp('all_vote_group').hide();
-=======
-                let data = Ext.decode(response.responseText)
->>>>>>> stage
             }
         });
     },

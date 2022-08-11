@@ -3,10 +3,7 @@
 namespace service;
 
 use Doctrine\ORM\EntityManager;
-<<<<<<< HEAD
 use Doctrine\ORM\Exception\ORMException;
-=======
->>>>>>> stage
 use Doctrine\ORM\OptimisticLockException;
 use Entity;
 
@@ -19,7 +16,6 @@ class AdminService
         $this->entityManager = $entityManager;
     }
 
-<<<<<<< HEAD
     /**
      * Авторизация Администратора
      */
@@ -28,24 +24,12 @@ class AdminService
         $admin = $this->entityManager->getRepository(Entity\AdminEntity::class)->findOneBy(array('name' => $login));
         if (md5($password) == $admin->getPasswordHash()) {
             $_SESSION['auth'] = true;
-=======
-    public function authAdmin(string $login, string $password):array
-    {
-        register_shutdown_function(function () {
-            var_dump(error_get_last());
-            die;
-        });
-        $admin = $this->entityManager->getRepository(Entity\AdminEntity::class)->findOneBy(array('name' => $login));
-        var_dump($admin);
-        if (md5($password) == $admin->getPasswordHash()) {
->>>>>>> stage
             return ["auth"=>true];
         }
         else {
             return ["auth"=> false];
         }
     }
-<<<<<<< HEAD
 
     /**
      * Получение всех групп для голосования
@@ -173,6 +157,4 @@ class AdminService
         };
         return $all_result;
     }
-=======
->>>>>>> stage
 }

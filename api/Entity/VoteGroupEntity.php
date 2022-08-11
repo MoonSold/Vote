@@ -31,11 +31,7 @@ class VoteGroupEntity
     private string $description;
     /**
      * @var Collection
-<<<<<<< HEAD
      * @ORM\OneToMany(targetEntity="VoteElementEntity",mappedBy="vote_group",cascade={"remove"})
-=======
-     * @ORM\OneToMany(targetEntity="ChooseEntity",mappedBy="vote_group")
->>>>>>> stage
      */
     private $vote;
 

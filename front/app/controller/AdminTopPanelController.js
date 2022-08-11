@@ -2,7 +2,9 @@ Ext.define('app.controller.AdminTopPanelController', {
     extend: 'Ext.app.Controller',
     views: ['AdminTopPanel'],
     GetAllVoteGroup: function (button){
-        Ext.getCmp('element_table').destroy();
+        let store = Ext.widget('AdminElementGrid').getStore();
+        store.removeAll()
+        Ext.getCmp('element_grid').destroy();
         Ext.createWidget('AdminAllGroupGrid',{
             renderTo: Ext.getBody(),
             id: 'vote_group_table'
@@ -11,11 +13,11 @@ Ext.define('app.controller.AdminTopPanelController', {
     },
     GetResult: function (button){
         Ext.Ajax.request({
-            url: 'api/api.php',
-            method: "get",
-            params: {'actor':'admin','get_result':true,'method':"controllerAdminGetResult"},
+            url: 'admin.php',
+            method: "post",
+            params: {"result":"get"},
             success: function(response){
-                document.location.replace("/api/api.php");
+                location.reload();
             }
         });
     },

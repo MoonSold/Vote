@@ -15,12 +15,9 @@ Ext.define('app.controller.LoginFormController', {
                 Ext.util.Cookies.set('token',data.token);
                 Ext.util.Cookies.set('username', data.username);
                 location.reload();
-<<<<<<< HEAD
             },
             failure: function(response, opts) {
                 Ext.Msg.alert("Что-то пошло не так","Неверный логин или пароль");
-=======
->>>>>>> stage
             }
         });
     },
