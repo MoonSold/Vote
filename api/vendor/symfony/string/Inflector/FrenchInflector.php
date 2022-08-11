@@ -100,11 +100,7 @@ final class FrenchInflector implements InflectorInterface
         ['/^mes(sieur|seigneur)s$/', 'mon\1'],
         ['/^Mes(sieur|seigneur)s$/', 'Mon\1'],
 
-<<<<<<< HEAD
         // Default rule
-=======
-        //Default rule
->>>>>>> stage
         ['/s$/i', ''],
     ];
 

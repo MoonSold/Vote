@@ -27,14 +27,7 @@ Ext.define('app.view.AdminLoginForm', { // #1
             inputType: 'password'
         },
     ],
-<<<<<<< HEAD
     buttons: [ {
-=======
-    buttons: [{
-        text: 'Отмена',
-        handler: function () { this.up('window').destroy(); }
-    }, {
->>>>>>> stage
         text: 'Войти',
         action: "auth"
     }],

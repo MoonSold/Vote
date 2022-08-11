@@ -5,7 +5,6 @@ namespace Doctrine\DBAL\Schema;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Platforms\SQLServer;
 use Doctrine\DBAL\Platforms\SQLServerPlatform;
-<<<<<<< HEAD
 use Doctrine\DBAL\Result;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\Deprecations\Deprecation;
@@ -15,13 +14,6 @@ use function assert;
 use function count;
 use function explode;
 use function implode;
-=======
-use Doctrine\DBAL\Types\Type;
-use Doctrine\Deprecations\Deprecation;
-
-use function assert;
-use function count;
->>>>>>> stage
 use function is_string;
 use function preg_match;
 use function sprintf;
@@ -29,11 +21,8 @@ use function str_replace;
 use function strpos;
 use function strtok;
 
-<<<<<<< HEAD
 use const CASE_LOWER;
 
-=======
->>>>>>> stage
 /**
  * SQL Server Schema Manager.
  *
@@ -41,7 +30,6 @@ use const CASE_LOWER;
  */
 class SQLServerSchemaManager extends AbstractSchemaManager
 {
-<<<<<<< HEAD
     private ?string $databaseCollation = null;
 
     /**
@@ -91,10 +79,6 @@ class SQLServerSchemaManager extends AbstractSchemaManager
     {
         return $this->doListTableForeignKeys($table, $database);
     }
-=======
-    /** @var string|null */
-    private $databaseCollation;
->>>>>>> stage
 
     /**
      * {@inheritDoc}
@@ -278,11 +262,7 @@ SQL
      */
     protected function _getPortableTableDefinition($table)
     {
-<<<<<<< HEAD
         if ($table['schema_name'] !== 'dbo') {
-=======
-        if (isset($table['schema_name']) && $table['schema_name'] !== 'dbo') {
->>>>>>> stage
             return $table['schema_name'] . '.' . $table['name'];
         }
 
@@ -326,29 +306,6 @@ SQL
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
-=======
-    public function listTableIndexes($table)
-    {
-        $sql = $this->_platform->getListTableIndexesSQL($table, $this->_conn->getDatabase());
-
-        try {
-            $tableIndexes = $this->_conn->fetchAllAssociative($sql);
-        } catch (Exception $e) {
-            if (strpos($e->getMessage(), 'SQLSTATE [01000, 15472]') === 0) {
-                return [];
-            }
-
-            throw $e;
-        }
-
-        return $this->_getPortableTableIndexesList($tableIndexes, $table);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
->>>>>>> stage
     public function alterTable(TableDiff $tableDiff)
     {
         if (count($tableDiff->removedColumns) > 0) {
@@ -398,38 +355,11 @@ SQL
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * @param string $name
-     *
-     * @throws Exception
-     */
-    public function listTableDetails($name): Table
-    {
-        $table = parent::listTableDetails($name);
-
-        $sql = $this->_platform->getListTableMetadataSQL($name);
-
-        $tableOptions = $this->_conn->fetchAssociative($sql);
-
-        if ($tableOptions !== false) {
-            $table->addOption('comment', $tableOptions['table_comment']);
-        }
-
-        return $table;
-    }
-
-    /**
->>>>>>> stage
      * @throws Exception
      */
     public function createComparator(): Comparator
     {
-<<<<<<< HEAD
         return new SQLServer\Comparator($this->_platform, $this->getDatabaseCollation());
-=======
-        return new SQLServer\Comparator($this->getDatabasePlatform(), $this->getDatabaseCollation());
->>>>>>> stage
     }
 
     /**
@@ -451,7 +381,6 @@ SQL
 
         return $this->databaseCollation;
     }
-<<<<<<< HEAD
 
     protected function selectTableNames(string $databaseName): Result
     {
@@ -661,6 +590,4 @@ SQL;
 
         return sprintf('(%s = %s AND %s = %s)', $tableColumn, $table, $schemaColumn, $schema);
     }
-=======
->>>>>>> stage
 }

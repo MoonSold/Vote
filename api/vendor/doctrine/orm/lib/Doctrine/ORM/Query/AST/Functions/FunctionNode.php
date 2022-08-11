@@ -12,11 +12,8 @@ use Doctrine\ORM\Query\SqlWalker;
  * Abstract Function Node.
  *
  * @link    www.doctrine-project.org
-<<<<<<< HEAD
  *
  * @psalm-consistent-constructor
-=======
->>>>>>> stage
  */
 abstract class FunctionNode extends Node
 {

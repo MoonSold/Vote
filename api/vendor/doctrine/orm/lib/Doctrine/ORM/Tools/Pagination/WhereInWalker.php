@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Doctrine\ORM\Tools\Pagination;
 
-<<<<<<< HEAD
-=======
-use Doctrine\ORM\Mapping\ClassMetadata;
->>>>>>> stage
 use Doctrine\ORM\Query\AST\ArithmeticExpression;
 use Doctrine\ORM\Query\AST\ConditionalExpression;
 use Doctrine\ORM\Query\AST\ConditionalFactor;
@@ -31,7 +27,6 @@ use function is_array;
 use function reset;
 
 /**
-<<<<<<< HEAD
  * Appends a condition equivalent to "WHERE IN (:dpid_1, :dpid_2, ...)" to the whereClause of the AST.
  *
  * The parameter namespace (dpid) is defined by
@@ -39,9 +34,6 @@ use function reset;
  *
  * The total number of parameters is retrieved from
  * the HINT_PAGINATOR_ID_COUNT query hint.
-=======
- * Appends a condition "id IN (:foo_1, :foo_2)" to the whereClause of the AST.
->>>>>>> stage
  */
 class WhereInWalker extends TreeWalkerAdapter
 {
@@ -55,27 +47,8 @@ class WhereInWalker extends TreeWalkerAdapter
      */
     public const PAGINATOR_ID_ALIAS = 'dpid';
 
-<<<<<<< HEAD
     public function walkSelectStatement(SelectStatement $AST)
     {
-=======
-    /**
-     * Appends a condition equivalent to "WHERE IN (:dpid_1, :dpid_2, ...)" to the whereClause of the AST.
-     *
-     * The parameter namespace (dpid) is defined by
-     * the PAGINATOR_ID_ALIAS
-     *
-     * The total number of parameters is retrieved from
-     * the HINT_PAGINATOR_ID_COUNT query hint.
-     *
-     * @return void
-     *
-     * @throws RuntimeException
-     */
-    public function walkSelectStatement(SelectStatement $AST)
-    {
-        $queryComponents = $this->_getQueryComponents();
->>>>>>> stage
         // Get the root entity and alias from the AST fromClause
         $from = $AST->fromClause->identificationVariableDeclarations;
 
@@ -83,16 +56,9 @@ class WhereInWalker extends TreeWalkerAdapter
             throw new RuntimeException('Cannot count query which selects two FROM components, cannot make distinction');
         }
 
-<<<<<<< HEAD
         $fromRoot            = reset($from);
         $rootAlias           = $fromRoot->rangeVariableDeclaration->aliasIdentificationVariable;
         $rootClass           = $this->getMetadataForDqlAlias($rootAlias);
-=======
-        $fromRoot  = reset($from);
-        $rootAlias = $fromRoot->rangeVariableDeclaration->aliasIdentificationVariable;
-        $rootClass = $queryComponents[$rootAlias]['metadata'];
-        assert($rootClass instanceof ClassMetadata);
->>>>>>> stage
         $identifierFieldName = $rootClass->getSingleIdentifierFieldName();
 
         $pathType = PathExpression::TYPE_STATE_FIELD;

@@ -494,12 +494,8 @@ class BasicEntityPersister implements EntityPersister
         }
 
         if ($versioned) {
-<<<<<<< HEAD
             $versionField = $this->class->versionField;
             assert($versionField !== null);
-=======
-            $versionField     = $this->class->versionField;
->>>>>>> stage
             $versionFieldType = $this->class->fieldMappings[$versionField]['type'];
             $versionColumn    = $this->quoteStrategy->getColumnName($versionField, $this->class, $this->platform);
 

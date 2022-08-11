@@ -415,13 +415,10 @@ class AttributeDriver extends CompatibilityAnnotationDriver
                         'name' => $joinTableAttribute->name,
                         'schema' => $joinTableAttribute->schema,
                     ];
-<<<<<<< HEAD
 
                     if ($joinTableAttribute->options) {
                         $joinTable['options'] = $joinTableAttribute->options;
                     }
-=======
->>>>>>> stage
                 }
 
                 foreach ($this->reader->getPropertyAnnotationCollection($property, Mapping\JoinColumn::class) as $joinColumn) {
@@ -660,21 +657,13 @@ class AttributeDriver extends CompatibilityAnnotationDriver
      *                   nullable: bool,
      *                   onDelete: mixed,
      *                   columnDefinition: string|null,
-<<<<<<< HEAD
      *                   referencedColumnName: string,
      *                   options?: array<string, mixed>
-=======
-     *                   referencedColumnName: string
->>>>>>> stage
      *               }
      */
     private function joinColumnToArray($joinColumn): array
     {
-<<<<<<< HEAD
         $mapping = [
-=======
-        return [
->>>>>>> stage
             'name' => $joinColumn->name,
             'unique' => $joinColumn->unique,
             'nullable' => $joinColumn->nullable,
@@ -682,15 +671,12 @@ class AttributeDriver extends CompatibilityAnnotationDriver
             'columnDefinition' => $joinColumn->columnDefinition,
             'referencedColumnName' => $joinColumn->referencedColumnName,
         ];
-<<<<<<< HEAD
 
         if ($joinColumn->options) {
             $mapping['options'] = $joinColumn->options;
         }
 
         return $mapping;
-=======
->>>>>>> stage
     }
 
     /**

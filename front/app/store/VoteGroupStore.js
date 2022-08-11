@@ -1,7 +1,6 @@
 Ext.define('app.store.VoteGroupStore', {
     extend: 'Ext.data.Store',
     model: 'app.model.VoteGroupModel',
-<<<<<<< HEAD
     storeId: 'VoteGroupStore',
     autoLoad: false,
     autoSync: false,
@@ -21,8 +20,4 @@ Ext.define('app.store.VoteGroupStore', {
             type: 'json'
         }
     },
-=======
-    autoLoad: false,
-    storeId: 'VoteGroupStore',
->>>>>>> stage
 });

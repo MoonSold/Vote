@@ -64,7 +64,6 @@ abstract class AbstractPostgreSQLDriver implements VersionAwarePlatformDriver
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated Use {@link PostgreSQLPlatform::createSchemaManager()} instead.
      */
@@ -77,11 +76,6 @@ abstract class AbstractPostgreSQLDriver implements VersionAwarePlatformDriver
                 . ' Use PostgreSQLPlatform::createSchemaManager() instead.'
         );
 
-=======
-     */
-    public function getSchemaManager(Connection $conn, AbstractPlatform $platform)
-    {
->>>>>>> stage
         assert($platform instanceof PostgreSQLPlatform);
 
         return new PostgreSQLSchemaManager($conn, $platform);

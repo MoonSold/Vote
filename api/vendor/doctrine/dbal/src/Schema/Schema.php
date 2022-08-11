@@ -2,20 +2,12 @@
 
 namespace Doctrine\DBAL\Schema;
 
-<<<<<<< HEAD
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Schema\Visitor\NamespaceVisitor;
 use Doctrine\DBAL\Schema\Visitor\Visitor;
 use Doctrine\DBAL\SQL\Builder\CreateSchemaObjectsSQLBuilder;
 use Doctrine\DBAL\SQL\Builder\DropSchemaObjectsSQLBuilder;
-=======
-use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Doctrine\DBAL\Schema\Visitor\CreateSchemaSqlCollector;
-use Doctrine\DBAL\Schema\Visitor\DropSchemaSqlCollector;
-use Doctrine\DBAL\Schema\Visitor\NamespaceVisitor;
-use Doctrine\DBAL\Schema\Visitor\Visitor;
->>>>>>> stage
 use Doctrine\Deprecations\Deprecation;
 
 use function array_keys;
@@ -53,11 +45,7 @@ class Schema extends AbstractAsset
      *
      * @var string[]
      */
-<<<<<<< HEAD
     private array $namespaces = [];
-=======
-    private $namespaces = [];
->>>>>>> stage
 
     /** @var Table[] */
     protected $_tables = [];
@@ -81,13 +69,7 @@ class Schema extends AbstractAsset
         ?SchemaConfig $schemaConfig = null,
         array $namespaces = []
     ) {
-<<<<<<< HEAD
         $schemaConfig ??= new SchemaConfig();
-=======
-        if ($schemaConfig === null) {
-            $schemaConfig = new SchemaConfig();
-        }
->>>>>>> stage
 
         $this->_schemaConfig = $schemaConfig;
         $this->_setName($schemaConfig->getName() ?? 'public');
@@ -444,7 +426,6 @@ class Schema extends AbstractAsset
     /**
      * Returns an array of necessary SQL queries to create the schema on the given platform.
      *
-<<<<<<< HEAD
      * @return list<string>
      *
      * @throws Exception
@@ -454,22 +435,11 @@ class Schema extends AbstractAsset
         $builder = new CreateSchemaObjectsSQLBuilder($platform);
 
         return $builder->buildSQL($this);
-=======
-     * @return string[]
-     */
-    public function toSql(AbstractPlatform $platform)
-    {
-        $sqlCollector = new CreateSchemaSqlCollector($platform);
-        $this->visit($sqlCollector);
-
-        return $sqlCollector->getQueries();
->>>>>>> stage
     }
 
     /**
      * Return an array of necessary SQL queries to drop the schema on the given platform.
      *
-<<<<<<< HEAD
      * @return list<string>
      *
      * @throws Exception
@@ -479,16 +449,6 @@ class Schema extends AbstractAsset
         $builder = new DropSchemaObjectsSQLBuilder($platform);
 
         return $builder->buildSQL($this);
-=======
-     * @return string[]
-     */
-    public function toDropSql(AbstractPlatform $platform)
-    {
-        $dropSqlCollector = new DropSchemaSqlCollector($platform);
-        $this->visit($dropSqlCollector);
-
-        return $dropSqlCollector->getQueries();
->>>>>>> stage
     }
 
     /**
@@ -520,24 +480,18 @@ class Schema extends AbstractAsset
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated
      *
-=======
->>>>>>> stage
      * @return void
      */
     public function visit(Visitor $visitor)
     {
-<<<<<<< HEAD
         Deprecation::triggerIfCalledFromOutside(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5435',
             'Schema::visit() is deprecated.'
         );
 
-=======
->>>>>>> stage
         $visitor->acceptSchema($this);
 
         if ($visitor instanceof NamespaceVisitor) {

@@ -114,11 +114,7 @@ final class LazyCommand extends Command
      *
      * @param array|\Closure(CompletionInput,CompletionSuggestions):list<string|Suggestion> $suggestedValues The values used for input completion
      */
-<<<<<<< HEAD
     public function addArgument(string $name, int $mode = null, string $description = '', mixed $default = null /* array|\Closure $suggestedValues = [] */): static
-=======
-    public function addArgument(string $name, int $mode = null, string $description = '', mixed $default = null, /*array|\Closure $suggestedValues = []*/): static
->>>>>>> stage
     {
         $suggestedValues = 5 <= \func_num_args() ? func_get_arg(4) : [];
         $this->getCommand()->addArgument($name, $mode, $description, $default, $suggestedValues);
@@ -131,11 +127,7 @@ final class LazyCommand extends Command
      *
      * @param array|\Closure(CompletionInput,CompletionSuggestions):list<string|Suggestion> $suggestedValues The values used for input completion
      */
-<<<<<<< HEAD
     public function addOption(string $name, string|array $shortcut = null, int $mode = null, string $description = '', mixed $default = null /* array|\Closure $suggestedValues = [] */): static
-=======
-    public function addOption(string $name, string|array $shortcut = null, int $mode = null, string $description = '', mixed $default = null, /*array|\Closure $suggestedValues = []*/): static
->>>>>>> stage
     {
         $suggestedValues = 6 <= \func_num_args() ? func_get_arg(5) : [];
         $this->getCommand()->addOption($name, $shortcut, $mode, $description, $default, $suggestedValues);

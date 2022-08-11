@@ -4,31 +4,20 @@ namespace Doctrine\DBAL\Schema;
 
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Platforms\PostgreSQLPlatform;
-<<<<<<< HEAD
 use Doctrine\DBAL\Result;
 use Doctrine\DBAL\Types\JsonType;
-=======
->>>>>>> stage
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\Deprecations\Deprecation;
 
 use function array_change_key_case;
 use function array_filter;
-<<<<<<< HEAD
 use function array_map;
 use function array_merge;
 use function array_shift;
 use function assert;
 use function explode;
 use function get_class;
-=======
-use function array_keys;
-use function array_map;
-use function array_shift;
-use function assert;
-use function explode;
->>>>>>> stage
 use function implode;
 use function in_array;
 use function preg_match;
@@ -49,7 +38,6 @@ use const CASE_LOWER;
 class PostgreSQLSchemaManager extends AbstractSchemaManager
 {
     /** @var string[]|null */
-<<<<<<< HEAD
     private ?array $existingSchemaPaths = null;
 
     /**
@@ -99,9 +87,6 @@ class PostgreSQLSchemaManager extends AbstractSchemaManager
     {
         return $this->doListTableForeignKeys($table, $database);
     }
-=======
-    private $existingSchemaPaths;
->>>>>>> stage
 
     /**
      * Gets all the existing schema names.
@@ -280,20 +265,6 @@ SQL
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
-=======
-    protected function _getPortableUserDefinition($user)
-    {
-        return [
-            'user' => $user['usename'],
-            'password' => $user['passwd'],
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
->>>>>>> stage
     protected function _getPortableTableDefinition($table)
     {
         $currentSchema = $this->getCurrentSchema();
@@ -354,35 +325,6 @@ SQL
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
-=======
-     */
-    protected function _getPortableSequencesList($sequences)
-    {
-        $sequenceDefinitions = [];
-
-        foreach ($sequences as $sequence) {
-            if ($sequence['schemaname'] !== 'public') {
-                $sequenceName = $sequence['schemaname'] . '.' . $sequence['relname'];
-            } else {
-                $sequenceName = $sequence['relname'];
-            }
-
-            $sequenceDefinitions[$sequenceName] = $sequence;
-        }
-
-        $list = [];
-
-        foreach ($this->filterAssetNames(array_keys($sequenceDefinitions)) as $sequenceName) {
-            $list[] = $this->_getPortableSequenceDefinition($sequenceDefinitions[$sequenceName]);
-        }
-
-        return $list;
-    }
-
-    /**
-     * {@inheritdoc}
->>>>>>> stage
      *
      * @deprecated Use {@see listSchemaNames()} instead.
      */
@@ -409,18 +351,6 @@ SQL
             $sequenceName = $sequence['relname'];
         }
 
-<<<<<<< HEAD
-=======
-        if (! isset($sequence['increment_by'], $sequence['min_value'])) {
-            /** @var string[] $data */
-            $data = $this->_conn->fetchAssociative(
-                'SELECT min_value, increment_by FROM ' . $this->_platform->quoteIdentifier($sequenceName)
-            );
-
-            $sequence += $data;
-        }
-
->>>>>>> stage
         return new Sequence($sequenceName, (int) $sequence['increment_by'], (int) $sequence['min_value']);
     }
 
@@ -605,7 +535,6 @@ SQL
         }
 
         if ($column->getType()->getName() === Types::JSON) {
-<<<<<<< HEAD
             if (! $column->getType() instanceof JsonType) {
                 Deprecation::trigger(
                     'doctrine/dbal',
@@ -620,8 +549,6 @@ SQL
                 );
             }
 
-=======
->>>>>>> stage
             $column->setPlatformOption('jsonb', $jsonb);
         }
 
@@ -656,7 +583,6 @@ SQL
         return str_replace("''", "'", $default);
     }
 
-<<<<<<< HEAD
     protected function selectTableNames(string $databaseName): Result
     {
         $sql = <<<'SQL'
@@ -824,23 +750,5 @@ SQL;
         }
 
         return $conditions;
-=======
-    /**
-     * {@inheritdoc}
-     */
-    public function listTableDetails($name): Table
-    {
-        $table = parent::listTableDetails($name);
-
-        $sql = $this->_platform->getListTableMetadataSQL($name);
-
-        $tableOptions = $this->_conn->fetchAssociative($sql);
-
-        if ($tableOptions !== false) {
-            $table->addOption('comment', $tableOptions['table_comment']);
-        }
-
-        return $table;
->>>>>>> stage
     }
 }

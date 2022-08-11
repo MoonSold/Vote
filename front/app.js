@@ -6,11 +6,7 @@ Ext.Loader.setConfig({
 
 
 Ext.application({
-<<<<<<< HEAD
-    requires: ["app.view.VoteElementGrid","app.view.AllVoteGroupGrid","app.view.TopPanel","app.view.LoginForm", "app.view.RegisterForm","app.global.GlobalVar"],
-=======
     requires: ["app.view.VoteElementGrid","app.view.AllVoteGroupGrid","app.view.TopPanel","app.view.LoginForm", "app.view.RegisterForm"],
->>>>>>> stage
     controllers: ["VoteGroupController",'TopPanelController',"RegisterFormController","LoginFormController","VoteElementController"],
     stores: ["app.store.VoteGroupStore","app.store.VoteElementStore"],
     name: 'app',

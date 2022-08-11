@@ -5,19 +5,13 @@ declare(strict_types=1);
 namespace Doctrine\ORM\Mapping\Driver;
 
 use Doctrine\Common\Collections\Criteria;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 use Doctrine\ORM\Mapping\Builder\EntityListenerBuilder;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Mapping\MappingException;
 use Doctrine\Persistence\Mapping\ClassMetadata as PersistenceClassMetadata;
 use Doctrine\Persistence\Mapping\Driver\FileDriver;
-<<<<<<< HEAD
 use DOMDocument;
-=======
->>>>>>> stage
 use InvalidArgumentException;
 use LogicException;
 use SimpleXMLElement;
@@ -30,12 +24,9 @@ use function explode;
 use function extension_loaded;
 use function file_get_contents;
 use function in_array;
-<<<<<<< HEAD
 use function libxml_clear_errors;
 use function libxml_get_errors;
 use function libxml_use_internal_errors;
-=======
->>>>>>> stage
 use function simplexml_load_string;
 use function sprintf;
 use function str_replace;
@@ -50,7 +41,6 @@ class XmlDriver extends FileDriver
 {
     public const DEFAULT_FILE_EXTENSION = '.dcm.xml';
 
-<<<<<<< HEAD
     /** @var bool */
     private $isXsdValidationEnabled;
 
@@ -58,12 +48,6 @@ class XmlDriver extends FileDriver
      * {@inheritDoc}
      */
     public function __construct($locator, $fileExtension = self::DEFAULT_FILE_EXTENSION, bool $isXsdValidationEnabled = false)
-=======
-    /**
-     * {@inheritDoc}
-     */
-    public function __construct($locator, $fileExtension = self::DEFAULT_FILE_EXTENSION)
->>>>>>> stage
     {
         if (! extension_loaded('simplexml')) {
             throw new LogicException(sprintf(
@@ -72,7 +56,6 @@ class XmlDriver extends FileDriver
             ));
         }
 
-<<<<<<< HEAD
         if (! $isXsdValidationEnabled) {
             Deprecation::trigger(
                 'doctrine/orm',
@@ -92,8 +75,6 @@ class XmlDriver extends FileDriver
 
         $this->isXsdValidationEnabled = $isXsdValidationEnabled;
 
-=======
->>>>>>> stage
         parent::__construct($locator, $fileExtension);
     }
 
@@ -227,11 +208,7 @@ class XmlDriver extends FileDriver
                         [
                             'name' => isset($discrColumn['name']) ? (string) $discrColumn['name'] : null,
                             'type' => isset($discrColumn['type']) ? (string) $discrColumn['type'] : 'string',
-<<<<<<< HEAD
                             'length' => isset($discrColumn['length']) ? (int) $discrColumn['length'] : 255,
-=======
-                            'length' => isset($discrColumn['length']) ? (string) $discrColumn['length'] : 255,
->>>>>>> stage
                             'columnDefinition' => isset($discrColumn['column-definition']) ? (string) $discrColumn['column-definition'] : null,
                         ]
                     );
@@ -406,11 +383,7 @@ class XmlDriver extends FileDriver
             }
 
             if (isset($idElement['length'])) {
-<<<<<<< HEAD
                 $mapping['length'] = (int) $idElement['length'];
-=======
-                $mapping['length'] = (string) $idElement['length'];
->>>>>>> stage
             }
 
             if (isset($idElement['column'])) {
@@ -643,13 +616,10 @@ class XmlDriver extends FileDriver
                         $joinTable['schema'] = (string) $joinTableElement['schema'];
                     }
 
-<<<<<<< HEAD
                     if (isset($joinTableElement->options)) {
                         $joinTable['options'] = $this->parseOptions($joinTableElement->options->children());
                     }
 
-=======
->>>>>>> stage
                     foreach ($joinTableElement->{'join-columns'}->{'join-column'} as $joinColumnElement) {
                         $joinTable['joinColumns'][] = $this->joinColumnToArray($joinColumnElement);
                     }
@@ -729,13 +699,10 @@ class XmlDriver extends FileDriver
                         'schema'    => (string) $joinTableElement['schema'],
                     ];
 
-<<<<<<< HEAD
                     if (isset($joinTableElement->options)) {
                         $joinTable['options'] = $this->parseOptions($joinTableElement->options->children());
                     }
 
-=======
->>>>>>> stage
                     if (isset($joinTableElement->{'join-columns'})) {
                         foreach ($joinTableElement->{'join-columns'}->{'join-column'} as $joinColumnElement) {
                             $joinTable['joinColumns'][] = $this->joinColumnToArray($joinColumnElement);
@@ -840,12 +807,8 @@ class XmlDriver extends FileDriver
      *                   unique?: bool,
      *                   nullable?: bool,
      *                   onDelete?: string,
-<<<<<<< HEAD
      *                   columnDefinition?: string,
      *                   options?: mixed[]
-=======
-     *                   columnDefinition?: string
->>>>>>> stage
      *               }
      */
     private function joinColumnToArray(SimpleXMLElement $joinColumnElement): array
@@ -871,13 +834,10 @@ class XmlDriver extends FileDriver
             $joinColumn['columnDefinition'] = (string) $joinColumnElement['column-definition'];
         }
 
-<<<<<<< HEAD
         if (isset($joinColumnElement['options'])) {
             $joinColumn['options'] = $this->parseOptions($joinColumnElement['options']->children());
         }
 
-=======
->>>>>>> stage
         return $joinColumn;
     }
 
@@ -1020,10 +980,7 @@ class XmlDriver extends FileDriver
      */
     protected function loadMappingFile($file)
     {
-<<<<<<< HEAD
         $this->validateMapping($file);
-=======
->>>>>>> stage
         $result = [];
         // Note: we do not use `simplexml_load_file()` because of https://bugs.php.net/bug.php?id=62577
         $xmlElement = simplexml_load_string(file_get_contents($file));
@@ -1051,7 +1008,6 @@ class XmlDriver extends FileDriver
         return $result;
     }
 
-<<<<<<< HEAD
     private function validateMapping(string $file): void
     {
         if (! $this->isXsdValidationEnabled) {
@@ -1073,8 +1029,6 @@ class XmlDriver extends FileDriver
         }
     }
 
-=======
->>>>>>> stage
     /**
      * @param mixed $element
      *

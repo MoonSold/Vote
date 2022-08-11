@@ -23,10 +23,6 @@ class BitOrFunction extends FunctionNode
     public $secondArithmetic;
 
     /**
-<<<<<<< HEAD
-=======
-     * @override
->>>>>>> stage
      * @inheritdoc
      */
     public function getSql(SqlWalker $sqlWalker)
@@ -40,10 +36,6 @@ class BitOrFunction extends FunctionNode
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * @override
->>>>>>> stage
      * @inheritdoc
      */
     public function parse(Parser $parser)

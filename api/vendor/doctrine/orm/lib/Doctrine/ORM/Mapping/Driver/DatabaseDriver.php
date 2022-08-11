@@ -6,18 +6,11 @@ namespace Doctrine\ORM\Mapping\Driver;
 
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
 use Doctrine\DBAL\Schema\Column;
-<<<<<<< HEAD
 use Doctrine\DBAL\Schema\SchemaException;
 use Doctrine\DBAL\Schema\Table;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\Deprecations\Deprecation;
-=======
-use Doctrine\DBAL\Schema\ForeignKeyConstraint;
-use Doctrine\DBAL\Schema\SchemaException;
-use Doctrine\DBAL\Schema\Table;
-use Doctrine\DBAL\Types\Types;
->>>>>>> stage
 use Doctrine\Inflector\Inflector;
 use Doctrine\Inflector\InflectorFactory;
 use Doctrine\ORM\Mapping\ClassMetadata;
@@ -30,15 +23,10 @@ use InvalidArgumentException;
 use function array_diff;
 use function array_keys;
 use function array_merge;
-<<<<<<< HEAD
 use function assert;
 use function count;
 use function current;
 use function get_class;
-=======
-use function count;
-use function current;
->>>>>>> stage
 use function in_array;
 use function preg_replace;
 use function sort;
@@ -52,7 +40,6 @@ use function strtolower;
 class DatabaseDriver implements MappingDriver
 {
     /**
-<<<<<<< HEAD
      * Replacement for {@see Types::ARRAY}.
      *
      * To be removed as soon as support for DBAL 3 is dropped.
@@ -67,8 +54,6 @@ class DatabaseDriver implements MappingDriver
     private const OBJECT = 'object';
 
     /**
-=======
->>>>>>> stage
      * Replacement for {@see Types::JSON_ARRAY}.
      *
      * To be removed as soon as support for DBAL 2 is dropped.
@@ -207,7 +192,6 @@ class DatabaseDriver implements MappingDriver
      */
     public function loadMetadataForClass($className, PersistenceClassMetadata $metadata)
     {
-<<<<<<< HEAD
         if (! $metadata instanceof ClassMetadata) {
             Deprecation::trigger(
                 'doctrine/orm',
@@ -219,8 +203,6 @@ class DatabaseDriver implements MappingDriver
             );
         }
 
-=======
->>>>>>> stage
         $this->reverseEngineerMappingFromDatabase();
 
         if (! isset($this->classToTableNames[$className])) {
@@ -312,26 +294,11 @@ class DatabaseDriver implements MappingDriver
             return;
         }
 
-<<<<<<< HEAD
         $this->tables = $this->manyToManyTables = $this->classToTableNames = [];
 
         foreach ($this->_sm->listTables() as $table) {
             $tableName   = $table->getName();
             $foreignKeys = $table->getForeignKeys();
-=======
-        $tables = [];
-
-        foreach ($this->_sm->listTableNames() as $tableName) {
-            $tables[$tableName] = $this->_sm->listTableDetails($tableName);
-        }
-
-        $this->tables = $this->manyToManyTables = $this->classToTableNames = [];
-
-        foreach ($tables as $tableName => $table) {
-            $foreignKeys = $this->_sm->getDatabasePlatform()->supportsForeignKeyConstraints()
-                ? $table->getForeignKeys()
-                : [];
->>>>>>> stage
 
             $allForeignKeyColumns = [];
 
@@ -341,11 +308,7 @@ class DatabaseDriver implements MappingDriver
 
             if (! $table->hasPrimaryKey()) {
                 throw new MappingException(
-<<<<<<< HEAD
                     'Table ' . $tableName . ' has no primary key. Doctrine does not ' .
-=======
-                    'Table ' . $table->getName() . ' has no primary key. Doctrine does not ' .
->>>>>>> stage
                     "support reverse engineering from tables that don't have a primary key."
                 );
             }
@@ -399,11 +362,7 @@ class DatabaseDriver implements MappingDriver
         $tableName      = $metadata->table['name'];
         $columns        = $this->tables[$tableName]->getColumns();
         $primaryKeys    = $this->getTablePrimaryKeys($this->tables[$tableName]);
-<<<<<<< HEAD
         $foreignKeys    = $this->tables[$tableName]->getForeignKeys();
-=======
-        $foreignKeys    = $this->getTableForeignKeys($this->tables[$tableName]);
->>>>>>> stage
         $allForeignKeys = [];
 
         foreach ($foreignKeys as $foreignKey) {
@@ -430,11 +389,7 @@ class DatabaseDriver implements MappingDriver
 
         // We need to check for the columns here, because we might have associations as id as well.
         if ($ids && count($primaryKeys) === 1) {
-<<<<<<< HEAD
             $metadata->setIdGeneratorType(ClassMetadata::GENERATOR_TYPE_AUTO);
-=======
-            $metadata->setIdGeneratorType(ClassMetadataInfo::GENERATOR_TYPE_AUTO);
->>>>>>> stage
         }
 
         foreach ($fieldMappings as $fieldMapping) {
@@ -467,29 +422,17 @@ class DatabaseDriver implements MappingDriver
         $fieldMapping = [
             'fieldName'  => $this->getFieldNameForColumn($tableName, $column->getName(), false),
             'columnName' => $column->getName(),
-<<<<<<< HEAD
             'type'       => Type::getTypeRegistry()->lookupName($column->getType()),
-=======
-            'type'       => $column->getType()->getName(),
->>>>>>> stage
             'nullable'   => ! $column->getNotnull(),
         ];
 
         // Type specific elements
         switch ($fieldMapping['type']) {
-<<<<<<< HEAD
             case self::ARRAY:
             case Types::BLOB:
             case Types::GUID:
             case self::JSON_ARRAY:
             case self::OBJECT:
-=======
-            case Types::ARRAY:
-            case Types::BLOB:
-            case Types::GUID:
-            case self::JSON_ARRAY:
-            case Types::OBJECT:
->>>>>>> stage
             case Types::SIMPLE_ARRAY:
             case Types::STRING:
             case Types::TEXT:
@@ -532,17 +475,11 @@ class DatabaseDriver implements MappingDriver
      */
     private function buildToOneAssociationMappings(ClassMetadataInfo $metadata)
     {
-<<<<<<< HEAD
         assert($this->tables !== null);
 
         $tableName   = $metadata->table['name'];
         $primaryKeys = $this->getTablePrimaryKeys($this->tables[$tableName]);
         $foreignKeys = $this->tables[$tableName]->getForeignKeys();
-=======
-        $tableName   = $metadata->table['name'];
-        $primaryKeys = $this->getTablePrimaryKeys($this->tables[$tableName]);
-        $foreignKeys = $this->getTableForeignKeys($this->tables[$tableName]);
->>>>>>> stage
 
         foreach ($foreignKeys as $foreignKey) {
             $foreignTableName   = $foreignKey->getForeignTableName();
@@ -579,22 +516,6 @@ class DatabaseDriver implements MappingDriver
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * Retrieve schema table definition foreign keys.
-     *
-     * @return ForeignKeyConstraint[]
-     * @psalm-return array<string, ForeignKeyConstraint>
-     */
-    private function getTableForeignKeys(Table $table): array
-    {
-        return $this->_sm->getDatabasePlatform()->supportsForeignKeyConstraints()
-            ? $table->getForeignKeys()
-            : [];
-    }
-
-    /**
->>>>>>> stage
      * Retrieve schema table definition primary keys.
      *
      * @return string[]

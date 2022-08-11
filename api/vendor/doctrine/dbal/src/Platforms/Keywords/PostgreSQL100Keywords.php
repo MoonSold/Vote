@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace Doctrine\DBAL\Platforms\Keywords;
 
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
 
-=======
->>>>>>> stage
 /**
  * PostgreSQL 10.0 reserved keywords list.
  *
@@ -16,7 +13,6 @@ use Doctrine\Deprecations\Deprecation;
  */
 class PostgreSQL100Keywords extends PostgreSQL94Keywords
 {
-<<<<<<< HEAD
     /**
      * @deprecated
      */
@@ -28,10 +24,6 @@ class PostgreSQL100Keywords extends PostgreSQL94Keywords
             'PostgreSQL100Keywords::getName() is deprecated.'
         );
 
-=======
-    public function getName(): string
-    {
->>>>>>> stage
         return 'PostgreSQL100';
     }
 }

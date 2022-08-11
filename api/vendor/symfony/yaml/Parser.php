@@ -88,11 +88,7 @@ class Parser
 
         $mbEncoding = null;
 
-<<<<<<< HEAD
         if (2 /* MB_OVERLOAD_STRING */ & (int) \ini_get('mbstring.func_overload')) {
-=======
-        if (2 /* MB_OVERLOAD_STRING */ & (int) ini_get('mbstring.func_overload')) {
->>>>>>> stage
             $mbEncoding = mb_internal_encoding();
             mb_internal_encoding('UTF-8');
         }
@@ -986,11 +982,7 @@ class Parser
      */
     private function isCurrentLineComment(): bool
     {
-<<<<<<< HEAD
         // checking explicitly the first char of the trim is faster than loops or strpos
-=======
-        //checking explicitly the first char of the trim is faster than loops or strpos
->>>>>>> stage
         $ltrimmedLine = '' !== $this->currentLine && ' ' === $this->currentLine[0] ? ltrim($this->currentLine, ' ') : $this->currentLine;
 
         return '' !== $ltrimmedLine && '#' === $ltrimmedLine[0];

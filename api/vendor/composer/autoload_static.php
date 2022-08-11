@@ -50,13 +50,10 @@ class ComposerStaticInitdc496fe12a341a4e32281ea30e8049b4
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
         ),
-<<<<<<< HEAD
         'F' => 
         array (
             'Fpdf\\' => 5,
         ),
-=======
->>>>>>> stage
         'E' => 
         array (
             'Entity\\' => 7,
@@ -74,10 +71,7 @@ class ComposerStaticInitdc496fe12a341a4e32281ea30e8049b4
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
-<<<<<<< HEAD
             'DTO\\' => 4,
-=======
->>>>>>> stage
         ),
     );
 
@@ -158,13 +152,10 @@ class ComposerStaticInitdc496fe12a341a4e32281ea30e8049b4
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
-<<<<<<< HEAD
         'Fpdf\\' => 
         array (
             0 => __DIR__ . '/..' . '/fpdf/fpdf/src/Fpdf',
         ),
-=======
->>>>>>> stage
         'Entity\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Entity',
@@ -214,13 +205,10 @@ class ComposerStaticInitdc496fe12a341a4e32281ea30e8049b4
             0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
             1 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
         ),
-<<<<<<< HEAD
         'DTO\\' => 
         array (
             0 => __DIR__ . '/../..' . '/DTO',
         ),
-=======
->>>>>>> stage
     );
 
     public static $prefixesPsr0 = array (

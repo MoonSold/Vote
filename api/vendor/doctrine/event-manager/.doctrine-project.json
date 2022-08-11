@@ -5,20 +5,14 @@
     "docsSlug": "doctrine-event-manager",
     "versions": [
         {
-<<<<<<< HEAD
             "name": "1.1",
             "branchName": "1.1.x",
-=======
-            "name": "1.0",
-            "branchName": "master",
->>>>>>> stage
             "slug": "latest",
             "current": true,
             "aliases": [
                 "current",
                 "stable"
             ]
-<<<<<<< HEAD
         },
         {
             "name": "1.0",
@@ -26,8 +20,6 @@
             "slug": "1.0",
             "current": false,
             "maintained": false
-=======
->>>>>>> stage
         }
     ]
 }

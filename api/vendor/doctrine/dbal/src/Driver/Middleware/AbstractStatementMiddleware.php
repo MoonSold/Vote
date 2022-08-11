@@ -5,7 +5,6 @@ namespace Doctrine\DBAL\Driver\Middleware;
 use Doctrine\DBAL\Driver\Result;
 use Doctrine\DBAL\Driver\Statement;
 use Doctrine\DBAL\ParameterType;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
 
 use function func_num_args;
@@ -13,13 +12,6 @@ use function func_num_args;
 abstract class AbstractStatementMiddleware implements Statement
 {
     private Statement $wrappedStatement;
-=======
-
-abstract class AbstractStatementMiddleware implements Statement
-{
-    /** @var Statement */
-    private $wrappedStatement;
->>>>>>> stage
 
     public function __construct(Statement $wrappedStatement)
     {
@@ -31,7 +23,6 @@ abstract class AbstractStatementMiddleware implements Statement
      */
     public function bindValue($param, $value, $type = ParameterType::STRING)
     {
-<<<<<<< HEAD
         if (func_num_args() < 3) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -41,14 +32,11 @@ abstract class AbstractStatementMiddleware implements Statement
             );
         }
 
-=======
->>>>>>> stage
         return $this->wrappedStatement->bindValue($param, $value, $type);
     }
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated Use {@see bindValue()} instead.
      */
@@ -70,11 +58,6 @@ abstract class AbstractStatementMiddleware implements Statement
             );
         }
 
-=======
-     */
-    public function bindParam($param, &$variable, $type = ParameterType::STRING, $length = null)
-    {
->>>>>>> stage
         return $this->wrappedStatement->bindParam($param, $variable, $type, $length);
     }
 

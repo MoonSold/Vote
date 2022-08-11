@@ -22,10 +22,6 @@ class SqrtFunction extends FunctionNode
     public $simpleArithmeticExpression;
 
     /**
-<<<<<<< HEAD
-=======
-     * @override
->>>>>>> stage
      * @inheritdoc
      */
     public function getSql(SqlWalker $sqlWalker)
@@ -37,10 +33,6 @@ class SqrtFunction extends FunctionNode
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * @override
->>>>>>> stage
      * @inheritdoc
      */
     public function parse(Parser $parser)

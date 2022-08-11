@@ -35,10 +35,6 @@ use InvalidArgumentException;
 use Throwable;
 
 use function array_keys;
-<<<<<<< HEAD
-=======
-use function call_user_func;
->>>>>>> stage
 use function class_exists;
 use function get_debug_type;
 use function gettype;
@@ -74,15 +70,10 @@ use function strpos;
  * is not a valid extension point for the EntityManager. Instead you
  * should take a look at the {@see \Doctrine\ORM\Decorator\EntityManagerDecorator}
  * and wrap your entity manager in a decorator.
-<<<<<<< HEAD
  *
  * @final
  */
 class EntityManager implements EntityManagerInterface
-=======
- */
-/* final */class EntityManager implements EntityManagerInterface
->>>>>>> stage
 {
     /**
      * The used Configuration.
@@ -165,7 +156,6 @@ class EntityManager implements EntityManagerInterface
      * Creates a new EntityManager that operates on the given database connection
      * and uses the given Configuration and EventManager implementations.
      */
-<<<<<<< HEAD
     public function __construct(Connection $conn, Configuration $config)
     {
         if (! $config->getMetadataDriverImpl()) {
@@ -175,13 +165,6 @@ class EntityManager implements EntityManagerInterface
         $this->conn         = $conn;
         $this->config       = $config;
         $this->eventManager = $conn->getEventManager();
-=======
-    protected function __construct(Connection $conn, Configuration $config, EventManager $eventManager)
-    {
-        $this->conn         = $conn;
-        $this->config       = $config;
-        $this->eventManager = $eventManager;
->>>>>>> stage
 
         $metadataFactoryClassName = $config->getClassMetadataFactoryName();
 
@@ -264,11 +247,7 @@ class EntityManager implements EntityManagerInterface
         $this->conn->beginTransaction();
 
         try {
-<<<<<<< HEAD
             $return = $func($this);
-=======
-            $return = call_user_func($func, $this);
->>>>>>> stage
 
             $this->flush();
             $this->conn->commit();
@@ -985,19 +964,9 @@ class EntityManager implements EntityManagerInterface
      */
     public static function create($connection, Configuration $config, ?EventManager $eventManager = null)
     {
-<<<<<<< HEAD
         $connection = static::createConnection($connection, $config, $eventManager);
 
         return new EntityManager($connection, $config);
-=======
-        if (! $config->getMetadataDriverImpl()) {
-            throw MissingMappingDriverImplementation::create();
-        }
-
-        $connection = static::createConnection($connection, $config, $eventManager);
-
-        return new EntityManager($connection, $config, $connection->getEventManager());
->>>>>>> stage
     }
 
     /**

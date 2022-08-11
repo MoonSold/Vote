@@ -58,11 +58,7 @@ class PhpFilesAdapter extends AbstractAdapter implements PruneableInterface
     {
         self::$startTime = self::$startTime ?? $_SERVER['REQUEST_TIME'] ?? time();
 
-<<<<<<< HEAD
         return \function_exists('opcache_invalidate') && filter_var(\ini_get('opcache.enable'), \FILTER_VALIDATE_BOOLEAN) && (!\in_array(\PHP_SAPI, ['cli', 'phpdbg'], true) || filter_var(\ini_get('opcache.enable_cli'), \FILTER_VALIDATE_BOOLEAN));
-=======
-        return \function_exists('opcache_invalidate') && filter_var(ini_get('opcache.enable'), \FILTER_VALIDATE_BOOLEAN) && (!\in_array(\PHP_SAPI, ['cli', 'phpdbg'], true) || filter_var(ini_get('opcache.enable_cli'), \FILTER_VALIDATE_BOOLEAN));
->>>>>>> stage
     }
 
     /**
@@ -238,11 +234,7 @@ class PhpFilesAdapter extends AbstractAdapter implements PruneableInterface
                     $isStaticValue = false;
                 }
                 $value = var_export($value, true);
-<<<<<<< HEAD
             } elseif (!\is_scalar($value)) {
-=======
-            } elseif (!is_scalar($value)) {
->>>>>>> stage
                 throw new InvalidArgumentException(sprintf('Cache key "%s" has non-serializable "%s" value.', $key, get_debug_type($value)));
             } else {
                 $value = var_export($value, true);

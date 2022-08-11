@@ -9,16 +9,12 @@ use Doctrine\DBAL\Schema\Schema;
 use Doctrine\DBAL\Schema\Sequence;
 use Doctrine\DBAL\Schema\Table;
 use Doctrine\DBAL\Schema\Visitor\Visitor;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 
 use function count;
 use function implode;
 use function str_replace;
 
-<<<<<<< HEAD
 /**
  * @deprecated Use database documentation instead.
  */
@@ -29,30 +25,18 @@ class ReservedKeywordsValidator implements Visitor
 
     /** @var string[] */
     private array $violations = [];
-=======
-class ReservedKeywordsValidator implements Visitor
-{
-    /** @var KeywordList[] */
-    private $keywordLists;
-
-    /** @var string[] */
-    private $violations = [];
->>>>>>> stage
 
     /**
      * @param KeywordList[] $keywordLists
      */
     public function __construct(array $keywordLists)
     {
-<<<<<<< HEAD
         Deprecation::triggerIfCalledFromOutside(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5431',
             'ReservedKeywordsValidator is deprecated. Use database documentation instead.'
         );
 
-=======
->>>>>>> stage
         $this->keywordLists = $keywordLists;
     }
 

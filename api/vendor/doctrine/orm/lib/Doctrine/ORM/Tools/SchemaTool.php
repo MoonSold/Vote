@@ -13,10 +13,6 @@ use Doctrine\DBAL\Schema\Comparator;
 use Doctrine\DBAL\Schema\Index;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\DBAL\Schema\Table;
-<<<<<<< HEAD
-=======
-use Doctrine\DBAL\Schema\Visitor\DropSchemaSqlCollector;
->>>>>>> stage
 use Doctrine\DBAL\Schema\Visitor\RemoveNamespacedAssets;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\ClassMetadata;
@@ -582,15 +578,12 @@ class SchemaTool
                     $this->quoteStrategy->getJoinTableName($mapping, $foreignClass, $this->platform)
                 );
 
-<<<<<<< HEAD
                 if (isset($joinTable['options'])) {
                     foreach ($joinTable['options'] as $key => $val) {
                         $theJoinTable->addOption($key, $val);
                     }
                 }
 
-=======
->>>>>>> stage
                 $primaryKeyColumns = [];
 
                 // Build first FK constraint (relation table => source table)
@@ -718,7 +711,6 @@ class SchemaTool
 
                 $fieldMapping = $definingClass->getFieldMapping($referencedFieldName);
 
-<<<<<<< HEAD
                 $columnOptions = ['notnull' => false];
 
                 if (isset($joinColumn['columnDefinition'])) {
@@ -727,43 +719,23 @@ class SchemaTool
                     $columnOptions['columnDefinition'] = $fieldMapping['columnDefinition'];
                 }
 
-=======
-                $columnDef = null;
-                if (isset($joinColumn['columnDefinition'])) {
-                    $columnDef = $joinColumn['columnDefinition'];
-                } elseif (isset($fieldMapping['columnDefinition'])) {
-                    $columnDef = $fieldMapping['columnDefinition'];
-                }
-
-                $columnOptions = ['notnull' => false, 'columnDefinition' => $columnDef];
-
->>>>>>> stage
                 if (isset($joinColumn['nullable'])) {
                     $columnOptions['notnull'] = ! $joinColumn['nullable'];
                 }
 
                 $columnOptions += $this->gatherColumnOptions($fieldMapping);
 
-<<<<<<< HEAD
                 if (isset($fieldMapping['length'])) {
                     $columnOptions['length'] = $fieldMapping['length'];
                 }
 
                 if ($fieldMapping['type'] === 'decimal') {
-=======
-                if ($fieldMapping['type'] === 'string' && isset($fieldMapping['length'])) {
-                    $columnOptions['length'] = $fieldMapping['length'];
-                } elseif ($fieldMapping['type'] === 'decimal') {
->>>>>>> stage
                     $columnOptions['scale']     = $fieldMapping['scale'];
                     $columnOptions['precision'] = $fieldMapping['precision'];
                 }
 
-<<<<<<< HEAD
                 $columnOptions = $this->gatherColumnOptions($joinColumn) + $columnOptions;
 
-=======
->>>>>>> stage
                 $theJoinTable->addColumn($quotedColumnName, $fieldMapping['type'], $columnOptions);
             }
 
@@ -884,18 +856,9 @@ class SchemaTool
      */
     public function getDropDatabaseSQL()
     {
-<<<<<<< HEAD
         return $this->schemaManager
             ->createSchema()
             ->toDropSql($this->platform);
-=======
-        $schema = $this->schemaManager->createSchema();
-
-        $visitor = new DropSchemaSqlCollector($this->platform);
-        $schema->visit($visitor);
-
-        return $visitor->getQueries();
->>>>>>> stage
     }
 
     /**
@@ -907,7 +870,6 @@ class SchemaTool
      */
     public function getDropSchemaSQL(array $classes)
     {
-<<<<<<< HEAD
         $schema = $this->getSchemaFromMetadata($classes);
 
         $deployedSchema = $this->schemaManager->createSchema();
@@ -915,37 +877,14 @@ class SchemaTool
         foreach ($schema->getTables() as $table) {
             if (! $deployedSchema->hasTable($table->getName())) {
                 $schema->dropTable($table->getName());
-=======
-        $visitor = new DropSchemaSqlCollector($this->platform);
-        $schema  = $this->getSchemaFromMetadata($classes);
-
-        $fullSchema = $this->schemaManager->createSchema();
-
-        foreach ($fullSchema->getTables() as $table) {
-            if (! $schema->hasTable($table->getName())) {
-                foreach ($table->getForeignKeys() as $foreignKey) {
-                    if ($schema->hasTable($foreignKey->getForeignTableName())) {
-                        $visitor->acceptForeignKey($table, $foreignKey);
-                    }
-                }
-            } else {
-                $visitor->acceptTable($table);
-                foreach ($table->getForeignKeys() as $foreignKey) {
-                    $visitor->acceptForeignKey($table, $foreignKey);
-                }
->>>>>>> stage
             }
         }
 
         if ($this->platform->supportsSequences()) {
             foreach ($schema->getSequences() as $sequence) {
-<<<<<<< HEAD
                 if (! $deployedSchema->hasSequence($sequence->getName())) {
                     $schema->dropSequence($sequence->getName());
                 }
-=======
-                $visitor->acceptSequence($sequence);
->>>>>>> stage
             }
 
             foreach ($schema->getTables() as $table) {
@@ -953,24 +892,15 @@ class SchemaTool
                     $columns = $table->getPrimaryKey()->getColumns();
                     if (count($columns) === 1) {
                         $checkSequence = $table->getName() . '_' . $columns[0] . '_seq';
-<<<<<<< HEAD
                         if ($deployedSchema->hasSequence($checkSequence) && ! $schema->hasSequence($checkSequence)) {
                             $schema->createSequence($checkSequence);
-=======
-                        if ($fullSchema->hasSequence($checkSequence)) {
-                            $visitor->acceptSequence($fullSchema->getSequence($checkSequence));
->>>>>>> stage
                         }
                     }
                 }
             }
         }
 
-<<<<<<< HEAD
         return $schema->toDropSql($this->platform);
-=======
-        return $visitor->getQueries();
->>>>>>> stage
     }
 
     /**

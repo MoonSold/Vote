@@ -22,10 +22,6 @@ class UpperFunction extends FunctionNode
     public $stringPrimary;
 
     /**
-<<<<<<< HEAD
-=======
-     * @override
->>>>>>> stage
      * @inheritdoc
      */
     public function getSql(SqlWalker $sqlWalker)
@@ -37,10 +33,6 @@ class UpperFunction extends FunctionNode
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * @override
->>>>>>> stage
      * @inheritdoc
      */
     public function parse(Parser $parser)

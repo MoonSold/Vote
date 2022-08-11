@@ -6,10 +6,7 @@ namespace Doctrine\ORM;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Criteria;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 use Doctrine\ORM\Query\Expr;
 use Doctrine\ORM\Query\Parameter;
 use Doctrine\ORM\Query\QueryExpressionVisitor;
@@ -42,7 +39,6 @@ use function substr;
  */
 class QueryBuilder
 {
-<<<<<<< HEAD
     /** @deprecated */
     public const SELECT = 0;
 
@@ -56,15 +52,6 @@ class QueryBuilder
     public const STATE_DIRTY = 0;
 
     /** @deprecated */
-=======
-    /* The query types. */
-    public const SELECT = 0;
-    public const DELETE = 1;
-    public const UPDATE = 2;
-
-    /* The builder states. */
-    public const STATE_DIRTY = 0;
->>>>>>> stage
     public const STATE_CLEAN = 1;
 
     /**
@@ -125,15 +112,9 @@ class QueryBuilder
     /**
      * The index of the first result to retrieve.
      *
-<<<<<<< HEAD
      * @var int
      */
     private $_firstResult = 0;
-=======
-     * @var int|null
-     */
-    private $_firstResult = null;
->>>>>>> stage
 
     /**
      * The maximum number of results to retrieve.
@@ -300,17 +281,13 @@ class QueryBuilder
     /**
      * Gets the type of the currently built query.
      *
-<<<<<<< HEAD
      * @deprecated If necessary, track the type of the query being built outside of the builder.
      *
-=======
->>>>>>> stage
      * @return int
      * @psalm-return self::SELECT|self::DELETE|self::UPDATE
      */
     public function getType()
     {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/orm/pull/9945',
@@ -318,8 +295,6 @@ class QueryBuilder
             . ' If necessary, track the type of the query being built outside of the builder.'
         );
 
-=======
->>>>>>> stage
         return $this->_type;
     }
 
@@ -336,25 +311,19 @@ class QueryBuilder
     /**
      * Gets the state of this query builder instance.
      *
-<<<<<<< HEAD
      * @deprecated The builder state is an internal concern.
      *
-=======
->>>>>>> stage
      * @return int Either QueryBuilder::STATE_DIRTY or QueryBuilder::STATE_CLEAN.
      * @psalm-return self::STATE_*
      */
     public function getState()
     {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/orm/pull/9945',
             'Relying on the query builder state is deprecated as it is an internal concern.'
         );
 
-=======
->>>>>>> stage
         return $this->_state;
     }
 
@@ -692,15 +661,7 @@ class QueryBuilder
      */
     public function setFirstResult($firstResult)
     {
-<<<<<<< HEAD
         $this->_firstResult = (int) $firstResult;
-=======
-        if ($firstResult !== null) {
-            $firstResult = (int) $firstResult;
-        }
-
-        $this->_firstResult = $firstResult;
->>>>>>> stage
 
         return $this;
     }
@@ -907,7 +868,6 @@ class QueryBuilder
             return $this;
         }
 
-<<<<<<< HEAD
         if (! $alias) {
             Deprecation::trigger(
                 'doctrine/orm',
@@ -916,8 +876,6 @@ class QueryBuilder
             );
         }
 
-=======
->>>>>>> stage
         return $this->add('from', new Expr\From($delete, $alias));
     }
 
@@ -945,7 +903,6 @@ class QueryBuilder
             return $this;
         }
 
-<<<<<<< HEAD
         if (! $alias) {
             Deprecation::trigger(
                 'doctrine/orm',
@@ -954,8 +911,6 @@ class QueryBuilder
             );
         }
 
-=======
->>>>>>> stage
         return $this->add('from', new Expr\From($update, $alias));
     }
 
@@ -1437,11 +1392,7 @@ class QueryBuilder
 
         // Overwrite limits only if they was set in criteria
         $firstResult = $criteria->getFirstResult();
-<<<<<<< HEAD
         if ($firstResult > 0) {
-=======
-        if ($firstResult !== null) {
->>>>>>> stage
             $this->setFirstResult($firstResult);
         }
 

@@ -4,27 +4,18 @@ namespace Doctrine\DBAL\Schema;
 
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Platforms\OraclePlatform;
-<<<<<<< HEAD
 use Doctrine\DBAL\Result;
-=======
->>>>>>> stage
 use Doctrine\DBAL\Types\Type;
 
 use function array_change_key_case;
 use function array_values;
-<<<<<<< HEAD
 use function implode;
-=======
->>>>>>> stage
 use function is_string;
 use function preg_match;
 use function str_replace;
 use function strpos;
 use function strtolower;
-<<<<<<< HEAD
 use function strtoupper;
-=======
->>>>>>> stage
 use function trim;
 
 use const CASE_LOWER;
@@ -37,7 +28,6 @@ use const CASE_LOWER;
 class OracleSchemaManager extends AbstractSchemaManager
 {
     /**
-<<<<<<< HEAD
      * {@inheritDoc}
      */
     public function listTableNames()
@@ -86,8 +76,6 @@ class OracleSchemaManager extends AbstractSchemaManager
     }
 
     /**
-=======
->>>>>>> stage
      * {@inheritdoc}
      */
     protected function _getPortableViewDefinition($view)
@@ -100,21 +88,6 @@ class OracleSchemaManager extends AbstractSchemaManager
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
-=======
-    protected function _getPortableUserDefinition($user)
-    {
-        $user = array_change_key_case($user, CASE_LOWER);
-
-        return [
-            'user' => $user['username'],
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
->>>>>>> stage
     protected function _getPortableTableDefinition($table)
     {
         $table = array_change_key_case($table, CASE_LOWER);
@@ -281,7 +254,6 @@ class OracleSchemaManager extends AbstractSchemaManager
             $list[$value['constraint_name']]['foreign'][$value['position']] = $foreignColumn;
         }
 
-<<<<<<< HEAD
         return parent::_getPortableTableForeignKeysList($list);
     }
 
@@ -297,20 +269,6 @@ class OracleSchemaManager extends AbstractSchemaManager
             $this->getQuotedIdentifierName($tableForeignKey['name']),
             ['onDelete' => $tableForeignKey['onDelete']]
         );
-=======
-        $result = [];
-        foreach ($list as $constraint) {
-            $result[] = new ForeignKeyConstraint(
-                array_values($constraint['local']),
-                $this->getQuotedIdentifierName($constraint['foreignTable']),
-                array_values($constraint['foreign']),
-                $this->getQuotedIdentifierName($constraint['name']),
-                ['onDelete' => $constraint['onDelete']]
-            );
-        }
-
-        return $result;
->>>>>>> stage
     }
 
     /**
@@ -402,7 +360,6 @@ class OracleSchemaManager extends AbstractSchemaManager
         return $identifier;
     }
 
-<<<<<<< HEAD
     protected function selectTableNames(string $databaseName): Result
     {
         $sql = <<<'SQL'
@@ -565,24 +522,5 @@ SQL;
         $identifier = new Identifier($name);
 
         return $identifier->isQuoted() ? $identifier->getName() : strtoupper($name);
-=======
-    /**
-     * {@inheritdoc}
-     */
-    public function listTableDetails($name): Table
-    {
-        $table = parent::listTableDetails($name);
-
-        $sql = $this->_platform->getListTableCommentsSQL($name);
-
-        $tableOptions = $this->_conn->fetchAssociative($sql);
-
-        if ($tableOptions !== false) {
-            $tableOptions = array_change_key_case($tableOptions, CASE_LOWER);
-            $table->addOption('comment', $tableOptions['comments']);
-        }
-
-        return $table;
->>>>>>> stage
     }
 }

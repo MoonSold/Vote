@@ -9,17 +9,9 @@ use Doctrine\DBAL\Driver\Middleware as MiddlewareInterface;
 
 final class Middleware implements MiddlewareInterface
 {
-<<<<<<< HEAD
     private int $mode;
 
     private int $case;
-=======
-    /** @var int */
-    private $mode;
-
-    /** @var int */
-    private $case;
->>>>>>> stage
 
     public function __construct(int $mode, int $case)
     {

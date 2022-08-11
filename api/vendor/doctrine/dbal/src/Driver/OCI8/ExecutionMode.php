@@ -11,12 +11,7 @@ namespace Doctrine\DBAL\Driver\OCI8;
  */
 final class ExecutionMode
 {
-<<<<<<< HEAD
     private bool $isAutoCommitEnabled = true;
-=======
-    /** @var bool */
-    private $isAutoCommitEnabled = true;
->>>>>>> stage
 
     public function enableAutoCommit(): void
     {

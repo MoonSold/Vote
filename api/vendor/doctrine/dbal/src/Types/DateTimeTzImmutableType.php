@@ -4,10 +4,7 @@ namespace Doctrine\DBAL\Types;
 
 use DateTimeImmutable;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 
 /**
  * Immutable type of {@see DateTimeTzType}.
@@ -66,7 +63,6 @@ class DateTimeTzImmutableType extends DateTimeTzType
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -79,11 +75,6 @@ class DateTimeTzImmutableType extends DateTimeTzType
             __METHOD__
         );
 
-=======
-     */
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
-    {
->>>>>>> stage
         return true;
     }
 }

@@ -13,11 +13,7 @@ use function mysqli_options;
 final class Options implements Initializer
 {
     /** @var array<int,mixed> */
-<<<<<<< HEAD
     private array $options;
-=======
-    private $options;
->>>>>>> stage
 
     /**
      * @param array<int,mixed> $options

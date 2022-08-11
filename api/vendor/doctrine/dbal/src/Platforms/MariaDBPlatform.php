@@ -11,7 +11,6 @@ use Doctrine\Deprecations\Deprecation;
 class MariaDBPlatform extends MySQLPlatform
 {
     /**
-<<<<<<< HEAD
      * {@inheritDoc}
      *
      * Hop over the {@see AbstractMySQLPlatform} implementation until 4.0.x
@@ -25,8 +24,6 @@ class MariaDBPlatform extends MySQLPlatform
     }
 
     /**
-=======
->>>>>>> stage
      * {@inheritdoc}
      *
      * @link https://mariadb.com/kb/en/library/json-data-type/

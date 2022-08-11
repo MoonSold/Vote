@@ -40,15 +40,12 @@ final class JoinColumn implements Annotation
      */
     public $fieldName;
 
-<<<<<<< HEAD
     /** @var array<string, mixed> */
     public $options = [];
 
     /**
      * @param array<string, mixed> $options
      */
-=======
->>>>>>> stage
     public function __construct(
         ?string $name = null,
         string $referencedColumnName = 'id',
@@ -56,12 +53,8 @@ final class JoinColumn implements Annotation
         bool $nullable = true,
         $onDelete = null,
         ?string $columnDefinition = null,
-<<<<<<< HEAD
         ?string $fieldName = null,
         array $options = []
-=======
-        ?string $fieldName = null
->>>>>>> stage
     ) {
         $this->name                 = $name;
         $this->referencedColumnName = $referencedColumnName;
@@ -70,9 +63,6 @@ final class JoinColumn implements Annotation
         $this->onDelete             = $onDelete;
         $this->columnDefinition     = $columnDefinition;
         $this->fieldName            = $fieldName;
-<<<<<<< HEAD
         $this->options              = $options;
-=======
->>>>>>> stage
     }
 }

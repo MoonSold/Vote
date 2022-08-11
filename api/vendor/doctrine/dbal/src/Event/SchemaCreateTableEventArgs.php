@@ -14,7 +14,6 @@ use function is_array;
  */
 class SchemaCreateTableEventArgs extends SchemaEventArgs
 {
-<<<<<<< HEAD
     private Table $table;
 
     /** @var mixed[][] */
@@ -27,22 +26,6 @@ class SchemaCreateTableEventArgs extends SchemaEventArgs
 
     /** @var string[] */
     private array $sql = [];
-=======
-    /** @var Table */
-    private $table;
-
-    /** @var mixed[][] */
-    private $columns;
-
-    /** @var mixed[] */
-    private $options;
-
-    /** @var AbstractPlatform */
-    private $platform;
-
-    /** @var string[] */
-    private $sql = [];
->>>>>>> stage
 
     /**
      * @param mixed[][] $columns

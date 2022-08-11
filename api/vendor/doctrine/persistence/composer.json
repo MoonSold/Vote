@@ -21,10 +21,6 @@
     ],
     "require": {
         "php": "^7.2 || ^8.0",
-<<<<<<< HEAD
-=======
-        "doctrine/collections": "^1.0",
->>>>>>> stage
         "doctrine/event-manager": "^1.0",
         "psr/cache": "^1.0 || ^2.0 || ^3.0"
     },

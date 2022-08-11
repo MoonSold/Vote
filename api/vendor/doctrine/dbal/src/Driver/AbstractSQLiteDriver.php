@@ -9,10 +9,7 @@ use Doctrine\DBAL\Driver\API\SQLite;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Platforms\SqlitePlatform;
 use Doctrine\DBAL\Schema\SqliteSchemaManager;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 
 use function assert;
 
@@ -31,7 +28,6 @@ abstract class AbstractSQLiteDriver implements Driver
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated Use {@link SqlitePlatform::createSchemaManager()} instead.
      */
@@ -44,11 +40,6 @@ abstract class AbstractSQLiteDriver implements Driver
                 . ' Use SqlitePlatform::createSchemaManager() instead.'
         );
 
-=======
-     */
-    public function getSchemaManager(Connection $conn, AbstractPlatform $platform)
-    {
->>>>>>> stage
         assert($platform instanceof SqlitePlatform);
 
         return new SqliteSchemaManager($conn, $platform);

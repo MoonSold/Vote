@@ -51,11 +51,7 @@ class DebugUnitOfWorkListener
      */
     public function onFlush(OnFlushEventArgs $args)
     {
-<<<<<<< HEAD
         $this->dumpIdentityMap($args->getObjectManager());
-=======
-        $this->dumpIdentityMap($args->getEntityManager());
->>>>>>> stage
     }
 
     /**

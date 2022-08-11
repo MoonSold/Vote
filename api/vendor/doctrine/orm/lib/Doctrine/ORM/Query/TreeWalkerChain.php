@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Doctrine\ORM\Query;
 
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 use Doctrine\ORM\AbstractQuery;
 use Generator;
 
@@ -94,14 +91,6 @@ class TreeWalkerChain implements TreeWalker
         $this->walkers[] = $walkerClass;
     }
 
-<<<<<<< HEAD
-=======
-    /**
-     * {@inheritdoc}
-     *
-     * @return void
-     */
->>>>>>> stage
     public function walkSelectStatement(AST\SelectStatement $AST)
     {
         foreach ($this->getWalkers() as $walker) {
@@ -114,7 +103,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkSelectClause($selectClause)
@@ -126,12 +114,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkSelectClause($selectClause)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkSelectClause($selectClause);
         }
@@ -140,7 +122,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkFromClause($fromClause)
@@ -152,12 +133,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkFromClause($fromClause)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkFromClause($fromClause);
         }
@@ -166,7 +141,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkFunction($function)
@@ -178,12 +152,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkFunction($function)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkFunction($function);
         }
@@ -192,7 +160,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkOrderByClause($orderByClause)
@@ -204,12 +171,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkOrderByClause($orderByClause)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkOrderByClause($orderByClause);
         }
@@ -218,7 +179,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkOrderByItem($orderByItem)
@@ -230,12 +190,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkOrderByItem($orderByItem)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkOrderByItem($orderByItem);
         }
@@ -244,7 +198,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkHavingClause($havingClause)
@@ -256,12 +209,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkHavingClause($havingClause)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkHavingClause($havingClause);
         }
@@ -270,7 +217,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkJoin($join)
@@ -282,12 +228,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkJoin($join)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkJoin($join);
         }
@@ -296,7 +236,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkSelectExpression($selectExpression)
@@ -308,12 +247,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkSelectExpression($selectExpression)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkSelectExpression($selectExpression);
         }
@@ -322,7 +255,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkQuantifiedExpression($qExpr)
@@ -334,12 +266,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkQuantifiedExpression($qExpr)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkQuantifiedExpression($qExpr);
         }
@@ -348,7 +274,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkSubselect($subselect)
@@ -360,12 +285,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkSubselect($subselect)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkSubselect($subselect);
         }
@@ -374,7 +293,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkSubselectFromClause($subselectFromClause)
@@ -386,12 +304,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkSubselectFromClause($subselectFromClause)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkSubselectFromClause($subselectFromClause);
         }
@@ -400,7 +312,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkSimpleSelectClause($simpleSelectClause)
@@ -412,12 +323,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkSimpleSelectClause($simpleSelectClause)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkSimpleSelectClause($simpleSelectClause);
         }
@@ -426,7 +331,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkSimpleSelectExpression($simpleSelectExpression)
@@ -438,12 +342,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkSimpleSelectExpression($simpleSelectExpression)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkSimpleSelectExpression($simpleSelectExpression);
         }
@@ -452,7 +350,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkAggregateExpression($aggExpression)
@@ -464,12 +361,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkAggregateExpression($aggExpression)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkAggregateExpression($aggExpression);
         }
@@ -478,7 +369,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkGroupByClause($groupByClause)
@@ -490,12 +380,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkGroupByClause($groupByClause)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkGroupByClause($groupByClause);
         }
@@ -504,7 +388,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkGroupByItem($groupByItem)
@@ -516,25 +399,11 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkGroupByItem($groupByItem)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkGroupByItem($groupByItem);
         }
     }
 
-<<<<<<< HEAD
-=======
-    /**
-     * {@inheritdoc}
-     *
-     * @return void
-     */
->>>>>>> stage
     public function walkUpdateStatement(AST\UpdateStatement $AST)
     {
         foreach ($this->getWalkers() as $walker) {
@@ -542,14 +411,6 @@ class TreeWalkerChain implements TreeWalker
         }
     }
 
-<<<<<<< HEAD
-=======
-    /**
-     * {@inheritdoc}
-     *
-     * @return void
-     */
->>>>>>> stage
     public function walkDeleteStatement(AST\DeleteStatement $AST)
     {
         foreach ($this->getWalkers() as $walker) {
@@ -560,7 +421,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkDeleteClause(AST\DeleteClause $deleteClause)
@@ -572,12 +432,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkDeleteClause(AST\DeleteClause $deleteClause)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkDeleteClause($deleteClause);
         }
@@ -586,7 +440,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkUpdateClause($updateClause)
@@ -598,12 +451,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkUpdateClause($updateClause)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkUpdateClause($updateClause);
         }
@@ -612,7 +459,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkUpdateItem($updateItem)
@@ -624,12 +470,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkUpdateItem($updateItem)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkUpdateItem($updateItem);
         }
@@ -638,7 +478,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkWhereClause($whereClause)
@@ -650,12 +489,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkWhereClause($whereClause)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkWhereClause($whereClause);
         }
@@ -664,7 +497,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkConditionalExpression($condExpr)
@@ -676,12 +508,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkConditionalExpression($condExpr)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkConditionalExpression($condExpr);
         }
@@ -690,7 +516,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkConditionalTerm($condTerm)
@@ -702,12 +527,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkConditionalTerm($condTerm)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkConditionalTerm($condTerm);
         }
@@ -716,7 +535,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkConditionalFactor($factor)
@@ -728,12 +546,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkConditionalFactor($factor)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkConditionalFactor($factor);
         }
@@ -742,7 +554,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkConditionalPrimary($condPrimary)
@@ -754,12 +565,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkConditionalPrimary($condPrimary)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkConditionalPrimary($condPrimary);
         }
@@ -768,7 +573,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkExistsExpression($existsExpr)
@@ -780,12 +584,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkExistsExpression($existsExpr)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkExistsExpression($existsExpr);
         }
@@ -794,7 +592,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkCollectionMemberExpression($collMemberExpr)
@@ -806,12 +603,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkCollectionMemberExpression($collMemberExpr)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkCollectionMemberExpression($collMemberExpr);
         }
@@ -820,7 +611,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkEmptyCollectionComparisonExpression($emptyCollCompExpr)
@@ -832,12 +622,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkEmptyCollectionComparisonExpression($emptyCollCompExpr)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkEmptyCollectionComparisonExpression($emptyCollCompExpr);
         }
@@ -846,7 +630,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkNullComparisonExpression($nullCompExpr)
@@ -858,12 +641,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkNullComparisonExpression($nullCompExpr)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkNullComparisonExpression($nullCompExpr);
         }
@@ -872,7 +649,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkInExpression($inExpr)
@@ -884,12 +660,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkInExpression($inExpr)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkInExpression($inExpr);
         }
@@ -898,7 +668,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkInstanceOfExpression($instanceOfExpr)
@@ -910,12 +679,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkInstanceOfExpression($instanceOfExpr)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkInstanceOfExpression($instanceOfExpr);
         }
@@ -924,7 +687,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkLiteral($literal)
@@ -936,12 +698,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkLiteral($literal)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkLiteral($literal);
         }
@@ -950,7 +706,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkBetweenExpression($betweenExpr)
@@ -962,12 +717,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkBetweenExpression($betweenExpr)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkBetweenExpression($betweenExpr);
         }
@@ -976,7 +725,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkLikeExpression($likeExpr)
@@ -988,12 +736,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkLikeExpression($likeExpr)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkLikeExpression($likeExpr);
         }
@@ -1002,7 +744,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkStateFieldPathExpression($stateFieldPathExpression)
@@ -1014,12 +755,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkStateFieldPathExpression($stateFieldPathExpression)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkStateFieldPathExpression($stateFieldPathExpression);
         }
@@ -1028,7 +763,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkComparisonExpression($compExpr)
@@ -1040,12 +774,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkComparisonExpression($compExpr)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkComparisonExpression($compExpr);
         }
@@ -1054,7 +782,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkInputParameter($inputParam)
@@ -1066,12 +793,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkInputParameter($inputParam)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkInputParameter($inputParam);
         }
@@ -1080,7 +801,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkArithmeticExpression($arithmeticExpr)
@@ -1092,12 +812,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkArithmeticExpression($arithmeticExpr)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkArithmeticExpression($arithmeticExpr);
         }
@@ -1106,7 +820,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkArithmeticTerm($term)
@@ -1118,12 +831,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkArithmeticTerm($term)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkArithmeticTerm($term);
         }
@@ -1132,7 +839,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkStringPrimary($stringPrimary)
@@ -1144,12 +850,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkStringPrimary($stringPrimary)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkStringPrimary($stringPrimary);
         }
@@ -1158,7 +858,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkArithmeticFactor($factor)
@@ -1170,12 +869,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkArithmeticFactor($factor)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkArithmeticFactor($factor);
         }
@@ -1184,7 +877,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkSimpleArithmeticExpression($simpleArithmeticExpr)
@@ -1196,12 +888,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkSimpleArithmeticExpression($simpleArithmeticExpr)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkSimpleArithmeticExpression($simpleArithmeticExpr);
         }
@@ -1210,7 +896,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkPathExpression($pathExpr)
@@ -1222,12 +907,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkPathExpression($pathExpr)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkPathExpression($pathExpr);
         }
@@ -1236,7 +915,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkResultVariable($resultVariable)
@@ -1248,12 +926,6 @@ class TreeWalkerChain implements TreeWalker
             __METHOD__
         );
 
-=======
-     * @return void
-     */
-    public function walkResultVariable($resultVariable)
-    {
->>>>>>> stage
         foreach ($this->getWalkers() as $walker) {
             $walker->walkResultVariable($resultVariable);
         }
@@ -1262,7 +934,6 @@ class TreeWalkerChain implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function getExecutor($AST)
@@ -1275,12 +946,6 @@ class TreeWalkerChain implements TreeWalker
         );
 
         return null;
-=======
-     * @return void
-     */
-    public function getExecutor($AST)
-    {
->>>>>>> stage
     }
 
     /**

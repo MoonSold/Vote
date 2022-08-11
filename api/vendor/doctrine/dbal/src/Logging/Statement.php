@@ -8,15 +8,11 @@ use Doctrine\DBAL\Driver\Middleware\AbstractStatementMiddleware;
 use Doctrine\DBAL\Driver\Result as ResultInterface;
 use Doctrine\DBAL\Driver\Statement as StatementInterface;
 use Doctrine\DBAL\ParameterType;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 use Psr\Log\LoggerInterface;
 
 use function array_slice;
 use function func_get_args;
-<<<<<<< HEAD
 use function func_num_args;
 
 final class Statement extends AbstractStatementMiddleware
@@ -29,22 +25,6 @@ final class Statement extends AbstractStatementMiddleware
 
     /** @var array<int,int>|array<string,int> */
     private array $types = [];
-=======
-
-final class Statement extends AbstractStatementMiddleware
-{
-    /** @var LoggerInterface */
-    private $logger;
-
-    /** @var string */
-    private $sql;
-
-    /** @var array<int,mixed>|array<string,mixed> */
-    private $params = [];
-
-    /** @var array<int,int>|array<string,int> */
-    private $types = [];
->>>>>>> stage
 
     /**
      * @internal This statement can be only instantiated by its connection.
@@ -59,7 +39,6 @@ final class Statement extends AbstractStatementMiddleware
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated Use {@see bindValue()} instead.
      */
@@ -81,11 +60,6 @@ final class Statement extends AbstractStatementMiddleware
             );
         }
 
-=======
-     */
-    public function bindParam($param, &$variable, $type = ParameterType::STRING, $length = null)
-    {
->>>>>>> stage
         $this->params[$param] = &$variable;
         $this->types[$param]  = $type;
 
@@ -97,7 +71,6 @@ final class Statement extends AbstractStatementMiddleware
      */
     public function bindValue($param, $value, $type = ParameterType::STRING)
     {
-<<<<<<< HEAD
         if (func_num_args() < 3) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -107,8 +80,6 @@ final class Statement extends AbstractStatementMiddleware
             );
         }
 
-=======
->>>>>>> stage
         $this->params[$param] = $value;
         $this->types[$param]  = $type;
 

@@ -18,12 +18,7 @@ final class Connection extends AbstractConnectionMiddleware
     public const PORTABILITY_EMPTY_TO_NULL = 4;
     public const PORTABILITY_FIX_CASE      = 8;
 
-<<<<<<< HEAD
     private Converter $converter;
-=======
-    /** @var Converter */
-    private $converter;
->>>>>>> stage
 
     public function __construct(ConnectionInterface $connection, Converter $converter)
     {

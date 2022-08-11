@@ -338,7 +338,6 @@
         },
         {
             "name": "doctrine/dbal",
-<<<<<<< HEAD
             "version": "3.4.0",
             "version_normalized": "3.4.0.0",
             "source": {
@@ -350,19 +349,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/dbal/zipball/118a360e9437e88d49024f36283c8bcbd76105f5",
                 "reference": "118a360e9437e88d49024f36283c8bcbd76105f5",
-=======
-            "version": "3.3.7",
-            "version_normalized": "3.3.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/dbal.git",
-                "reference": "9f79d4650430b582f4598fe0954ef4d52fbc0a8a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/9f79d4650430b582f4598fe0954ef4d52fbc0a8a",
-                "reference": "9f79d4650430b582f4598fe0954ef4d52fbc0a8a",
->>>>>>> stage
                 "shasum": ""
             },
             "require": {
@@ -370,18 +356,13 @@
                 "doctrine/cache": "^1.11|^2.0",
                 "doctrine/deprecations": "^0.5.3|^1",
                 "doctrine/event-manager": "^1.0",
-<<<<<<< HEAD
                 "php": "^7.4 || ^8.0",
-=======
-                "php": "^7.3 || ^8.0",
->>>>>>> stage
                 "psr/cache": "^1|^2|^3",
                 "psr/log": "^1|^2|^3"
             },
             "require-dev": {
                 "doctrine/coding-standard": "9.0.0",
                 "jetbrains/phpstorm-stubs": "2022.1",
-<<<<<<< HEAD
                 "phpstan/phpstan": "1.8.2",
                 "phpstan/phpstan-strict-rules": "^1.3",
                 "phpunit/phpunit": "9.5.21",
@@ -390,25 +371,11 @@
                 "symfony/cache": "^5.4|^6.0",
                 "symfony/console": "^4.4|^5.4|^6.0",
                 "vimeo/psalm": "4.24.0"
-=======
-                "phpstan/phpstan": "1.7.13",
-                "phpstan/phpstan-strict-rules": "^1.2",
-                "phpunit/phpunit": "9.5.20",
-                "psalm/plugin-phpunit": "0.16.1",
-                "squizlabs/php_codesniffer": "3.7.0",
-                "symfony/cache": "^5.2|^6.0",
-                "symfony/console": "^2.7|^3.0|^4.0|^5.0|^6.0",
-                "vimeo/psalm": "4.23.0"
->>>>>>> stage
             },
             "suggest": {
                 "symfony/console": "For helpful console commands such as SQL execution and import of files."
             },
-<<<<<<< HEAD
             "time": "2022-08-06T20:35:57+00:00",
-=======
-            "time": "2022-06-13T21:43:03+00:00",
->>>>>>> stage
             "bin": [
                 "bin/doctrine-dbal"
             ],
@@ -465,11 +432,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-<<<<<<< HEAD
                 "source": "https://github.com/doctrine/dbal/tree/3.4.0"
-=======
-                "source": "https://github.com/doctrine/dbal/tree/3.3.7"
->>>>>>> stage
             },
             "funding": [
                 {
@@ -535,7 +498,6 @@
         },
         {
             "name": "doctrine/event-manager",
-<<<<<<< HEAD
             "version": "1.1.2",
             "version_normalized": "1.1.2.0",
             "source": {
@@ -547,26 +509,12 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/event-manager/zipball/eb2ecf80e3093e8f3c2769ac838e27d8ede8e683",
                 "reference": "eb2ecf80e3093e8f3c2769ac838e27d8ede8e683",
-=======
-            "version": "1.1.1",
-            "version_normalized": "1.1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/event-manager.git",
-                "reference": "41370af6a30faa9dc0368c4a6814d596e81aba7f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/event-manager/zipball/41370af6a30faa9dc0368c4a6814d596e81aba7f",
-                "reference": "41370af6a30faa9dc0368c4a6814d596e81aba7f",
->>>>>>> stage
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1 || ^8.0"
             },
             "conflict": {
-<<<<<<< HEAD
                 "doctrine/common": "<2.9"
             },
             "require-dev": {
@@ -577,21 +525,6 @@
             },
             "time": "2022-07-27T22:18:11+00:00",
             "type": "library",
-=======
-                "doctrine/common": "<2.9@dev"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "^6.0",
-                "phpunit/phpunit": "^7.0"
-            },
-            "time": "2020-05-29T18:28:51+00:00",
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
->>>>>>> stage
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
@@ -639,11 +572,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/event-manager/issues",
-<<<<<<< HEAD
                 "source": "https://github.com/doctrine/event-manager/tree/1.1.2"
-=======
-                "source": "https://github.com/doctrine/event-manager/tree/1.1.x"
->>>>>>> stage
             },
             "funding": [
                 {
@@ -909,7 +838,6 @@
         },
         {
             "name": "doctrine/orm",
-<<<<<<< HEAD
             "version": "2.13.1",
             "version_normalized": "2.13.1.0",
             "source": {
@@ -921,19 +849,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/orm/zipball/35c44a56677adb3ce796138b6e4934ce93ec6811",
                 "reference": "35c44a56677adb3ce796138b6e4934ce93ec6811",
-=======
-            "version": "2.12.3",
-            "version_normalized": "2.12.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/orm.git",
-                "reference": "c05e1709e9ffb9abe8d37260a78975cc816ee385"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/orm/zipball/c05e1709e9ffb9abe8d37260a78975cc816ee385",
-                "reference": "c05e1709e9ffb9abe8d37260a78975cc816ee385",
->>>>>>> stage
                 "shasum": ""
             },
             "require": {
@@ -962,7 +877,6 @@
                 "doctrine/annotations": "^1.13",
                 "doctrine/coding-standard": "^9.0",
                 "phpbench/phpbench": "^0.16.10 || ^1.0",
-<<<<<<< HEAD
                 "phpstan/phpstan": "~1.4.10 || 1.8.2",
                 "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5",
                 "psr/log": "^1 || ^2 || ^3",
@@ -977,21 +891,6 @@
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
             "time": "2022-08-08T09:00:16+00:00",
-=======
-                "phpstan/phpstan": "~1.4.10 || 1.7.13",
-                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5",
-                "psr/log": "^1 || ^2 || ^3",
-                "squizlabs/php_codesniffer": "3.7.0",
-                "symfony/cache": "^4.4 || ^5.4 || ^6.0",
-                "symfony/yaml": "^3.4 || ^4.0 || ^5.0 || ^6.0",
-                "vimeo/psalm": "4.23.0"
-            },
-            "suggest": {
-                "symfony/cache": "Provides cache support for Setup Tool with doctrine/cache 2.0",
-                "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
-            },
-            "time": "2022-06-16T13:42:23+00:00",
->>>>>>> stage
             "bin": [
                 "bin/doctrine"
             ],
@@ -1036,17 +935,12 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/orm/issues",
-<<<<<<< HEAD
                 "source": "https://github.com/doctrine/orm/tree/2.13.1"
-=======
-                "source": "https://github.com/doctrine/orm/tree/2.12.3"
->>>>>>> stage
             },
             "install-path": "../doctrine/orm"
         },
         {
             "name": "doctrine/persistence",
-<<<<<<< HEAD
             "version": "3.0.3",
             "version_normalized": "3.0.3.0",
             "source": {
@@ -1061,23 +955,6 @@
                 "shasum": ""
             },
             "require": {
-=======
-            "version": "3.0.2",
-            "version_normalized": "3.0.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/persistence.git",
-                "reference": "25ec98a8cbd1f850e60fdb62c0ef77c162da8704"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/persistence/zipball/25ec98a8cbd1f850e60fdb62c0ef77c162da8704",
-                "reference": "25ec98a8cbd1f850e60fdb62c0ef77c162da8704",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/collections": "^1.0",
->>>>>>> stage
                 "doctrine/event-manager": "^1.0",
                 "php": "^7.2 || ^8.0",
                 "psr/cache": "^1.0 || ^2.0 || ^3.0"
@@ -1098,11 +975,7 @@
                 "symfony/cache": "^4.4 || ^5.4 || ^6.0",
                 "vimeo/psalm": "4.22.0"
             },
-<<<<<<< HEAD
             "time": "2022-08-04T21:14:21+00:00",
-=======
-            "time": "2022-05-06T06:10:05+00:00",
->>>>>>> stage
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -1151,11 +1024,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/persistence/issues",
-<<<<<<< HEAD
                 "source": "https://github.com/doctrine/persistence/tree/3.0.3"
-=======
-                "source": "https://github.com/doctrine/persistence/tree/3.0.2"
->>>>>>> stage
             },
             "funding": [
                 {
@@ -1174,7 +1043,6 @@
             "install-path": "../doctrine/persistence"
         },
         {
-<<<<<<< HEAD
             "name": "fpdf/fpdf",
             "version": "1.84.0",
             "version_normalized": "1.84.0.0",
@@ -1224,8 +1092,6 @@
             "install-path": "../fpdf/fpdf"
         },
         {
-=======
->>>>>>> stage
             "name": "psr/cache",
             "version": "2.0.0",
             "version_normalized": "2.0.0.0",
@@ -1388,7 +1254,6 @@
         },
         {
             "name": "symfony/cache",
-<<<<<<< HEAD
             "version": "v5.4.11",
             "version_normalized": "5.4.11.0",
             "source": {
@@ -1400,19 +1265,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/cache/zipball/5a0fff46df349f0db3fe242263451fddf5277362",
                 "reference": "5a0fff46df349f0db3fe242263451fddf5277362",
-=======
-            "version": "v5.4.10",
-            "version_normalized": "5.4.10.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/cache.git",
-                "reference": "c4e387b739022fd4b20abd8edb2143c44c5daa14"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/c4e387b739022fd4b20abd8edb2143c44c5daa14",
-                "reference": "c4e387b739022fd4b20abd8edb2143c44c5daa14",
->>>>>>> stage
                 "shasum": ""
             },
             "require": {
@@ -1450,11 +1302,7 @@
                 "symfony/messenger": "^4.4|^5.0|^6.0",
                 "symfony/var-dumper": "^4.4|^5.0|^6.0"
             },
-<<<<<<< HEAD
             "time": "2022-07-28T15:25:17+00:00",
-=======
-            "time": "2022-06-19T12:03:50+00:00",
->>>>>>> stage
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -1486,11 +1334,7 @@
                 "psr6"
             ],
             "support": {
-<<<<<<< HEAD
                 "source": "https://github.com/symfony/cache/tree/v5.4.11"
-=======
-                "source": "https://github.com/symfony/cache/tree/v5.4.10"
->>>>>>> stage
             },
             "funding": [
                 {
@@ -1592,7 +1436,6 @@
         },
         {
             "name": "symfony/console",
-<<<<<<< HEAD
             "version": "v6.1.3",
             "version_normalized": "6.1.3.0",
             "source": {
@@ -1604,19 +1447,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/console/zipball/43fcb5c5966b43c56bcfa481368d90d748936ab8",
                 "reference": "43fcb5c5966b43c56bcfa481368d90d748936ab8",
-=======
-            "version": "v6.1.2",
-            "version_normalized": "6.1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/console.git",
-                "reference": "7a86c1c42fbcb69b59768504c7bca1d3767760b7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/7a86c1c42fbcb69b59768504c7bca1d3767760b7",
-                "reference": "7a86c1c42fbcb69b59768504c7bca1d3767760b7",
->>>>>>> stage
                 "shasum": ""
             },
             "require": {
@@ -1651,11 +1481,7 @@
                 "symfony/lock": "",
                 "symfony/process": ""
             },
-<<<<<<< HEAD
             "time": "2022-07-22T14:17:57+00:00",
-=======
-            "time": "2022-06-26T13:01:30+00:00",
->>>>>>> stage
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -1689,11 +1515,7 @@
                 "terminal"
             ],
             "support": {
-<<<<<<< HEAD
                 "source": "https://github.com/symfony/console/tree/v6.1.3"
-=======
-                "source": "https://github.com/symfony/console/tree/v6.1.2"
->>>>>>> stage
             },
             "funding": [
                 {
@@ -2460,7 +2282,6 @@
         },
         {
             "name": "symfony/string",
-<<<<<<< HEAD
             "version": "v6.1.3",
             "version_normalized": "6.1.3.0",
             "source": {
@@ -2472,19 +2293,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/string/zipball/f35241f45c30bcd9046af2bb200a7086f70e1d6b",
                 "reference": "f35241f45c30bcd9046af2bb200a7086f70e1d6b",
-=======
-            "version": "v6.1.2",
-            "version_normalized": "6.1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/string.git",
-                "reference": "1903f2879875280c5af944625e8246d81c2f0604"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/1903f2879875280c5af944625e8246d81c2f0604",
-                "reference": "1903f2879875280c5af944625e8246d81c2f0604",
->>>>>>> stage
                 "shasum": ""
             },
             "require": {
@@ -2503,11 +2311,7 @@
                 "symfony/translation-contracts": "^2.0|^3.0",
                 "symfony/var-exporter": "^5.4|^6.0"
             },
-<<<<<<< HEAD
             "time": "2022-07-27T15:50:51+00:00",
-=======
-            "time": "2022-06-26T16:35:04+00:00",
->>>>>>> stage
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -2546,11 +2350,7 @@
                 "utf8"
             ],
             "support": {
-<<<<<<< HEAD
                 "source": "https://github.com/symfony/string/tree/v6.1.3"
-=======
-                "source": "https://github.com/symfony/string/tree/v6.1.2"
->>>>>>> stage
             },
             "funding": [
                 {
@@ -2570,7 +2370,6 @@
         },
         {
             "name": "symfony/var-exporter",
-<<<<<<< HEAD
             "version": "v6.1.3",
             "version_normalized": "6.1.3.0",
             "source": {
@@ -2582,19 +2381,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/var-exporter/zipball/b49350f45cebbba6e5286485264b912f2bcfc9ef",
                 "reference": "b49350f45cebbba6e5286485264b912f2bcfc9ef",
-=======
-            "version": "v6.1.1",
-            "version_normalized": "6.1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "ce1452317b1210ddfe18d143fa8a09c18f034b89"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/ce1452317b1210ddfe18d143fa8a09c18f034b89",
-                "reference": "ce1452317b1210ddfe18d143fa8a09c18f034b89",
->>>>>>> stage
                 "shasum": ""
             },
             "require": {
@@ -2603,11 +2389,7 @@
             "require-dev": {
                 "symfony/var-dumper": "^5.4|^6.0"
             },
-<<<<<<< HEAD
             "time": "2022-07-04T16:01:56+00:00",
-=======
-            "time": "2022-05-27T12:58:07+00:00",
->>>>>>> stage
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -2643,11 +2425,7 @@
                 "serialize"
             ],
             "support": {
-<<<<<<< HEAD
                 "source": "https://github.com/symfony/var-exporter/tree/v6.1.3"
-=======
-                "source": "https://github.com/symfony/var-exporter/tree/v6.1.1"
->>>>>>> stage
             },
             "funding": [
                 {
@@ -2667,7 +2445,6 @@
         },
         {
             "name": "symfony/yaml",
-<<<<<<< HEAD
             "version": "v5.4.11",
             "version_normalized": "5.4.11.0",
             "source": {
@@ -2679,19 +2456,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/yaml/zipball/05d4ea560f3402c6c116afd99fdc66e60eda227e",
                 "reference": "05d4ea560f3402c6c116afd99fdc66e60eda227e",
-=======
-            "version": "v5.4.10",
-            "version_normalized": "5.4.10.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "04e42926429d9e8b39c174387ab990bf7817f7a2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/04e42926429d9e8b39c174387ab990bf7817f7a2",
-                "reference": "04e42926429d9e8b39c174387ab990bf7817f7a2",
->>>>>>> stage
                 "shasum": ""
             },
             "require": {
@@ -2708,11 +2472,7 @@
             "suggest": {
                 "symfony/console": "For validating YAML files using the lint command"
             },
-<<<<<<< HEAD
             "time": "2022-06-27T16:58:25+00:00",
-=======
-            "time": "2022-06-20T11:50:59+00:00",
->>>>>>> stage
             "bin": [
                 "Resources/bin/yaml-lint"
             ],
@@ -2743,11 +2503,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-<<<<<<< HEAD
                 "source": "https://github.com/symfony/yaml/tree/v5.4.11"
-=======
-                "source": "https://github.com/symfony/yaml/tree/v5.4.10"
->>>>>>> stage
             },
             "funding": [
                 {

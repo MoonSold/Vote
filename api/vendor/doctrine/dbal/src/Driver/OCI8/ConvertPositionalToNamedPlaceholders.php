@@ -18,17 +18,10 @@ use function implode;
 final class ConvertPositionalToNamedPlaceholders implements Visitor
 {
     /** @var list<string> */
-<<<<<<< HEAD
     private array $buffer = [];
 
     /** @var array<int,string> */
     private array $parameterMap = [];
-=======
-    private $buffer = [];
-
-    /** @var array<int,string> */
-    private $parameterMap = [];
->>>>>>> stage
 
     public function acceptOther(string $sql): void
     {

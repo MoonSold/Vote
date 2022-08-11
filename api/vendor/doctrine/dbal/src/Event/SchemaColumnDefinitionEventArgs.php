@@ -10,12 +10,7 @@ use Doctrine\DBAL\Schema\Column;
  */
 class SchemaColumnDefinitionEventArgs extends SchemaEventArgs
 {
-<<<<<<< HEAD
     private ?Column $column = null;
-=======
-    /** @var Column|null */
-    private $column;
->>>>>>> stage
 
     /**
      * Raw column data as fetched from the database.
@@ -30,12 +25,7 @@ class SchemaColumnDefinitionEventArgs extends SchemaEventArgs
     /** @var string */
     private $database;
 
-<<<<<<< HEAD
     private Connection $connection;
-=======
-    /** @var Connection */
-    private $connection;
->>>>>>> stage
 
     /**
      * @param mixed[] $tableColumn

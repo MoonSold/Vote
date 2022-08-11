@@ -4,11 +4,8 @@ namespace Doctrine\DBAL\Schema\Visitor;
 
 /**
  * Visitor that can visit schema namespaces.
-<<<<<<< HEAD
  *
  * @deprecated
-=======
->>>>>>> stage
  */
 interface NamespaceVisitor
 {

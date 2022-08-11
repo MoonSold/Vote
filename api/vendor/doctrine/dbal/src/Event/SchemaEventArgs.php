@@ -9,12 +9,7 @@ use Doctrine\Common\EventArgs;
  */
 class SchemaEventArgs extends EventArgs
 {
-<<<<<<< HEAD
     private bool $preventDefault = false;
-=======
-    /** @var bool */
-    private $preventDefault = false;
->>>>>>> stage
 
     /**
      * @return SchemaEventArgs

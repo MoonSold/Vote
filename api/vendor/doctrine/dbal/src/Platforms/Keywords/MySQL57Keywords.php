@@ -2,11 +2,8 @@
 
 namespace Doctrine\DBAL\Platforms\Keywords;
 
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
 
-=======
->>>>>>> stage
 /**
  * MySQL 5.7 reserved keywords list.
  *
@@ -16,7 +13,6 @@ class MySQL57Keywords extends MySQLKeywords
 {
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -28,11 +24,6 @@ class MySQL57Keywords extends MySQLKeywords
             'MySQL57Keywords::getName() is deprecated.'
         );
 
-=======
-     */
-    public function getName()
-    {
->>>>>>> stage
         return 'MySQL57';
     }
 

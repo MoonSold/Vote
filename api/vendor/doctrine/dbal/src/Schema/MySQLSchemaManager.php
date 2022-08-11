@@ -5,22 +5,16 @@ namespace Doctrine\DBAL\Schema;
 use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
 use Doctrine\DBAL\Platforms\MariaDb1027Platform;
 use Doctrine\DBAL\Platforms\MySQL;
-<<<<<<< HEAD
 use Doctrine\DBAL\Platforms\MySQL\CollationMetadataProvider\CachingCollationMetadataProvider;
 use Doctrine\DBAL\Platforms\MySQL\CollationMetadataProvider\ConnectionCollationMetadataProvider;
 use Doctrine\DBAL\Result;
-=======
->>>>>>> stage
 use Doctrine\DBAL\Types\Type;
 
 use function array_change_key_case;
 use function array_shift;
 use function assert;
 use function explode;
-<<<<<<< HEAD
 use function implode;
-=======
->>>>>>> stage
 use function is_string;
 use function preg_match;
 use function strpos;
@@ -58,7 +52,6 @@ class MySQLSchemaManager extends AbstractSchemaManager
     ];
 
     /**
-<<<<<<< HEAD
      * {@inheritDoc}
      */
     public function listTableNames()
@@ -107,8 +100,6 @@ class MySQLSchemaManager extends AbstractSchemaManager
     }
 
     /**
-=======
->>>>>>> stage
      * {@inheritdoc}
      */
     protected function _getPortableViewDefinition($view)
@@ -127,20 +118,6 @@ class MySQLSchemaManager extends AbstractSchemaManager
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
-=======
-    protected function _getPortableUserDefinition($user)
-    {
-        return [
-            'user' => $user['User'],
-            'password' => $user['Password'],
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
->>>>>>> stage
     protected function _getPortableTableIndexesList($tableIndexes, $tableName = null)
     {
         foreach ($tableIndexes as $k => $v) {
@@ -375,7 +352,6 @@ class MySQLSchemaManager extends AbstractSchemaManager
             $list[$value['constraint_name']]['foreign'][] = $value['referenced_column_name'];
         }
 
-<<<<<<< HEAD
         return parent::_getPortableTableForeignKeysList($list);
     }
 
@@ -394,61 +370,10 @@ class MySQLSchemaManager extends AbstractSchemaManager
                 'onUpdate' => $tableForeignKey['onUpdate'],
             ]
         );
-=======
-        $result = [];
-        foreach ($list as $constraint) {
-            $result[] = new ForeignKeyConstraint(
-                $constraint['local'],
-                $constraint['foreignTable'],
-                $constraint['foreign'],
-                $constraint['name'],
-                [
-                    'onDelete' => $constraint['onDelete'],
-                    'onUpdate' => $constraint['onUpdate'],
-                ]
-            );
-        }
-
-        return $result;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function listTableDetails($name)
-    {
-        $table = parent::listTableDetails($name);
-
-        $sql = $this->_platform->getListTableMetadataSQL($name);
-
-        $tableOptions = $this->_conn->fetchAssociative($sql);
-
-        if ($tableOptions === false) {
-            return $table;
-        }
-
-        $table->addOption('engine', $tableOptions['ENGINE']);
-
-        if ($tableOptions['TABLE_COLLATION'] !== null) {
-            $table->addOption('collation', $tableOptions['TABLE_COLLATION']);
-        }
-
-        $table->addOption('charset', $tableOptions['CHARACTER_SET_NAME']);
-
-        if ($tableOptions['AUTO_INCREMENT'] !== null) {
-            $table->addOption('autoincrement', $tableOptions['AUTO_INCREMENT']);
-        }
-
-        $table->addOption('comment', $tableOptions['TABLE_COMMENT']);
-        $table->addOption('create_options', $this->parseCreateOptions($tableOptions['CREATE_OPTIONS']));
-
-        return $table;
->>>>>>> stage
     }
 
     public function createComparator(): Comparator
     {
-<<<<<<< HEAD
         return new MySQL\Comparator(
             $this->_platform,
             new CachingCollationMetadataProvider(
@@ -621,9 +546,6 @@ SQL;
         }
 
         return $tableOptions;
-=======
-        return new MySQL\Comparator($this->getDatabasePlatform());
->>>>>>> stage
     }
 
     /**

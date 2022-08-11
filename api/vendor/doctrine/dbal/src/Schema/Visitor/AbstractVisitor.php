@@ -11,11 +11,8 @@ use Doctrine\DBAL\Schema\Table;
 
 /**
  * Abstract Visitor with empty methods for easy extension.
-<<<<<<< HEAD
  *
  * @deprecated
-=======
->>>>>>> stage
  */
 class AbstractVisitor implements Visitor, NamespaceVisitor
 {

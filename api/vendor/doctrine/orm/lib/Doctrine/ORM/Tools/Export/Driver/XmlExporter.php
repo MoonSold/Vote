@@ -82,11 +82,7 @@ class XmlExporter extends AbstractExporter
 
             foreach ($metadata->discriminatorMap as $value => $className) {
                 $discriminatorMappingXml = $discriminatorMapXml->addChild('discriminator-mapping');
-<<<<<<< HEAD
                 $discriminatorMappingXml->addAttribute('value', (string) $value);
-=======
-                $discriminatorMappingXml->addAttribute('value', $value);
->>>>>>> stage
                 $discriminatorMappingXml->addAttribute('class', $className);
             }
         }

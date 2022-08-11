@@ -9,15 +9,11 @@ namespace Doctrine\DBAL\Types;
  */
 final class Types
 {
-<<<<<<< HEAD
     /**
      * @deprecated Use {@link Types::JSON} instead.
      */
     public const ARRAY = 'array';
 
-=======
-    public const ARRAY                = 'array';
->>>>>>> stage
     public const ASCII_STRING         = 'ascii_string';
     public const BIGINT               = 'bigint';
     public const BINARY               = 'binary';
@@ -35,7 +31,6 @@ final class Types
     public const GUID                 = 'guid';
     public const INTEGER              = 'integer';
     public const JSON                 = 'json';
-<<<<<<< HEAD
 
     /**
      * @deprecated Use {@link Types::JSON} instead.
@@ -48,15 +43,6 @@ final class Types
     public const TEXT           = 'text';
     public const TIME_MUTABLE   = 'time';
     public const TIME_IMMUTABLE = 'time_immutable';
-=======
-    public const OBJECT               = 'object';
-    public const SIMPLE_ARRAY         = 'simple_array';
-    public const SMALLINT             = 'smallint';
-    public const STRING               = 'string';
-    public const TEXT                 = 'text';
-    public const TIME_MUTABLE         = 'time';
-    public const TIME_IMMUTABLE       = 'time_immutable';
->>>>>>> stage
 
     /**
      * @codeCoverageIgnore

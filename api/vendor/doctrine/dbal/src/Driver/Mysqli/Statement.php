@@ -10,10 +10,7 @@ use Doctrine\DBAL\Driver\Mysqli\Exception\StatementError;
 use Doctrine\DBAL\Driver\Result as ResultInterface;
 use Doctrine\DBAL\Driver\Statement as StatementInterface;
 use Doctrine\DBAL\ParameterType;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 use mysqli_sql_exception;
 use mysqli_stmt;
 
@@ -22,10 +19,7 @@ use function assert;
 use function count;
 use function feof;
 use function fread;
-<<<<<<< HEAD
 use function func_num_args;
-=======
->>>>>>> stage
 use function get_resource_type;
 use function is_int;
 use function is_resource;
@@ -34,11 +28,7 @@ use function str_repeat;
 final class Statement implements StatementInterface
 {
     /** @var string[] */
-<<<<<<< HEAD
     private static array $paramTypeMap = [
-=======
-    private static $paramTypeMap = [
->>>>>>> stage
         ParameterType::ASCII => 's',
         ParameterType::STRING => 's',
         ParameterType::BINARY => 's',
@@ -48,34 +38,19 @@ final class Statement implements StatementInterface
         ParameterType::LARGE_OBJECT => 'b',
     ];
 
-<<<<<<< HEAD
     private mysqli_stmt $stmt;
 
     /** @var mixed[] */
     private array $boundValues;
 
     private string $types;
-=======
-    /** @var mysqli_stmt */
-    private $stmt;
-
-    /** @var mixed[] */
-    private $boundValues;
-
-    /** @var string */
-    private $types;
->>>>>>> stage
 
     /**
      * Contains ref values for bindValue().
      *
      * @var mixed[]
      */
-<<<<<<< HEAD
     private array $values = [];
-=======
-    private $values = [];
->>>>>>> stage
 
     /**
      * @internal The statement can be only instantiated by its driver connection.
@@ -91,7 +66,6 @@ final class Statement implements StatementInterface
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated Use {@see bindValue()} instead.
      */
@@ -115,13 +89,6 @@ final class Statement implements StatementInterface
             );
         }
 
-=======
-     */
-    public function bindParam($param, &$variable, $type = ParameterType::STRING, $length = null): bool
-    {
-        assert(is_int($param));
-
->>>>>>> stage
         if (! isset(self::$paramTypeMap[$type])) {
             throw UnknownParameterType::new($type);
         }
@@ -139,7 +106,6 @@ final class Statement implements StatementInterface
     {
         assert(is_int($param));
 
-<<<<<<< HEAD
         if (func_num_args() < 3) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -149,8 +115,6 @@ final class Statement implements StatementInterface
             );
         }
 
-=======
->>>>>>> stage
         if (! isset(self::$paramTypeMap[$type])) {
             throw UnknownParameterType::new($type);
         }
@@ -167,7 +131,6 @@ final class Statement implements StatementInterface
      */
     public function execute($params = null): ResultInterface
     {
-<<<<<<< HEAD
         if ($params !== null) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -177,8 +140,6 @@ final class Statement implements StatementInterface
             );
         }
 
-=======
->>>>>>> stage
         if ($params !== null && count($params) > 0) {
             if (! $this->bindUntypedValues($params)) {
                 throw StatementError::new($this->stmt);

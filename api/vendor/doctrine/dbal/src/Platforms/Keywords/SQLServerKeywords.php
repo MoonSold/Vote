@@ -2,11 +2,8 @@
 
 namespace Doctrine\DBAL\Platforms\Keywords;
 
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
 
-=======
->>>>>>> stage
 /**
  * Microsoft SQL Server 2012 reserved keyword dictionary.
  * Reserved keywords list corresponding to the Microsoft SQL Server database platform of the oldest supported version.
@@ -15,7 +12,6 @@ class SQLServerKeywords extends KeywordList
 {
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -27,11 +23,6 @@ class SQLServerKeywords extends KeywordList
             'SQLServerKeywords::getName() is deprecated.'
         );
 
-=======
-     */
-    public function getName()
-    {
->>>>>>> stage
         return 'SQLServer';
     }
 

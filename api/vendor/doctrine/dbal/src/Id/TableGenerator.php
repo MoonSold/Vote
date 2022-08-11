@@ -57,22 +57,13 @@ use const CASE_LOWER;
  */
 class TableGenerator
 {
-<<<<<<< HEAD
     private Connection $conn;
-=======
-    /** @var Connection */
-    private $conn;
->>>>>>> stage
 
     /** @var string */
     private $generatorTableName;
 
     /** @var mixed[][] */
-<<<<<<< HEAD
     private array $sequences = [];
-=======
-    private $sequences = [];
->>>>>>> stage
 
     /**
      * @param string $generatorTableName

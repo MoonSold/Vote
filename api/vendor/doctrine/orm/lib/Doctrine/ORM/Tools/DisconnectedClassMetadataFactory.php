@@ -13,11 +13,8 @@ use Doctrine\Persistence\Mapping\StaticReflectionService;
  * load some mapping information and use it to do things like generate code
  * from the mapping information.
  *
-<<<<<<< HEAD
  * @deprecated This class is being removed from the ORM and will be removed in 3.0.
  *
-=======
->>>>>>> stage
  * @link    www.doctrine-project.org
  */
 class DisconnectedClassMetadataFactory extends ClassMetadataFactory

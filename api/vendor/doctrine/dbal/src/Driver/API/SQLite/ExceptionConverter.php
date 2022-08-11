@@ -8,10 +8,7 @@ use Doctrine\DBAL\Driver\API\ExceptionConverter as ExceptionConverterInterface;
 use Doctrine\DBAL\Driver\Exception;
 use Doctrine\DBAL\Exception\ConnectionException;
 use Doctrine\DBAL\Exception\DriverException;
-<<<<<<< HEAD
 use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
-=======
->>>>>>> stage
 use Doctrine\DBAL\Exception\InvalidFieldNameException;
 use Doctrine\DBAL\Exception\LockWaitTimeoutException;
 use Doctrine\DBAL\Exception\NonUniqueFieldNameException;
@@ -83,13 +80,10 @@ final class ExceptionConverter implements ExceptionConverterInterface
             return new ConnectionException($exception, $query);
         }
 
-<<<<<<< HEAD
         if (strpos($exception->getMessage(), 'FOREIGN KEY constraint failed') !== false) {
             return new ForeignKeyConstraintViolationException($exception, $query);
         }
 
-=======
->>>>>>> stage
         return new DriverException($exception, $query);
     }
 }

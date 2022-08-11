@@ -7,19 +7,11 @@ use Doctrine\DBAL\Driver;
 use Doctrine\DBAL\Driver\API\ExceptionConverter;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\VersionAwarePlatformDriver;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
 
 abstract class AbstractDriverMiddleware implements VersionAwarePlatformDriver
 {
     private Driver $wrappedDriver;
-=======
-
-abstract class AbstractDriverMiddleware implements VersionAwarePlatformDriver
-{
-    /** @var Driver */
-    private $wrappedDriver;
->>>>>>> stage
 
     public function __construct(Driver $wrappedDriver)
     {
@@ -44,7 +36,6 @@ abstract class AbstractDriverMiddleware implements VersionAwarePlatformDriver
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated Use {@link AbstractPlatform::createSchemaManager()} instead.
      */
@@ -57,11 +48,6 @@ abstract class AbstractDriverMiddleware implements VersionAwarePlatformDriver
                 . ' Use AbstractPlatform::createSchemaManager() instead.'
         );
 
-=======
-     */
-    public function getSchemaManager(Connection $conn, AbstractPlatform $platform)
-    {
->>>>>>> stage
         return $this->wrappedDriver->getSchemaManager($conn, $platform);
     }
 

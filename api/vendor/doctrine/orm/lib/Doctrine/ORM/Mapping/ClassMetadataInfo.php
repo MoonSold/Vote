@@ -97,7 +97,6 @@ use const PHP_VERSION_ID;
  *      declaredField?: string,
  *      options?: array<string, mixed>
  * }
-<<<<<<< HEAD
  * @psalm-type JoinColumnData = array{
  *     name: string,
  *     referencedColumnName: string,
@@ -143,8 +142,6 @@ use const PHP_VERSION_ID;
  *     type: int,
  *     unique?: bool,
  * }
-=======
->>>>>>> stage
  */
 class ClassMetadataInfo implements ClassMetadata
 {
@@ -567,15 +564,9 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @see discriminatorColumn
      *
-<<<<<<< HEAD
      * @var array<int|string, string>
      *
      * @psalm-var array<int|string, class-string>
-=======
-     * @var array<string, string>
-     *
-     * @psalm-var array<string, class-string>
->>>>>>> stage
      */
     public $discriminatorMap = [];
 
@@ -675,11 +666,7 @@ class ClassMetadataInfo implements ClassMetadata
      * )
      * </pre>
      *
-<<<<<<< HEAD
      * @psalm-var array<string, AssociationMapping>
-=======
-     * @psalm-var array<string, array<string, mixed>>
->>>>>>> stage
      */
     public $associationMappings = [];
 
@@ -771,11 +758,7 @@ class ClassMetadataInfo implements ClassMetadata
     /**
      * READ-ONLY: The name of the field which is used for versioning in optimistic locking (if any).
      *
-<<<<<<< HEAD
      * @var string|null
-=======
-     * @var mixed
->>>>>>> stage
      */
     public $versionField;
 
@@ -1445,11 +1428,7 @@ class ClassMetadataInfo implements ClassMetadata
      *                          the object model.
      *
      * @return mixed[] The mapping.
-<<<<<<< HEAD
      * @psalm-return AssociationMapping
-=======
-     * @psalm-return array<string, mixed>
->>>>>>> stage
      *
      * @throws MappingException
      */
@@ -1465,11 +1444,7 @@ class ClassMetadataInfo implements ClassMetadata
     /**
      * Gets all association mappings of the class.
      *
-<<<<<<< HEAD
      * @psalm-return array<string, AssociationMapping>
-=======
-     * @psalm-return array<string, array<string, mixed>>
->>>>>>> stage
      */
     public function getAssociationMappings()
     {
@@ -1945,15 +1920,9 @@ class ClassMetadataInfo implements ClassMetadata
      *      originalClass: class-string,
      *      joinColumns?: array{0: array{name: string, referencedColumnName: string}}|mixed,
      *      id?: mixed,
-<<<<<<< HEAD
      *      sourceToTargetKeyColumns?: array<string, string>,
      *      joinColumnFieldNames?: array<string, string>,
      *      targetToSourceKeyColumns?: array<string, string>,
-=======
-     *      sourceToTargetKeyColumns?: array,
-     *      joinColumnFieldNames?: array,
-     *      targetToSourceKeyColumns?: array<array-key>,
->>>>>>> stage
      *      orphanRemoval: bool
      * }
      *
@@ -2838,11 +2807,7 @@ class ClassMetadataInfo implements ClassMetadata
      * Adds an association mapping without completing/validating it.
      * This is mainly used to add inherited association mappings to derived classes.
      *
-<<<<<<< HEAD
      * @psalm-param AssociationMapping $mapping
-=======
-     * @psalm-param array<string, mixed> $mapping
->>>>>>> stage
      *
      * @return void
      *
@@ -3299,11 +3264,7 @@ class ClassMetadataInfo implements ClassMetadata
      * Sets the discriminator values used by this class.
      * Used for JOINED and SINGLE_TABLE inheritance mapping strategies.
      *
-<<<<<<< HEAD
      * @param array<int|string, string> $map
-=======
-     * @psalm-param array<string, class-string> $map
->>>>>>> stage
      *
      * @return void
      */
@@ -3317,14 +3278,8 @@ class ClassMetadataInfo implements ClassMetadata
     /**
      * Adds one entry of the discriminator map with a new class and corresponding name.
      *
-<<<<<<< HEAD
      * @param int|string $name
      * @param string     $className
-=======
-     * @param string $name
-     * @param string $className
-     * @psalm-param class-string $className
->>>>>>> stage
      *
      * @return void
      *
@@ -3608,11 +3563,7 @@ class ClassMetadataInfo implements ClassMetadata
      * Sets the name of the field that is to be used for versioning if this class is
      * versioned for optimistic locking.
      *
-<<<<<<< HEAD
      * @param string|null $versionField
-=======
-     * @param string $versionField
->>>>>>> stage
      *
      * @return void
      */
@@ -3802,10 +3753,6 @@ class ClassMetadataInfo implements ClassMetadata
 
     /**
      * @param string|null $className
-<<<<<<< HEAD
-=======
-     * @psalm-param string|class-string|null $className
->>>>>>> stage
      *
      * @return string|null null if the input value is null
      * @psalm-return class-string|null

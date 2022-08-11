@@ -11,12 +11,7 @@ use PDOStatement;
 
 final class Result implements ResultInterface
 {
-<<<<<<< HEAD
     private PDOStatement $statement;
-=======
-    /** @var PDOStatement */
-    private $statement;
->>>>>>> stage
 
     /**
      * @internal The result can be only instantiated by its driver connection or statement.

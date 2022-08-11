@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Upgrade to 2.13
 
 ## Deprecated `QueryBuilder` methods and constants.
@@ -212,8 +211,6 @@ methods:
 - `Doctrine\ORM\Mapping\Driver\DatabaseDriver::loadMetadataForClass()`
 - `Doctrine\ORM\Tools\SchemaValidator::validateClass()`
 
-=======
->>>>>>> stage
 # Upgrade to 2.12
 
 ## Deprecated the `doctrine` binary.

@@ -12,10 +12,7 @@ use Doctrine\ORM\UnitOfWork;
 use Doctrine\ORM\Utility\IdentifierFlattener;
 
 use function array_merge;
-<<<<<<< HEAD
 use function assert;
-=======
->>>>>>> stage
 use function is_array;
 use function is_object;
 use function reset;
@@ -61,10 +58,7 @@ class DefaultEntityHydrator implements EntityHydrator
 
         if ($metadata->requiresFetchAfterChange) {
             if ($metadata->isVersioned) {
-<<<<<<< HEAD
                 assert($metadata->versionField !== null);
-=======
->>>>>>> stage
                 $data[$metadata->versionField] = $metadata->getFieldValue($entity, $metadata->versionField);
             }
 

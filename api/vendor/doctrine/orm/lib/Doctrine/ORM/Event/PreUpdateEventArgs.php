@@ -108,11 +108,7 @@ class PreUpdateEventArgs extends LifecycleEventArgs
             throw new InvalidArgumentException(sprintf(
                 'Field "%s" is not a valid field of the entity "%s" in PreUpdateEventArgs.',
                 $field,
-<<<<<<< HEAD
                 get_debug_type($this->getObject())
-=======
-                get_debug_type($this->getEntity())
->>>>>>> stage
             ));
         }
     }

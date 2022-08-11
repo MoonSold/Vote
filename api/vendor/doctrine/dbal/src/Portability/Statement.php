@@ -11,12 +11,7 @@ use Doctrine\DBAL\Driver\Statement as DriverStatement;
  */
 final class Statement extends AbstractStatementMiddleware
 {
-<<<<<<< HEAD
     private Converter $converter;
-=======
-    /** @var Converter */
-    private $converter;
->>>>>>> stage
 
     /**
      * Wraps <tt>Statement</tt> and applies portability measures.

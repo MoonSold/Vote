@@ -37,10 +37,7 @@ use Doctrine\ORM\Mapping\EntityListenerResolver;
 use Doctrine\ORM\Mapping\NamingStrategy;
 use Doctrine\ORM\Mapping\QuoteStrategy;
 use Doctrine\ORM\Proxy\ProxyFactory;
-<<<<<<< HEAD
 use Doctrine\ORM\Query\AST\Functions\FunctionNode;
-=======
->>>>>>> stage
 use Doctrine\ORM\Query\Filter\SQLFilter;
 use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\ORM\Repository\DefaultRepositoryFactory;
@@ -107,10 +104,7 @@ class Configuration extends \Doctrine\DBAL\Configuration
      * Sets the strategy for automatically generating proxy classes.
      *
      * @param bool|int $autoGenerate Possible values are constants of Doctrine\Common\Proxy\AbstractProxyFactory.
-<<<<<<< HEAD
      * @psalm-param bool|AutogenerateMode $autoGenerate
-=======
->>>>>>> stage
      * True is converted to AUTOGENERATE_ALWAYS, false to AUTOGENERATE_NEVER.
      *
      * @return void
@@ -600,14 +594,9 @@ class Configuration extends \Doctrine\DBAL\Configuration
      *
      * DQL function names are case-insensitive.
      *
-<<<<<<< HEAD
      * @param string                $name      Function name.
      * @param class-string|callable $className Class name or a callable that returns the function.
      * @psalm-param class-string<FunctionNode>|callable(string):FunctionNode $className
-=======
-     * @param string          $name      Function name.
-     * @param string|callable $className Class name or a callable that returns the function.
->>>>>>> stage
      *
      * @return void
      */
@@ -622,11 +611,7 @@ class Configuration extends \Doctrine\DBAL\Configuration
      * @param string $name
      *
      * @return string|callable|null
-<<<<<<< HEAD
      * @psalm-return class-string<FunctionNode>|callable(string):FunctionNode|null
-=======
-     * @psalm-return class-string|callable|null
->>>>>>> stage
      */
     public function getCustomStringFunction($name)
     {
@@ -643,12 +628,8 @@ class Configuration extends \Doctrine\DBAL\Configuration
      *
      * Any previously added string functions are discarded.
      *
-<<<<<<< HEAD
      * @psalm-param array<string, class-string<FunctionNode>|callable(string):FunctionNode> $functions The map of custom
      *                                                     DQL string functions.
-=======
-     * @psalm-param array<string, class-string|callable> $functions The map of custom DQL string functions.
->>>>>>> stage
      *
      * @return void
      */
@@ -666,14 +647,9 @@ class Configuration extends \Doctrine\DBAL\Configuration
      *
      * DQL function names are case-insensitive.
      *
-<<<<<<< HEAD
      * @param string                $name      Function name.
      * @param class-string|callable $className Class name or a callable that returns the function.
      * @psalm-param class-string<FunctionNode>|callable(string):FunctionNode $className
-=======
-     * @param string          $name      Function name.
-     * @param string|callable $className Class name or a callable that returns the function.
->>>>>>> stage
      *
      * @return void
      */
@@ -726,11 +702,7 @@ class Configuration extends \Doctrine\DBAL\Configuration
      *
      * @param string          $name      Function name.
      * @param string|callable $className Class name or a callable that returns the function.
-<<<<<<< HEAD
      * @psalm-param class-string<FunctionNode>|callable(string):FunctionNode $className
-=======
-     * @psalm-param class-string|callable $className
->>>>>>> stage
      *
      * @return void
      */
@@ -763,11 +735,7 @@ class Configuration extends \Doctrine\DBAL\Configuration
      * Any previously added date/time functions are discarded.
      *
      * @param array $functions The map of custom DQL date/time functions.
-<<<<<<< HEAD
      * @psalm-param array<string, class-string<FunctionNode>|callable(string):FunctionNode> $functions
-=======
-     * @psalm-param array<string, string> $functions
->>>>>>> stage
      *
      * @return void
      */

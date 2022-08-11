@@ -15,37 +15,22 @@ final class Query
 {
     /**
      * The SQL query.
-<<<<<<< HEAD
      */
     private string $sql;
-=======
-     *
-     * @var string
-     */
-    private $sql;
->>>>>>> stage
 
     /**
      * The parameters bound to the query.
      *
      * @var array<mixed>
      */
-<<<<<<< HEAD
     private array $params;
-=======
-    private $params;
->>>>>>> stage
 
     /**
      * The types of the parameters bound to the query.
      *
      * @var array<Type|int|string|null>
      */
-<<<<<<< HEAD
     private array $types;
-=======
-    private $types;
->>>>>>> stage
 
     /**
      * @param array<mixed>                $params

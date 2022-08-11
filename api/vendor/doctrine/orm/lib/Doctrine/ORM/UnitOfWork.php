@@ -25,10 +25,7 @@ use Doctrine\ORM\Id\AssignedGenerator;
 use Doctrine\ORM\Internal\CommitOrderCalculator;
 use Doctrine\ORM\Internal\HydrationCompleteHandler;
 use Doctrine\ORM\Mapping\ClassMetadata;
-<<<<<<< HEAD
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
-=======
->>>>>>> stage
 use Doctrine\ORM\Mapping\MappingException;
 use Doctrine\ORM\Mapping\Reflection\ReflectionPropertiesGetter;
 use Doctrine\ORM\Persisters\Collection\CollectionPersister;
@@ -58,10 +55,7 @@ use function array_merge;
 use function array_pop;
 use function array_sum;
 use function array_values;
-<<<<<<< HEAD
 use function assert;
-=======
->>>>>>> stage
 use function count;
 use function current;
 use function get_class;
@@ -81,11 +75,8 @@ use function sprintf;
  * in the correct order.
  *
  * Internal note: This class contains highly performance-sensitive code.
-<<<<<<< HEAD
  *
  * @psalm-import-type AssociationMapping from ClassMetadataInfo
-=======
->>>>>>> stage
  */
 class UnitOfWork implements PropertyChangedListener
 {
@@ -1625,11 +1616,8 @@ class UnitOfWork implements PropertyChangedListener
             case $class->isIdentifierNatural():
                 // Check for a version field, if available, to avoid a db lookup.
                 if ($class->isVersioned) {
-<<<<<<< HEAD
                     assert($class->versionField !== null);
 
-=======
->>>>>>> stage
                     return $class->getFieldValue($entity, $class->versionField)
                         ? self::STATE_DETACHED
                         : self::STATE_NEW;
@@ -1955,13 +1943,8 @@ class UnitOfWork implements PropertyChangedListener
     /**
      * Executes a merge operation on an entity.
      *
-<<<<<<< HEAD
      * @param object $entity
      * @psalm-param AssociationMapping|null $assoc
-=======
-     * @param object   $entity
-     * @param string[] $assoc
->>>>>>> stage
      * @psalm-param array<int, object> $visited
      *
      * @return object The managed copy of the entity.
@@ -1975,11 +1958,7 @@ class UnitOfWork implements PropertyChangedListener
         $entity,
         array &$visited,
         $prevManagedCopy = null,
-<<<<<<< HEAD
         ?array $assoc = null
-=======
-        array $assoc = []
->>>>>>> stage
     ) {
         $oid = spl_object_id($entity);
 
@@ -2088,10 +2067,7 @@ class UnitOfWork implements PropertyChangedListener
             return;
         }
 
-<<<<<<< HEAD
         assert($class->versionField !== null);
-=======
->>>>>>> stage
         $reflField          = $class->reflFields[$class->versionField];
         $managedCopyVersion = $reflField->getValue($managedCopy);
         $entityVersion      = $reflField->getValue($entity);
@@ -2118,13 +2094,8 @@ class UnitOfWork implements PropertyChangedListener
     /**
      * Sets/adds associated managed copies into the previous entity's association field
      *
-<<<<<<< HEAD
      * @param object $entity
      * @psalm-param AssociationMapping $association
-=======
-     * @param object   $entity
-     * @param string[] $association
->>>>>>> stage
      */
     private function updateAssociationWithMergedEntity(
         $entity,
@@ -2531,10 +2502,7 @@ class UnitOfWork implements PropertyChangedListener
                     $entity->__load();
                 }
 
-<<<<<<< HEAD
                 assert($class->versionField !== null);
-=======
->>>>>>> stage
                 $entityVersion = $class->reflFields[$class->versionField]->getValue($entity);
 
                 // phpcs:ignore SlevomatCodingStandard.Operators.DisallowEqualOperators.DisallowedNotEqualOperator

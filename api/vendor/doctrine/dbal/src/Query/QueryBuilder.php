@@ -2,10 +2,7 @@
 
 namespace Doctrine\DBAL\Query;
 
-<<<<<<< HEAD
 use Doctrine\DBAL\Cache\QueryCacheProfile;
-=======
->>>>>>> stage
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\ParameterType;
@@ -41,7 +38,6 @@ use function substr;
  */
 class QueryBuilder
 {
-<<<<<<< HEAD
     /**
      * @deprecated
      */
@@ -70,33 +66,12 @@ class QueryBuilder
     /**
      * @deprecated
      */
-=======
-    /*
-     * The query types.
-     */
-    public const SELECT = 0;
-    public const DELETE = 1;
-    public const UPDATE = 2;
-    public const INSERT = 3;
-
-    /*
-     * The builder states.
-     */
-    public const STATE_DIRTY = 0;
->>>>>>> stage
     public const STATE_CLEAN = 1;
 
     /**
      * The DBAL Connection.
-<<<<<<< HEAD
      */
     private Connection $connection;
-=======
-     *
-     * @var Connection
-     */
-    private $connection;
->>>>>>> stage
 
     /*
      * The default values of SQL parts collection
@@ -119,23 +94,12 @@ class QueryBuilder
      *
      * @var mixed[]
      */
-<<<<<<< HEAD
     private array $sqlParts = self::SQL_PARTS_DEFAULTS;
 
     /**
      * The complete SQL string for this query.
      */
     private ?string $sql = null;
-=======
-    private $sqlParts = self::SQL_PARTS_DEFAULTS;
-
-    /**
-     * The complete SQL string for this query.
-     *
-     * @var string|null
-     */
-    private $sql;
->>>>>>> stage
 
     /**
      * The query parameters.
@@ -149,7 +113,6 @@ class QueryBuilder
      *
      * @var array<int, int|string|Type|null>|array<string, int|string|Type|null>
      */
-<<<<<<< HEAD
     private array $paramTypes = [];
 
     /**
@@ -181,44 +144,6 @@ class QueryBuilder
      * The query cache profile used for caching results.
      */
     private ?QueryCacheProfile $resultCacheProfile = null;
-=======
-    private $paramTypes = [];
-
-    /**
-     * The type of query this is. Can be select, update or delete.
-     *
-     * @var int
-     */
-    private $type = self::SELECT;
-
-    /**
-     * The state of the query object. Can be dirty or clean.
-     *
-     * @var int
-     */
-    private $state = self::STATE_CLEAN;
-
-    /**
-     * The index of the first result to retrieve.
-     *
-     * @var int
-     */
-    private $firstResult = 0;
-
-    /**
-     * The maximum number of results to retrieve or NULL to retrieve all results.
-     *
-     * @var int|null
-     */
-    private $maxResults;
-
-    /**
-     * The counter of bound parameters used with {@see bindValue).
-     *
-     * @var int
-     */
-    private $boundCounter = 0;
->>>>>>> stage
 
     /**
      * Initializes a new <tt>QueryBuilder</tt>.
@@ -254,16 +179,12 @@ class QueryBuilder
     /**
      * Gets the type of the currently built query.
      *
-<<<<<<< HEAD
      * @deprecated If necessary, track the type of the query being built outside of the builder.
      *
-=======
->>>>>>> stage
      * @return int
      */
     public function getType()
     {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5551',
@@ -271,8 +192,6 @@ class QueryBuilder
                 . ' If necessary, track the type of the query being built outside of the builder.'
         );
 
-=======
->>>>>>> stage
         return $this->type;
     }
 
@@ -289,24 +208,18 @@ class QueryBuilder
     /**
      * Gets the state of this query builder instance.
      *
-<<<<<<< HEAD
      * @deprecated The builder state is an internal concern.
      *
-=======
->>>>>>> stage
      * @return int Either QueryBuilder::STATE_DIRTY or QueryBuilder::STATE_CLEAN.
      */
     public function getState()
     {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5551',
             'Relying on the query builder state is deprecated as it is an internal concern.'
         );
 
-=======
->>>>>>> stage
         return $this->state;
     }
 
@@ -320,11 +233,7 @@ class QueryBuilder
      */
     public function fetchAssociative()
     {
-<<<<<<< HEAD
         return $this->executeQuery()->fetchAssociative();
-=======
-        return $this->connection->fetchAssociative($this->getSQL(), $this->params, $this->paramTypes);
->>>>>>> stage
     }
 
     /**
@@ -337,11 +246,7 @@ class QueryBuilder
      */
     public function fetchNumeric()
     {
-<<<<<<< HEAD
         return $this->executeQuery()->fetchNumeric();
-=======
-        return $this->connection->fetchNumeric($this->getSQL(), $this->params, $this->paramTypes);
->>>>>>> stage
     }
 
     /**
@@ -354,11 +259,7 @@ class QueryBuilder
      */
     public function fetchOne()
     {
-<<<<<<< HEAD
         return $this->executeQuery()->fetchOne();
-=======
-        return $this->connection->fetchOne($this->getSQL(), $this->params, $this->paramTypes);
->>>>>>> stage
     }
 
     /**
@@ -370,11 +271,7 @@ class QueryBuilder
      */
     public function fetchAllNumeric(): array
     {
-<<<<<<< HEAD
         return $this->executeQuery()->fetchAllNumeric();
-=======
-        return $this->connection->fetchAllNumeric($this->getSQL(), $this->params, $this->paramTypes);
->>>>>>> stage
     }
 
     /**
@@ -386,11 +283,7 @@ class QueryBuilder
      */
     public function fetchAllAssociative(): array
     {
-<<<<<<< HEAD
         return $this->executeQuery()->fetchAllAssociative();
-=======
-        return $this->connection->fetchAllAssociative($this->getSQL(), $this->params, $this->paramTypes);
->>>>>>> stage
     }
 
     /**
@@ -403,11 +296,7 @@ class QueryBuilder
      */
     public function fetchAllKeyValue(): array
     {
-<<<<<<< HEAD
         return $this->executeQuery()->fetchAllKeyValue();
-=======
-        return $this->connection->fetchAllKeyValue($this->getSQL(), $this->params, $this->paramTypes);
->>>>>>> stage
     }
 
     /**
@@ -421,11 +310,7 @@ class QueryBuilder
      */
     public function fetchAllAssociativeIndexed(): array
     {
-<<<<<<< HEAD
         return $this->executeQuery()->fetchAllAssociativeIndexed();
-=======
-        return $this->connection->fetchAllAssociativeIndexed($this->getSQL(), $this->params, $this->paramTypes);
->>>>>>> stage
     }
 
     /**
@@ -437,11 +322,7 @@ class QueryBuilder
      */
     public function fetchFirstColumn(): array
     {
-<<<<<<< HEAD
         return $this->executeQuery()->fetchFirstColumn();
-=======
-        return $this->connection->fetchFirstColumn($this->getSQL(), $this->params, $this->paramTypes);
->>>>>>> stage
     }
 
     /**
@@ -451,16 +332,12 @@ class QueryBuilder
      */
     public function executeQuery(): Result
     {
-<<<<<<< HEAD
         return $this->connection->executeQuery(
             $this->getSQL(),
             $this->params,
             $this->paramTypes,
             $this->resultCacheProfile
         );
-=======
-        return $this->connection->executeQuery($this->getSQL(), $this->params, $this->paramTypes);
->>>>>>> stage
     }
 
     /**
@@ -495,11 +372,7 @@ class QueryBuilder
                 'QueryBuilder::execute() is deprecated, use QueryBuilder::executeQuery() for SQL queries instead.'
             );
 
-<<<<<<< HEAD
             return $this->executeQuery();
-=======
-            return $this->connection->executeQuery($this->getSQL(), $this->params, $this->paramTypes);
->>>>>>> stage
         }
 
         Deprecation::trigger(
@@ -571,7 +444,6 @@ class QueryBuilder
      *
      * @return $this This QueryBuilder instance.
      */
-<<<<<<< HEAD
     public function setParameter($key, $value, $type = ParameterType::STRING)
     {
         if ($type !== null) {
@@ -583,12 +455,6 @@ class QueryBuilder
                 'Using NULL as prepared statement parameter type is deprecated.'
                     . 'Omit or use Parameter::STRING instead'
             );
-=======
-    public function setParameter($key, $value, $type = null)
-    {
-        if ($type !== null) {
-            $this->paramTypes[$key] = $type;
->>>>>>> stage
         }
 
         $this->params[$key] = $value;
@@ -661,19 +527,11 @@ class QueryBuilder
      *
      * @param int|string $key The key of the bound parameter type
      *
-<<<<<<< HEAD
      * @return int|string|Type The value of the bound parameter type
      */
     public function getParameterType($key)
     {
         return $this->paramTypes[$key] ?? ParameterType::STRING;
-=======
-     * @return int|string|Type|null The value of the bound parameter type
-     */
-    public function getParameterType($key)
-    {
-        return $this->paramTypes[$key] ?? null;
->>>>>>> stage
     }
 
     /**
@@ -1466,13 +1324,7 @@ class QueryBuilder
      */
     public function resetQueryParts($queryPartNames = null)
     {
-<<<<<<< HEAD
         $queryPartNames ??= array_keys($this->sqlParts);
-=======
-        if ($queryPartNames === null) {
-            $queryPartNames = array_keys($this->sqlParts);
-        }
->>>>>>> stage
 
         foreach ($queryPartNames as $queryPartName) {
             $this->resetQueryPart($queryPartName);
@@ -1624,24 +1476,14 @@ class QueryBuilder
      * when using prepared statements.
      *
      * The parameter $value specifies the value that you want to bind. If
-<<<<<<< HEAD
      * $placeholder is not provided createNamedParameter() will automatically
      * create a placeholder for you. An automatic placeholder will be of the
      * name ':dcValue1', ':dcValue2' etc.
-=======
-     * $placeholder is not provided bindValue() will automatically create a
-     * placeholder for you. An automatic placeholder will be of the name
-     * ':dcValue1', ':dcValue2' etc.
->>>>>>> stage
      *
      * Example:
      * <code>
      * $value = 2;
-<<<<<<< HEAD
      * $q->eq( 'id', $q->createNamedParameter( $value ) );
-=======
-     * $q->eq( 'id', $q->bindValue( $value ) );
->>>>>>> stage
      * $stmt = $q->executeQuery(); // executed with 'id = 2'
      * </code>
      *
@@ -1757,7 +1599,6 @@ class QueryBuilder
             $this->params[$name] = clone $param;
         }
     }
-<<<<<<< HEAD
 
     /**
      * Enables caching of the results of this query, for given amount of seconds
@@ -1783,6 +1624,4 @@ class QueryBuilder
 
         return $this;
     }
-=======
->>>>>>> stage
 }

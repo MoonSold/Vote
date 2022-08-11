@@ -6,10 +6,7 @@ namespace Doctrine\ORM\Mapping;
 
 use BackedEnum;
 use Doctrine\ORM\Exception\ORMException;
-<<<<<<< HEAD
 use LibXMLError;
-=======
->>>>>>> stage
 use ReflectionException;
 use ValueError;
 
@@ -21,11 +18,8 @@ use function get_parent_class;
 use function implode;
 use function sprintf;
 
-<<<<<<< HEAD
 use const PHP_EOL;
 
-=======
->>>>>>> stage
 /**
  * A MappingException indicates that something is wrong with the mapping setup.
  */
@@ -1009,7 +1003,6 @@ EXCEPTION
             $enumType
         ), 0, $previous);
     }
-<<<<<<< HEAD
 
     /**
      * @param LibXMLError[] $errors
@@ -1027,6 +1020,4 @@ EXCEPTION
 
         return new self(implode(PHP_EOL, array_map($formatter, $errors)));
     }
-=======
->>>>>>> stage
 }

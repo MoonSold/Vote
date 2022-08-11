@@ -18,7 +18,6 @@ use function array_intersect_key;
  */
 class Comparator extends BaseComparator
 {
-<<<<<<< HEAD
     /** @var CollationMetadataProvider */
     private $collationMetadataProvider;
 
@@ -30,14 +29,6 @@ class Comparator extends BaseComparator
         parent::__construct($platform);
 
         $this->collationMetadataProvider = $collationMetadataProvider;
-=======
-    /**
-     * @internal The comparator can be only instantiated by a schema manager.
-     */
-    public function __construct(AbstractMySQLPlatform $platform)
-    {
-        parent::__construct($platform);
->>>>>>> stage
     }
 
     /**
@@ -53,16 +44,11 @@ class Comparator extends BaseComparator
 
     private function normalizeColumns(Table $table): Table
     {
-<<<<<<< HEAD
         $tableOptions = array_intersect_key($table->getOptions(), [
-=======
-        $defaults = array_intersect_key($table->getOptions(), [
->>>>>>> stage
             'charset'   => null,
             'collation' => null,
         ]);
 
-<<<<<<< HEAD
         $table = clone $table;
 
         foreach ($table->getColumns() as $column) {
@@ -76,28 +62,10 @@ class Comparator extends BaseComparator
             }
 
             $column->setPlatformOptions($overrideOptions);
-=======
-        if ($defaults === []) {
-            return $table;
-        }
-
-        $table = clone $table;
-
-        foreach ($table->getColumns() as $column) {
-            $options = $column->getPlatformOptions();
-            $diff    = array_diff_assoc($options, $defaults);
-
-            if ($diff === $options) {
-                continue;
-            }
-
-            $column->setPlatformOptions($diff);
->>>>>>> stage
         }
 
         return $table;
     }
-<<<<<<< HEAD
 
     /**
      * @param array<string,string> $options
@@ -116,6 +84,4 @@ class Comparator extends BaseComparator
 
         return $options;
     }
-=======
->>>>>>> stage
 }

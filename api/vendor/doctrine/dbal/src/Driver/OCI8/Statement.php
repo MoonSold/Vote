@@ -7,13 +7,9 @@ use Doctrine\DBAL\Driver\OCI8\Exception\UnknownParameterIndex;
 use Doctrine\DBAL\Driver\Result as ResultInterface;
 use Doctrine\DBAL\Driver\Statement as StatementInterface;
 use Doctrine\DBAL\ParameterType;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
 
 use function func_num_args;
-=======
-
->>>>>>> stage
 use function is_int;
 use function oci_bind_by_name;
 use function oci_execute;
@@ -36,16 +32,9 @@ final class Statement implements StatementInterface
     private $statement;
 
     /** @var array<int,string> */
-<<<<<<< HEAD
     private array $parameterMap;
 
     private ExecutionMode $executionMode;
-=======
-    private $parameterMap;
-
-    /** @var ExecutionMode */
-    private $executionMode;
->>>>>>> stage
 
     /**
      * @internal The statement can be only instantiated by its driver connection.
@@ -67,7 +56,6 @@ final class Statement implements StatementInterface
      */
     public function bindValue($param, $value, $type = ParameterType::STRING): bool
     {
-<<<<<<< HEAD
         if (func_num_args() < 3) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -77,14 +65,11 @@ final class Statement implements StatementInterface
             );
         }
 
-=======
->>>>>>> stage
         return $this->bindParam($param, $value, $type);
     }
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated Use {@see bindValue()} instead.
      */
@@ -106,11 +91,6 @@ final class Statement implements StatementInterface
             );
         }
 
-=======
-     */
-    public function bindParam($param, &$variable, $type = ParameterType::STRING, $length = null): bool
-    {
->>>>>>> stage
         if (is_int($param)) {
             if (! isset($this->parameterMap[$param])) {
                 throw UnknownParameterIndex::new($param);
@@ -120,7 +100,6 @@ final class Statement implements StatementInterface
         }
 
         if ($type === ParameterType::LARGE_OBJECT) {
-<<<<<<< HEAD
             if ($variable !== null) {
                 $lob = oci_new_descriptor($this->connection, OCI_D_LOB);
                 $lob->writeTemporary($variable, OCI_TEMP_BLOB);
@@ -129,12 +108,6 @@ final class Statement implements StatementInterface
             } else {
                 $type = ParameterType::STRING;
             }
-=======
-            $lob = oci_new_descriptor($this->connection, OCI_D_LOB);
-            $lob->writeTemporary($variable, OCI_TEMP_BLOB);
-
-            $variable =& $lob;
->>>>>>> stage
         }
 
         return oci_bind_by_name(
@@ -169,7 +142,6 @@ final class Statement implements StatementInterface
     public function execute($params = null): ResultInterface
     {
         if ($params !== null) {
-<<<<<<< HEAD
             Deprecation::trigger(
                 'doctrine/dbal',
                 'https://github.com/doctrine/dbal/pull/5556',
@@ -182,13 +154,6 @@ final class Statement implements StatementInterface
                     $this->bindValue($key + 1, $val, ParameterType::STRING);
                 } else {
                     $this->bindValue($key, $val, ParameterType::STRING);
-=======
-            foreach ($params as $key => $val) {
-                if (is_int($key)) {
-                    $this->bindValue($key + 1, $val);
-                } else {
-                    $this->bindValue($key, $val);
->>>>>>> stage
                 }
             }
         }

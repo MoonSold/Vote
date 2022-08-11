@@ -31,7 +31,6 @@ use function implode;
 use function is_array;
 use function is_string;
 
-<<<<<<< HEAD
 /**
  * @deprecated Use database documentation instead.
  */
@@ -50,18 +49,6 @@ class ReservedWordsCommand extends Command
             'ReservedWordsCommand is deprecated. Use database documentation instead.'
         );
 
-=======
-class ReservedWordsCommand extends Command
-{
-    /** @var array<string,KeywordList> */
-    private $keywordLists;
-
-    /** @var ConnectionProvider */
-    private $connectionProvider;
-
-    public function __construct(ConnectionProvider $connectionProvider)
-    {
->>>>>>> stage
         parent::__construct();
         $this->connectionProvider = $connectionProvider;
 
@@ -160,15 +147,12 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-<<<<<<< HEAD
         $output->writeln(
             '<comment>The <info>dbal:reserved-words</info> command is deprecated.</comment>'
                 . ' Use the documentation on the used database platform(s) instead.'
         );
         $output->writeln('');
 
-=======
->>>>>>> stage
         $conn = $this->getConnection($input);
 
         $keywordLists = $input->getOption('list');

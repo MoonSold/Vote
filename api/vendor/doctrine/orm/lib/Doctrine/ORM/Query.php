@@ -33,10 +33,7 @@ use function assert;
 use function count;
 use function get_debug_type;
 use function in_array;
-<<<<<<< HEAD
 use function is_int;
-=======
->>>>>>> stage
 use function ksort;
 use function md5;
 use function method_exists;
@@ -123,10 +120,7 @@ final class Query extends AbstractQuery
      * The current state of this query.
      *
      * @var int
-<<<<<<< HEAD
      * @psalm-var self::STATE_*
-=======
->>>>>>> stage
      */
     private $_state = self::STATE_DIRTY;
 
@@ -154,15 +148,9 @@ final class Query extends AbstractQuery
     /**
      * The first result to return (the "offset").
      *
-<<<<<<< HEAD
      * @var int
      */
     private $firstResult = 0;
-=======
-     * @var int|null
-     */
-    private $firstResult = null;
->>>>>>> stage
 
     /**
      * The maximum number of results to return (the "limit").
@@ -203,11 +191,6 @@ final class Query extends AbstractQuery
      * Gets the SQL query/queries that correspond to this DQL query.
      *
      * @return list<string>|string The built sql query or an array of all sql queries.
-<<<<<<< HEAD
-=======
-     *
-     * @override
->>>>>>> stage
      */
     public function getSQL()
     {
@@ -599,12 +582,6 @@ final class Query extends AbstractQuery
         return $this->expireQueryCache;
     }
 
-<<<<<<< HEAD
-=======
-    /**
-     * @override
-     */
->>>>>>> stage
     public function free(): void
     {
         parent::free();
@@ -620,7 +597,6 @@ final class Query extends AbstractQuery
      */
     public function setDQL($dqlQuery): self
     {
-<<<<<<< HEAD
         if ($dqlQuery === null) {
             Deprecation::trigger(
                 'doctrine/orm',
@@ -635,13 +611,6 @@ final class Query extends AbstractQuery
         $this->dql    = $dqlQuery;
         $this->_state = self::STATE_DIRTY;
 
-=======
-        if ($dqlQuery !== null) {
-            $this->dql    = $dqlQuery;
-            $this->_state = self::STATE_DIRTY;
-        }
-
->>>>>>> stage
         return $this;
     }
 
@@ -662,10 +631,7 @@ final class Query extends AbstractQuery
      * @see AbstractQuery::STATE_DIRTY
      *
      * @return int The query state.
-<<<<<<< HEAD
      * @psalm-return self::STATE_* The query state.
-=======
->>>>>>> stage
      */
     public function getState(): int
     {
@@ -691,7 +657,6 @@ final class Query extends AbstractQuery
      */
     public function setFirstResult($firstResult): self
     {
-<<<<<<< HEAD
         if (! is_int($firstResult)) {
             Deprecation::trigger(
                 'doctrine/orm',
@@ -701,9 +666,6 @@ final class Query extends AbstractQuery
                 get_debug_type($firstResult)
             );
 
-=======
-        if ($firstResult !== null) {
->>>>>>> stage
             $firstResult = (int) $firstResult;
         }
 

@@ -28,12 +28,7 @@ final class Statement implements StatementInterface
         ParameterType::BOOLEAN => PDO::PARAM_BOOL,
     ];
 
-<<<<<<< HEAD
     private PDOStatement $stmt;
-=======
-    /** @var PDOStatement */
-    private $stmt;
->>>>>>> stage
 
     /**
      * @internal The statement can be only instantiated by its driver connection.
@@ -48,7 +43,6 @@ final class Statement implements StatementInterface
      */
     public function bindValue($param, $value, $type = ParameterType::STRING)
     {
-<<<<<<< HEAD
         if (func_num_args() < 3) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -58,8 +52,6 @@ final class Statement implements StatementInterface
             );
         }
 
-=======
->>>>>>> stage
         $type = $this->convertParamType($type);
 
         try {
@@ -72,11 +64,8 @@ final class Statement implements StatementInterface
     /**
      * {@inheritDoc}
      *
-<<<<<<< HEAD
      * @deprecated Use {@see bindValue()} instead.
      *
-=======
->>>>>>> stage
      * @param mixed    $param
      * @param mixed    $variable
      * @param int      $type
@@ -90,7 +79,6 @@ final class Statement implements StatementInterface
         $length = null,
         $driverOptions = null
     ): bool {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5563',
@@ -107,8 +95,6 @@ final class Statement implements StatementInterface
             );
         }
 
-=======
->>>>>>> stage
         if (func_num_args() > 4) {
             Deprecation::triggerIfCalledFromOutside(
                 'doctrine/dbal',
@@ -137,7 +123,6 @@ final class Statement implements StatementInterface
      */
     public function execute($params = null): ResultInterface
     {
-<<<<<<< HEAD
         if ($params !== null) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -147,8 +132,6 @@ final class Statement implements StatementInterface
             );
         }
 
-=======
->>>>>>> stage
         try {
             $this->stmt->execute($params);
         } catch (PDOException $exception) {

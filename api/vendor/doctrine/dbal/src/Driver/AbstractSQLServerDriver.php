@@ -9,10 +9,7 @@ use Doctrine\DBAL\Driver\API\SQLSrv\ExceptionConverter;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Platforms\SQLServer2012Platform;
 use Doctrine\DBAL\Schema\SQLServerSchemaManager;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 
 use function assert;
 
@@ -31,7 +28,6 @@ abstract class AbstractSQLServerDriver implements Driver
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated Use {@link SQLServerPlatform::createSchemaManager()} instead.
      */
@@ -44,11 +40,6 @@ abstract class AbstractSQLServerDriver implements Driver
                 . ' Use SQLServerPlatform::createSchemaManager() instead.'
         );
 
-=======
-     */
-    public function getSchemaManager(Connection $conn, AbstractPlatform $platform)
-    {
->>>>>>> stage
         assert($platform instanceof SQLServer2012Platform);
 
         return new SQLServerSchemaManager($conn, $platform);

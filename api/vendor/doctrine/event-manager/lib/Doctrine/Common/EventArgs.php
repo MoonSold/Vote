@@ -16,11 +16,7 @@ class EventArgs
     /**
      * Single instance of EventArgs.
      *
-<<<<<<< HEAD
      * @var EventArgs|null
-=======
-     * @var EventArgs
->>>>>>> stage
      */
     private static $_emptyEventArgsInstance;
 

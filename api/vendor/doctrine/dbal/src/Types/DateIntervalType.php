@@ -4,10 +4,7 @@ namespace Doctrine\DBAL\Types;
 
 use DateInterval;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 use Throwable;
 
 use function substr;
@@ -34,11 +31,7 @@ class DateIntervalType extends Type
     {
         $column['length'] = 255;
 
-<<<<<<< HEAD
         return $platform->getStringTypeDeclarationSQL($column);
-=======
-        return $platform->getVarcharTypeDeclarationSQL($column);
->>>>>>> stage
     }
 
     /**
@@ -88,7 +81,6 @@ class DateIntervalType extends Type
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -101,11 +93,6 @@ class DateIntervalType extends Type
             __METHOD__
         );
 
-=======
-     */
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
-    {
->>>>>>> stage
         return true;
     }
 }

@@ -34,11 +34,7 @@ class UniqueConstraint extends AbstractAsset implements Constraint
      *
      * @var mixed[]
      */
-<<<<<<< HEAD
     private array $options;
-=======
-    private $options;
->>>>>>> stage
 
     /**
      * @param string[] $columns

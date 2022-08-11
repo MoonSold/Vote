@@ -252,11 +252,7 @@ class Command
      *
      * @return int The command exit code
      *
-<<<<<<< HEAD
      * @throws ExceptionInterface When input binding fails. Bypass this by calling {@link ignoreValidationErrors()}.
-=======
-     * @throws \Exception When binding input fails. Bypass this by calling {@link ignoreValidationErrors()}.
->>>>>>> stage
      *
      * @see setCode()
      * @see execute()
@@ -446,11 +442,7 @@ class Command
      *
      * @return $this
      */
-<<<<<<< HEAD
     public function addArgument(string $name, int $mode = null, string $description = '', mixed $default = null /* array|\Closure $suggestedValues = null */): static
-=======
-    public function addArgument(string $name, int $mode = null, string $description = '', mixed $default = null, /*array|\Closure $suggestedValues = null*/): static
->>>>>>> stage
     {
         $suggestedValues = 5 <= \func_num_args() ? func_get_arg(4) : [];
         if (!\is_array($suggestedValues) && !$suggestedValues instanceof \Closure) {
@@ -474,11 +466,7 @@ class Command
      *
      * @return $this
      */
-<<<<<<< HEAD
     public function addOption(string $name, string|array $shortcut = null, int $mode = null, string $description = '', mixed $default = null /* array|\Closure $suggestedValues = [] */): static
-=======
-    public function addOption(string $name, string|array $shortcut = null, int $mode = null, string $description = '', mixed $default = null, /*array|\Closure $suggestedValues = []*/): static
->>>>>>> stage
     {
         $suggestedValues = 6 <= \func_num_args() ? func_get_arg(5) : [];
         if (!\is_array($suggestedValues) && !$suggestedValues instanceof \Closure) {

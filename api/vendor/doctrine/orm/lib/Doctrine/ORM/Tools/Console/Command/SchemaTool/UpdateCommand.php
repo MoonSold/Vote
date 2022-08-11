@@ -88,15 +88,8 @@ EOT
         $force   = $input->getOption('force') === true;
 
         if ($dumpSql) {
-<<<<<<< HEAD
             foreach ($sqls as $sql) {
                 $ui->writeln(sprintf('%s;', $sql));
-=======
-            $ui->text('The following SQL statements will be executed:');
-            $ui->newLine();
-            foreach ($sqls as $sql) {
-                $ui->text(sprintf('    %s;', $sql));
->>>>>>> stage
             }
         }
 

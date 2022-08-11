@@ -11,12 +11,7 @@ use mysqli_sql_exception;
 
 final class Charset implements Initializer
 {
-<<<<<<< HEAD
     private string $charset;
-=======
-    /** @var string */
-    private $charset;
->>>>>>> stage
 
     public function __construct(string $charset)
     {

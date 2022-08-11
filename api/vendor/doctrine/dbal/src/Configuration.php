@@ -10,22 +10,15 @@ use Doctrine\DBAL\Logging\SQLLogger;
 use Doctrine\Deprecations\Deprecation;
 use Psr\Cache\CacheItemPoolInterface;
 
-<<<<<<< HEAD
 use function func_num_args;
 
-=======
->>>>>>> stage
 /**
  * Configuration container for the Doctrine DBAL.
  */
 class Configuration
 {
     /** @var Middleware[] */
-<<<<<<< HEAD
     private array $middlewares = [];
-=======
-    private $middlewares = [];
->>>>>>> stage
 
     /**
      * The SQL logger in use. If null, SQL logging is disabled.
@@ -36,15 +29,8 @@ class Configuration
 
     /**
      * The cache driver implementation that is used for query result caching.
-<<<<<<< HEAD
      */
     private ?CacheItemPoolInterface $resultCache = null;
-=======
-     *
-     * @var CacheItemPoolInterface|null
-     */
-    private $resultCache;
->>>>>>> stage
 
     /**
      * The cache driver implementation that is used for query result caching.
@@ -69,7 +55,6 @@ class Configuration
      */
     protected $autoCommit = true;
 
-<<<<<<< HEAD
     public function __construct()
     {
         $this->schemaAssetsFilter = static function (): bool {
@@ -91,19 +76,11 @@ class Configuration
             __METHOD__
         );
 
-=======
-    /**
-     * Sets the SQL logger to use. Defaults to NULL which means SQL logging is disabled.
-     */
-    public function setSQLLogger(?SQLLogger $logger = null): void
-    {
->>>>>>> stage
         $this->sqlLogger = $logger;
     }
 
     /**
      * Gets the SQL logger that is used.
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -116,11 +93,6 @@ class Configuration
             __METHOD__
         );
 
-=======
-     */
-    public function getSQLLogger(): ?SQLLogger
-    {
->>>>>>> stage
         return $this->sqlLogger;
     }
 
@@ -181,7 +153,6 @@ class Configuration
      */
     public function setSchemaAssetsFilter(?callable $callable = null): void
     {
-<<<<<<< HEAD
         if (func_num_args() < 1) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -198,8 +169,6 @@ class Configuration
             );
         }
 
-=======
->>>>>>> stage
         $this->schemaAssetsFilter = $callable;
     }
 

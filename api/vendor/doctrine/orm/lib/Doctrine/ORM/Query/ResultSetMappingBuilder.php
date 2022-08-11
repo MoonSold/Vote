@@ -7,10 +7,7 @@ namespace Doctrine\ORM\Query;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Internal\SQLResultCasing;
-<<<<<<< HEAD
 use Doctrine\ORM\Mapping\ClassMetadata;
-=======
->>>>>>> stage
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Doctrine\ORM\Mapping\MappingException;
 use Doctrine\ORM\Utility\PersisterHelper;
@@ -160,11 +157,7 @@ class ResultSetMappingBuilder extends ResultSetMapping
         }
 
         foreach ($classMetadata->associationMappings as $associationMapping) {
-<<<<<<< HEAD
             if ($associationMapping['isOwningSide'] && $associationMapping['type'] & ClassMetadata::TO_ONE) {
-=======
-            if ($associationMapping['isOwningSide'] && $associationMapping['type'] & ClassMetadataInfo::TO_ONE) {
->>>>>>> stage
                 $targetClass  = $this->em->getClassMetadata($associationMapping['targetEntity']);
                 $isIdentifier = isset($associationMapping['id']) && $associationMapping['id'] === true;
 
@@ -186,11 +179,7 @@ class ResultSetMappingBuilder extends ResultSetMapping
         }
     }
 
-<<<<<<< HEAD
     private function isInheritanceSupported(ClassMetadata $classMetadata): bool
-=======
-    private function isInheritanceSupported(ClassMetadataInfo $classMetadata): bool
->>>>>>> stage
     {
         if (
             $classMetadata->isInheritanceTypeSingleTable()
@@ -258,11 +247,7 @@ class ResultSetMappingBuilder extends ResultSetMapping
         }
 
         foreach ($class->associationMappings as $associationMapping) {
-<<<<<<< HEAD
             if ($associationMapping['isOwningSide'] && $associationMapping['type'] & ClassMetadata::TO_ONE) {
-=======
-            if ($associationMapping['isOwningSide'] && $associationMapping['type'] & ClassMetadataInfo::TO_ONE) {
->>>>>>> stage
                 foreach ($associationMapping['joinColumns'] as $joinColumn) {
                     $columnName               = $joinColumn['name'];
                     $columnAlias[$columnName] = $this->getColumnAlias($columnName, $mode, $customRenameColumns);
@@ -276,11 +261,8 @@ class ResultSetMappingBuilder extends ResultSetMapping
     /**
      * Adds the mappings of the results of native SQL queries to the result set.
      *
-<<<<<<< HEAD
      * @deprecated This method is deprecated and will be removed in Doctrine ORM 3.0.
      *
-=======
->>>>>>> stage
      * @param mixed[] $queryMapping
      *
      * @return ResultSetMappingBuilder
@@ -297,11 +279,8 @@ class ResultSetMappingBuilder extends ResultSetMapping
     /**
      * Adds the class mapping of the results of native SQL queries to the result set.
      *
-<<<<<<< HEAD
      * @deprecated This method is deprecated and will be removed in Doctrine ORM 3.0.
      *
-=======
->>>>>>> stage
      * @param string $resultClassName
      *
      * @return $this
@@ -330,11 +309,7 @@ class ResultSetMappingBuilder extends ResultSetMapping
         }
 
         foreach ($classMetadata->associationMappings as $associationMapping) {
-<<<<<<< HEAD
             if ($associationMapping['isOwningSide'] && $associationMapping['type'] & ClassMetadata::TO_ONE) {
-=======
-            if ($associationMapping['isOwningSide'] && $associationMapping['type'] & ClassMetadataInfo::TO_ONE) {
->>>>>>> stage
                 $targetClass = $this->em->getClassMetadata($associationMapping['targetEntity']);
 
                 foreach ($associationMapping['joinColumns'] as $joinColumn) {
@@ -352,11 +327,8 @@ class ResultSetMappingBuilder extends ResultSetMapping
     /**
      * Adds the result set mapping of the results of native SQL queries to the result set.
      *
-<<<<<<< HEAD
      * @deprecated This method is deprecated and will be removed in Doctrine ORM 3.0.
      *
-=======
->>>>>>> stage
      * @param string $resultSetMappingName
      *
      * @return $this
@@ -410,11 +382,8 @@ class ResultSetMappingBuilder extends ResultSetMapping
     /**
      * Adds the entity result mapping of the results of native SQL queries to the result set.
      *
-<<<<<<< HEAD
      * @deprecated This method is deprecated and will be removed in Doctrine ORM 3.0.
      *
-=======
->>>>>>> stage
      * @param mixed[] $entityMapping
      * @param string  $alias
      *

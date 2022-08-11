@@ -16,10 +16,6 @@ use Doctrine\ORM\Query\SqlWalker;
 class CurrentDateFunction extends FunctionNode
 {
     /**
-<<<<<<< HEAD
-=======
-     * @override
->>>>>>> stage
      * @inheritdoc
      */
     public function getSql(SqlWalker $sqlWalker)
@@ -28,10 +24,6 @@ class CurrentDateFunction extends FunctionNode
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * @override
->>>>>>> stage
      * @inheritdoc
      */
     public function parse(Parser $parser)

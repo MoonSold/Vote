@@ -19,11 +19,7 @@ Ext.define('app.view.AllVoteGroupGrid', {
         itemId: "GoQuestion"
     }, {
         header: 'Название',
-<<<<<<< HEAD
         dataIndex: 'VoteGroup',
-=======
-        dataIndex: 'QuestionGroup',
->>>>>>> stage
         flex: 1
     },{
         header: 'Описание',
@@ -37,7 +33,6 @@ Ext.define('app.view.AllVoteGroupGrid', {
                 method: "get",
                 params: {"actor":"user","method":"controllerGetVoteElement","id":dataRecord.raw[0]},
                 success: function(response){
-<<<<<<< HEAD
                     if (response.responseText === ''){
                         Ext.Msg.alert('Голосование не готово','Голосование не готово')
                     }
@@ -48,13 +43,6 @@ Ext.define('app.view.AllVoteGroupGrid', {
                         store.add(data);
                         gridView.up().destroy();
                     }
-=======
-                    let data = Ext.decode(response.responseText);
-                    Ext.createWidget('VoteElementGrid',{renderTo: Ext.getBody()});
-                    let store = Ext.widget("VoteElementGrid").getStore()
-                    store.add(data);
-                    gridView.up().destroy();
->>>>>>> stage
                 }
             });
             }

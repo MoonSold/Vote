@@ -15,12 +15,7 @@ use function assert;
 
 final class Connection implements ServerInfoAwareConnection
 {
-<<<<<<< HEAD
     private PDO $connection;
-=======
-    /** @var PDO */
-    private $connection;
->>>>>>> stage
 
     /**
      * @internal The connection can be only instantiated by its driver.

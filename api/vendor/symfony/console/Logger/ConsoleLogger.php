@@ -106,11 +106,7 @@ class ConsoleLogger extends AbstractLogger
 
         $replacements = [];
         foreach ($context as $key => $val) {
-<<<<<<< HEAD
             if (null === $val || \is_scalar($val) || $val instanceof \Stringable) {
-=======
-            if (null === $val || is_scalar($val) || $val instanceof \Stringable) {
->>>>>>> stage
                 $replacements["{{$key}}"] = $val;
             } elseif ($val instanceof \DateTimeInterface) {
                 $replacements["{{$key}}"] = $val->format(\DateTime::RFC3339);

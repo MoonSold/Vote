@@ -5,34 +5,20 @@ namespace Doctrine\DBAL\Driver\IBMDB2;
 use Doctrine\DBAL\Driver\Exception;
 use Doctrine\DBAL\Driver\IBMDB2\Exception\CannotCopyStreamToStream;
 use Doctrine\DBAL\Driver\IBMDB2\Exception\CannotCreateTemporaryFile;
-<<<<<<< HEAD
-=======
-use Doctrine\DBAL\Driver\IBMDB2\Exception\CannotWriteToTemporaryFile;
->>>>>>> stage
 use Doctrine\DBAL\Driver\IBMDB2\Exception\StatementError;
 use Doctrine\DBAL\Driver\Result as ResultInterface;
 use Doctrine\DBAL\Driver\Statement as StatementInterface;
 use Doctrine\DBAL\ParameterType;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 
 use function assert;
 use function db2_bind_param;
 use function db2_execute;
 use function error_get_last;
 use function fclose;
-<<<<<<< HEAD
 use function func_num_args;
 use function is_int;
 use function is_resource;
-=======
-use function fwrite;
-use function is_int;
-use function is_resource;
-use function ksort;
->>>>>>> stage
 use function stream_copy_to_stream;
 use function stream_get_meta_data;
 use function tmpfile;
@@ -49,25 +35,15 @@ final class Statement implements StatementInterface
     private $stmt;
 
     /** @var mixed[] */
-<<<<<<< HEAD
     private array $parameters = [];
-=======
-    private $bindParam = [];
->>>>>>> stage
 
     /**
      * Map of LOB parameter positions to the tuples containing reference to the variable bound to the driver statement
      * and the temporary file handle bound to the underlying statement
      *
-<<<<<<< HEAD
      * @var array<int,string|resource|null>
      */
     private array $lobs = [];
-=======
-     * @var mixed[][]
-     */
-    private $lobs = [];
->>>>>>> stage
 
     /**
      * @internal The statement can be only instantiated by its driver connection.
@@ -86,7 +62,6 @@ final class Statement implements StatementInterface
     {
         assert(is_int($param));
 
-<<<<<<< HEAD
         if (func_num_args() < 3) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -96,14 +71,11 @@ final class Statement implements StatementInterface
             );
         }
 
-=======
->>>>>>> stage
         return $this->bindParam($param, $value, $type);
     }
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated Use {@see bindValue()} instead.
      */
@@ -127,34 +99,13 @@ final class Statement implements StatementInterface
             );
         }
 
-=======
-     */
-    public function bindParam($param, &$variable, $type = ParameterType::STRING, $length = null): bool
-    {
-        assert(is_int($param));
-
->>>>>>> stage
         switch ($type) {
             case ParameterType::INTEGER:
                 $this->bind($param, $variable, DB2_PARAM_IN, DB2_LONG);
                 break;
 
             case ParameterType::LARGE_OBJECT:
-<<<<<<< HEAD
                 $this->lobs[$param] = &$variable;
-=======
-                if (isset($this->lobs[$param])) {
-                    [, $handle] = $this->lobs[$param];
-                    fclose($handle);
-                }
-
-                $handle = $this->createTemporaryFile();
-                $path   = stream_get_meta_data($handle)['uri'];
-
-                $this->bind($param, $path, DB2_PARAM_FILE, DB2_BINARY);
-
-                $this->lobs[$param] = [&$variable, $handle];
->>>>>>> stage
                 break;
 
             default:
@@ -173,15 +124,9 @@ final class Statement implements StatementInterface
      */
     private function bind($position, &$variable, int $parameterType, int $dataType): void
     {
-<<<<<<< HEAD
         $this->parameters[$position] =& $variable;
 
         if (! db2_bind_param($this->stmt, $position, '', $parameterType, $dataType)) {
-=======
-        $this->bindParam[$position] =& $variable;
-
-        if (! db2_bind_param($this->stmt, $position, 'variable', $parameterType, $dataType)) {
->>>>>>> stage
             throw StatementError::new($this->stmt);
         }
     }
@@ -191,7 +136,6 @@ final class Statement implements StatementInterface
      */
     public function execute($params = null): ResultInterface
     {
-<<<<<<< HEAD
         if ($params !== null) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -206,31 +150,6 @@ final class Statement implements StatementInterface
         $result = @db2_execute($this->stmt, $params ?? $this->parameters);
 
         foreach ($handles as $handle) {
-=======
-        if ($params === null) {
-            ksort($this->bindParam);
-
-            $params = [];
-
-            foreach ($this->bindParam as $value) {
-                $params[] = $value;
-            }
-        }
-
-        foreach ($this->lobs as [$source, $target]) {
-            if (is_resource($source)) {
-                $this->copyStreamToStream($source, $target);
-
-                continue;
-            }
-
-            $this->writeStringToStream($source, $target);
-        }
-
-        $result = @db2_execute($this->stmt, $params);
-
-        foreach ($this->lobs as [, $handle]) {
->>>>>>> stage
             fclose($handle);
         }
 
@@ -244,7 +163,6 @@ final class Statement implements StatementInterface
     }
 
     /**
-<<<<<<< HEAD
      * @return list<resource>
      *
      * @throws Exception
@@ -270,8 +188,6 @@ final class Statement implements StatementInterface
     }
 
     /**
-=======
->>>>>>> stage
      * @return resource
      *
      * @throws Exception
@@ -299,19 +215,4 @@ final class Statement implements StatementInterface
             throw CannotCopyStreamToStream::new(error_get_last());
         }
     }
-<<<<<<< HEAD
-=======
-
-    /**
-     * @param resource $target
-     *
-     * @throws Exception
-     */
-    private function writeStringToStream(string $string, $target): void
-    {
-        if (@fwrite($target, $string) === false) {
-            throw CannotWriteToTemporaryFile::new(error_get_last());
-        }
-    }
->>>>>>> stage
 }

@@ -3,10 +3,7 @@
 namespace Doctrine\DBAL\Types;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 
 use function count;
 use function explode;
@@ -66,7 +63,6 @@ class SimpleArrayType extends Type
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -79,11 +75,6 @@ class SimpleArrayType extends Type
             __METHOD__
         );
 
-=======
-     */
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
-    {
->>>>>>> stage
         return true;
     }
 }

@@ -7,15 +7,10 @@ use Doctrine\DBAL\Driver\Result as ResultInterface;
 use Doctrine\DBAL\Driver\SQLSrv\Exception\Error;
 use Doctrine\DBAL\Driver\Statement as StatementInterface;
 use Doctrine\DBAL\ParameterType;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
 
 use function assert;
 use function func_num_args;
-=======
-
-use function assert;
->>>>>>> stage
 use function is_int;
 use function sqlsrv_execute;
 use function SQLSRV_PHPTYPE_STREAM;
@@ -39,15 +34,8 @@ final class Statement implements StatementInterface
 
     /**
      * The SQL statement to execute.
-<<<<<<< HEAD
      */
     private string $sql;
-=======
-     *
-     * @var string
-     */
-    private $sql;
->>>>>>> stage
 
     /**
      * The SQLSRV statement resource.
@@ -61,22 +49,14 @@ final class Statement implements StatementInterface
      *
      * @var array<int, mixed>
      */
-<<<<<<< HEAD
     private array $variables = [];
-=======
-    private $variables = [];
->>>>>>> stage
 
     /**
      * Bound parameter types.
      *
      * @var array<int, int>
      */
-<<<<<<< HEAD
     private array $types = [];
-=======
-    private $types = [];
->>>>>>> stage
 
     /**
      * Append to any INSERT query to retrieve the last insert id.
@@ -108,7 +88,6 @@ final class Statement implements StatementInterface
     {
         assert(is_int($param));
 
-<<<<<<< HEAD
         if (func_num_args() < 3) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -118,8 +97,6 @@ final class Statement implements StatementInterface
             );
         }
 
-=======
->>>>>>> stage
         $this->variables[$param] = $value;
         $this->types[$param]     = $type;
 
@@ -128,7 +105,6 @@ final class Statement implements StatementInterface
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated Use {@see bindValue()} instead.
      */
@@ -152,13 +128,6 @@ final class Statement implements StatementInterface
             );
         }
 
-=======
-     */
-    public function bindParam($param, &$variable, $type = ParameterType::STRING, $length = null): bool
-    {
-        assert(is_int($param));
-
->>>>>>> stage
         $this->variables[$param] =& $variable;
         $this->types[$param]     = $type;
 
@@ -174,7 +143,6 @@ final class Statement implements StatementInterface
     public function execute($params = null): ResultInterface
     {
         if ($params !== null) {
-<<<<<<< HEAD
             Deprecation::trigger(
                 'doctrine/dbal',
                 'https://github.com/doctrine/dbal/pull/5556',
@@ -187,24 +155,11 @@ final class Statement implements StatementInterface
                     $this->bindValue($key + 1, $val, ParameterType::STRING);
                 } else {
                     $this->bindValue($key, $val, ParameterType::STRING);
-=======
-            foreach ($params as $key => $val) {
-                if (is_int($key)) {
-                    $this->bindValue($key + 1, $val);
-                } else {
-                    $this->bindValue($key, $val);
->>>>>>> stage
                 }
             }
         }
 
-<<<<<<< HEAD
         $this->stmt ??= $this->prepare();
-=======
-        if ($this->stmt === null) {
-            $this->stmt = $this->prepare();
-        }
->>>>>>> stage
 
         if (! sqlsrv_execute($this->stmt)) {
             throw Error::new();

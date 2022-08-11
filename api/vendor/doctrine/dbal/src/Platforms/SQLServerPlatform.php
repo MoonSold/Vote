@@ -2,10 +2,7 @@
 
 namespace Doctrine\DBAL\Platforms;
 
-<<<<<<< HEAD
 use Doctrine\DBAL\Connection;
-=======
->>>>>>> stage
 use Doctrine\DBAL\Exception\InvalidLockMode;
 use Doctrine\DBAL\LockMode;
 use Doctrine\DBAL\Schema\Column;
@@ -14,10 +11,7 @@ use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Schema\Identifier;
 use Doctrine\DBAL\Schema\Index;
 use Doctrine\DBAL\Schema\Sequence;
-<<<<<<< HEAD
 use Doctrine\DBAL\Schema\SQLServerSchemaManager;
-=======
->>>>>>> stage
 use Doctrine\DBAL\Schema\Table;
 use Doctrine\DBAL\Schema\TableDiff;
 use Doctrine\Deprecations\Deprecation;
@@ -30,13 +24,9 @@ use function count;
 use function crc32;
 use function dechex;
 use function explode;
-<<<<<<< HEAD
 use function func_get_arg;
 use function func_get_args;
 use function func_num_args;
-=======
-use function func_get_args;
->>>>>>> stage
 use function implode;
 use function is_array;
 use function is_bool;
@@ -154,7 +144,6 @@ class SQLServerPlatform extends AbstractPlatform
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -167,21 +156,13 @@ class SQLServerPlatform extends AbstractPlatform
             __METHOD__
         );
 
-=======
-     */
-    public function getDefaultSchemaName()
-    {
->>>>>>> stage
         return 'dbo';
     }
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function supportsColumnCollation()
     {
@@ -209,11 +190,8 @@ class SQLServerPlatform extends AbstractPlatform
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractSchemaManager} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getListSequencesSQL($database)
     {
@@ -237,7 +215,6 @@ class SQLServerPlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -250,11 +227,6 @@ class SQLServerPlatform extends AbstractPlatform
             __METHOD__
         );
 
-=======
-     */
-    public function hasNativeGuidType()
-    {
->>>>>>> stage
         return true;
     }
 
@@ -283,7 +255,6 @@ class SQLServerPlatform extends AbstractPlatform
     public function getDropIndexSQL($index, $table = null)
     {
         if ($index instanceof Index) {
-<<<<<<< HEAD
             Deprecation::trigger(
                 'doctrine/dbal',
                 'https://github.com/doctrine/dbal/issues/4798',
@@ -291,8 +262,6 @@ class SQLServerPlatform extends AbstractPlatform
                 __METHOD__
             );
 
-=======
->>>>>>> stage
             $index = $index->getQuotedName($this);
         } elseif (! is_string($index)) {
             throw new InvalidArgumentException(
@@ -301,7 +270,6 @@ class SQLServerPlatform extends AbstractPlatform
         }
 
         if ($table instanceof Table) {
-<<<<<<< HEAD
             Deprecation::trigger(
                 'doctrine/dbal',
                 'https://github.com/doctrine/dbal/issues/4798',
@@ -309,8 +277,6 @@ class SQLServerPlatform extends AbstractPlatform
                 __METHOD__
             );
 
-=======
->>>>>>> stage
             $table = $table->getQuotedName($this);
         } elseif (! is_string($table)) {
             throw new InvalidArgumentException(
@@ -390,11 +356,7 @@ class SQLServerPlatform extends AbstractPlatform
         }
 
         if (isset($options['foreignKeys'])) {
-<<<<<<< HEAD
             foreach ($options['foreignKeys'] as $definition) {
-=======
-            foreach ((array) $options['foreignKeys'] as $definition) {
->>>>>>> stage
                 $sql[] = $this->getCreateForeignKeySQL($definition, $name);
             }
         }
@@ -408,7 +370,6 @@ class SQLServerPlatform extends AbstractPlatform
     public function getCreatePrimaryKeySQL(Index $index, $table)
     {
         if ($table instanceof Table) {
-<<<<<<< HEAD
             Deprecation::trigger(
                 'doctrine/dbal',
                 'https://github.com/doctrine/dbal/issues/4798',
@@ -416,8 +377,6 @@ class SQLServerPlatform extends AbstractPlatform
                 __METHOD__
             );
 
-=======
->>>>>>> stage
             $identifier = $table->getQuotedName($this);
         } else {
             $identifier = $table;
@@ -981,11 +940,8 @@ class SQLServerPlatform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTablesSQL()
@@ -997,11 +953,8 @@ class SQLServerPlatform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTableColumnsSQL($table, $database = null)
@@ -1035,11 +988,8 @@ class SQLServerPlatform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * @param string      $table
      * @param string|null $database
      *
@@ -1066,11 +1016,8 @@ class SQLServerPlatform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTableIndexesSQL($table, $database = null)
@@ -1095,11 +1042,8 @@ class SQLServerPlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractSchemaManager} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getListViewsSQL($database)
     {
@@ -1197,11 +1141,8 @@ class SQLServerPlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractSchemaManager} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getListDatabasesSQL()
     {
@@ -1315,7 +1256,6 @@ class SQLServerPlatform extends AbstractPlatform
     /**
      * {@inheritDoc}
      */
-<<<<<<< HEAD
     protected function getVarcharTypeDeclarationSQLSnippet($length, $fixed/*, $lengthOmitted = false*/)
     {
         if ($length <= 0 || (func_num_args() > 2 && func_get_arg(2))) {
@@ -1330,19 +1270,11 @@ class SQLServerPlatform extends AbstractPlatform
         return $fixed
             ? 'NCHAR(' . ($length > 0 ? $length : 255) . ')'
             : 'NVARCHAR(' . ($length > 0 ? $length : 255) . ')';
-=======
-    protected function getVarcharTypeDeclarationSQLSnippet($length, $fixed)
-    {
-        return $fixed
-            ? ($length > 0 ? 'NCHAR(' . $length . ')' : 'CHAR(255)')
-            : ($length > 0 ? 'NVARCHAR(' . $length . ')' : 'NVARCHAR(255)');
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
     protected function getBinaryTypeDeclarationSQLSnippet($length, $fixed/*, $lengthOmitted = false*/)
     {
         if ($length <= 0 || (func_num_args() > 2 && func_get_arg(2))) {
@@ -1354,10 +1286,6 @@ class SQLServerPlatform extends AbstractPlatform
             );
         }
 
-=======
-    protected function getBinaryTypeDeclarationSQLSnippet($length, $fixed)
-    {
->>>>>>> stage
         return $fixed
             ? 'BINARY(' . ($length > 0 ? $length : 255) . ')'
             : 'VARBINARY(' . ($length > 0 ? $length : 255) . ')';
@@ -1365,7 +1293,6 @@ class SQLServerPlatform extends AbstractPlatform
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -1377,11 +1304,6 @@ class SQLServerPlatform extends AbstractPlatform
             'SQLServerPlatform::getBinaryMaxLength() is deprecated.'
         );
 
-=======
-     */
-    public function getBinaryMaxLength()
-    {
->>>>>>> stage
         return 8000;
     }
 
@@ -1612,11 +1534,8 @@ class SQLServerPlatform extends AbstractPlatform
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getForeignKeyReferentialActionSQL($action)
     {
@@ -1700,11 +1619,7 @@ class SQLServerPlatform extends AbstractPlatform
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
-     * Modifies column declaration order as it differs in Microsoft SQL Server.
->>>>>>> stage
      */
     public function getColumnDeclarationSQL($name, array $column)
     {
@@ -1782,12 +1697,9 @@ class SQLServerPlatform extends AbstractPlatform
         );
     }
 
-<<<<<<< HEAD
     /**
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      */
-=======
->>>>>>> stage
     public function getListTableMetadataSQL(string $table): string
     {
         return sprintf(
@@ -1835,12 +1747,9 @@ class SQLServerPlatform extends AbstractPlatform
 
         return true;
     }
-<<<<<<< HEAD
 
     public function createSchemaManager(Connection $connection): SQLServerSchemaManager
     {
         return new SQLServerSchemaManager($connection, $this);
     }
-=======
->>>>>>> stage
 }

@@ -4,20 +4,14 @@ declare(strict_types=1);
 
 namespace Doctrine\ORM\Event;
 
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\Event\ManagerEventArgs;
 use Doctrine\Persistence\Mapping\ClassMetadata;
 use Doctrine\Persistence\ObjectManager;
 
-<<<<<<< HEAD
 use function func_num_args;
 
-=======
->>>>>>> stage
 /**
  * Class that holds event arguments for a `onClassMetadataNotFound` event.
  *
@@ -50,7 +44,6 @@ class OnClassMetadataNotFoundEventArgs extends ManagerEventArgs
      */
     public function setFoundMetadata(?ClassMetadata $classMetadata = null)
     {
-<<<<<<< HEAD
         if (func_num_args() < 1) {
             Deprecation::trigger(
                 'doctrine/orm',
@@ -60,8 +53,6 @@ class OnClassMetadataNotFoundEventArgs extends ManagerEventArgs
             );
         }
 
-=======
->>>>>>> stage
         $this->foundMetadata = $classMetadata;
     }
 

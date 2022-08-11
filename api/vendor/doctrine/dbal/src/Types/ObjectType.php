@@ -3,10 +3,7 @@
 namespace Doctrine\DBAL\Types;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 
 use function is_resource;
 use function restore_error_handler;
@@ -17,11 +14,8 @@ use function unserialize;
 
 /**
  * Type that maps a PHP object to a clob SQL type.
-<<<<<<< HEAD
  *
  * @deprecated Use {@link JsonType} instead.
-=======
->>>>>>> stage
  */
 class ObjectType extends Type
 {
@@ -73,7 +67,6 @@ class ObjectType extends Type
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -86,11 +79,6 @@ class ObjectType extends Type
             __METHOD__
         );
 
-=======
-     */
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
-    {
->>>>>>> stage
         return true;
     }
 }

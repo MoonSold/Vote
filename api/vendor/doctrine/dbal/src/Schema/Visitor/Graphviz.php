@@ -18,12 +18,7 @@ use function strtolower;
  */
 class Graphviz extends AbstractVisitor
 {
-<<<<<<< HEAD
     private string $output = '';
-=======
-    /** @var string */
-    private $output = '';
->>>>>>> stage
 
     /**
      * {@inheritdoc}

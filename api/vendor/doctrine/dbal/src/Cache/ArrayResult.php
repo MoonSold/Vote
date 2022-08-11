@@ -15,20 +15,10 @@ use function reset;
 final class ArrayResult implements Result
 {
     /** @var list<array<string, mixed>> */
-<<<<<<< HEAD
     private array $data;
 
     private int $columnCount = 0;
     private int $num         = 0;
-=======
-    private $data;
-
-    /** @var int */
-    private $columnCount = 0;
-
-    /** @var int */
-    private $num = 0;
->>>>>>> stage
 
     /**
      * @param list<array<string, mixed>> $data

@@ -2,7 +2,6 @@
 
 namespace Doctrine\DBAL\Platforms\Keywords;
 
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
 
 class MariaDBKeywords extends MySQLKeywords
@@ -18,12 +17,6 @@ class MariaDBKeywords extends MySQLKeywords
             'MariaDBKeywords::getName() is deprecated.'
         );
 
-=======
-class MariaDBKeywords extends MySQLKeywords
-{
-    public function getName(): string
-    {
->>>>>>> stage
         return 'MariaDB';
     }
 

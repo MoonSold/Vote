@@ -3,10 +3,7 @@
 namespace Doctrine\DBAL\Types;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 use JsonException;
 
 use function is_resource;
@@ -76,7 +73,6 @@ class JsonType extends Type
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -89,11 +85,6 @@ class JsonType extends Type
             __METHOD__
         );
 
-=======
-     */
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
-    {
->>>>>>> stage
         return ! $platform->hasNativeJsonType();
     }
 }

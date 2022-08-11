@@ -15,26 +15,12 @@ use function is_array;
  */
 class SchemaAlterTableChangeColumnEventArgs extends SchemaEventArgs
 {
-<<<<<<< HEAD
     private ColumnDiff $columnDiff;
     private TableDiff $tableDiff;
     private AbstractPlatform $platform;
 
     /** @var string[] */
     private array $sql = [];
-=======
-    /** @var ColumnDiff */
-    private $columnDiff;
-
-    /** @var TableDiff */
-    private $tableDiff;
-
-    /** @var AbstractPlatform */
-    private $platform;
-
-    /** @var string[] */
-    private $sql = [];
->>>>>>> stage
 
     public function __construct(ColumnDiff $columnDiff, TableDiff $tableDiff, AbstractPlatform $platform)
     {

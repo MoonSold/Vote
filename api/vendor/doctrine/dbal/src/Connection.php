@@ -28,10 +28,7 @@ use LogicException;
 use Throwable;
 use Traversable;
 
-<<<<<<< HEAD
 use function array_key_exists;
-=======
->>>>>>> stage
 use function assert;
 use function count;
 use function get_class;
@@ -68,11 +65,8 @@ class Connection
 
     /**
      * Offset by which PARAM_* constants are detected as arrays of the param type.
-<<<<<<< HEAD
      *
      * @internal Should be used only within the wrapper layer.
-=======
->>>>>>> stage
      */
     public const ARRAY_PARAM_OFFSET = 100;
 
@@ -98,7 +92,6 @@ class Connection
 
     /**
      * The current auto-commit mode of this connection.
-<<<<<<< HEAD
      */
     private bool $autoCommit = true;
 
@@ -106,42 +99,18 @@ class Connection
      * The transaction nesting level.
      */
     private int $transactionNestingLevel = 0;
-=======
-     *
-     * @var bool
-     */
-    private $autoCommit = true;
-
-    /**
-     * The transaction nesting level.
-     *
-     * @var int
-     */
-    private $transactionNestingLevel = 0;
->>>>>>> stage
 
     /**
      * The currently active transaction isolation level or NULL before it has been determined.
      *
-<<<<<<< HEAD
      * @var TransactionIsolationLevel::*|null
-=======
-     * @var int|null
->>>>>>> stage
      */
     private $transactionIsolationLevel;
 
     /**
      * If nested transactions should use savepoints.
-<<<<<<< HEAD
      */
     private bool $nestTransactionsWithSavepoints = false;
-=======
-     *
-     * @var bool
-     */
-    private $nestTransactionsWithSavepoints = false;
->>>>>>> stage
 
     /**
      * The parameters used during creation of the Connection instance.
@@ -149,7 +118,6 @@ class Connection
      * @var array<string,mixed>
      * @psalm-var Params
      */
-<<<<<<< HEAD
     private array $params;
 
     /**
@@ -159,22 +127,6 @@ class Connection
 
     private ?ExceptionConverter $exceptionConverter = null;
     private ?Parser $parser                         = null;
-=======
-    private $params;
-
-    /**
-     * The database platform object used by the connection or NULL before it's initialized.
-     *
-     * @var AbstractPlatform|null
-     */
-    private $platform;
-
-    /** @var ExceptionConverter|null */
-    private $exceptionConverter;
-
-    /** @var Parser|null */
-    private $parser;
->>>>>>> stage
 
     /**
      * The schema manager.
@@ -194,15 +146,8 @@ class Connection
 
     /**
      * Flag that indicates whether the current transaction is marked for rollback only.
-<<<<<<< HEAD
      */
     private bool $isRollbackOnly = false;
-=======
-     *
-     * @var bool
-     */
-    private $isRollbackOnly = false;
->>>>>>> stage
 
     /**
      * Initializes a new instance of the Connection class.
@@ -228,18 +173,8 @@ class Connection
         $this->params  = $params;
 
         // Create default config and event manager if none given
-<<<<<<< HEAD
         $config       ??= new Configuration();
         $eventManager ??= new EventManager();
-=======
-        if ($config === null) {
-            $config = new Configuration();
-        }
-
-        if ($eventManager === null) {
-            $eventManager = new EventManager();
-        }
->>>>>>> stage
 
         $this->_config       = $config;
         $this->_eventManager = $eventManager;
@@ -709,11 +644,7 @@ class Connection
     /**
      * Sets the transaction isolation level.
      *
-<<<<<<< HEAD
      * @param TransactionIsolationLevel::* $level The level to set.
-=======
-     * @param int $level The level to set.
->>>>>>> stage
      *
      * @return int|string
      *
@@ -729,25 +660,13 @@ class Connection
     /**
      * Gets the currently active transaction isolation level.
      *
-<<<<<<< HEAD
      * @return TransactionIsolationLevel::* The current transaction isolation level.
-=======
-     * @return int The current transaction isolation level.
->>>>>>> stage
      *
      * @throws Exception
      */
     public function getTransactionIsolation()
     {
-<<<<<<< HEAD
         return $this->transactionIsolationLevel ??= $this->getDatabasePlatform()->getDefaultTransactionIsolationLevel();
-=======
-        if ($this->transactionIsolationLevel === null) {
-            $this->transactionIsolationLevel = $this->getDatabasePlatform()->getDefaultTransactionIsolationLevel();
-        }
-
-        return $this->transactionIsolationLevel;
->>>>>>> stage
     }
 
     /**
@@ -1102,19 +1021,10 @@ class Connection
                 }
 
                 $stmt = $connection->prepare($sql);
-<<<<<<< HEAD
 
                 $this->bindParameters($stmt, $params, $types);
 
                 $result = $stmt->execute();
-=======
-                if (count($types) > 0) {
-                    $this->_bindTypedValues($stmt, $params, $types);
-                    $result = $stmt->execute();
-                } else {
-                    $result = $stmt->execute($params);
-                }
->>>>>>> stage
             } else {
                 $result = $connection->query($sql);
             }
@@ -1216,22 +1126,10 @@ class Connection
 
                 $stmt = $connection->prepare($sql);
 
-<<<<<<< HEAD
                 $this->bindParameters($stmt, $params, $types);
 
                 return $stmt->execute()
                     ->rowCount();
-=======
-                if (count($types) > 0) {
-                    $this->_bindTypedValues($stmt, $params, $types);
-
-                    $result = $stmt->execute();
-                } else {
-                    $result = $stmt->execute($params);
-                }
-
-                return $result->rowCount();
->>>>>>> stage
             }
 
             return $connection->exec($sql);
@@ -1293,7 +1191,6 @@ class Connection
      * If an exception occurs during execution of the function or transaction commit,
      * the transaction is rolled back and the exception re-thrown.
      *
-<<<<<<< HEAD
      * @param Closure(self):T $func The function to execute transactionally.
      *
      * @return T The value returned by $func
@@ -1301,13 +1198,6 @@ class Connection
      * @throws Throwable
      *
      * @template T
-=======
-     * @param Closure $func The function to execute transactionally.
-     *
-     * @return mixed The value returned by $func
-     *
-     * @throws Throwable
->>>>>>> stage
      */
     public function transactional(Closure $func)
     {
@@ -1335,7 +1225,6 @@ class Connection
      */
     public function setNestTransactionsWithSavepoints($nestTransactionsWithSavepoints)
     {
-<<<<<<< HEAD
         if (! $nestTransactionsWithSavepoints) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -1348,8 +1237,6 @@ class Connection
             );
         }
 
-=======
->>>>>>> stage
         if ($this->transactionNestingLevel > 0) {
             throw ConnectionException::mayNotAlterNestedTransactionWithSavepointsInTransaction();
         }
@@ -1413,7 +1300,6 @@ class Connection
             if ($logger !== null) {
                 $logger->stopQuery();
             }
-<<<<<<< HEAD
         } else {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -1424,8 +1310,6 @@ class Connection
                 DEPRECATION,
                 self::class
             );
-=======
->>>>>>> stage
         }
 
         $this->getEventManager()->dispatchEvent(Events::onTransactionBegin, new TransactionBeginEventArgs($this));
@@ -1699,15 +1583,7 @@ class Connection
             'Connection::getSchemaManager() is deprecated, use Connection::createSchemaManager() instead.'
         );
 
-<<<<<<< HEAD
         return $this->_schemaManager ??= $this->createSchemaManager();
-=======
-        if ($this->_schemaManager === null) {
-            $this->_schemaManager = $this->createSchemaManager();
-        }
-
-        return $this->_schemaManager;
->>>>>>> stage
     }
 
     /**
@@ -1785,11 +1661,7 @@ class Connection
      *
      * @throws Exception
      */
-<<<<<<< HEAD
     private function bindParameters(DriverStatement $stmt, array $params, array $types): void
-=======
-    private function _bindTypedValues(DriverStatement $stmt, array $params, array $types): void
->>>>>>> stage
     {
         // Check whether parameters are positional or named. Mixing is not allowed.
         if (is_int(key($params))) {
@@ -1799,7 +1671,6 @@ class Connection
                 if (isset($types[$key])) {
                     $type                  = $types[$key];
                     [$value, $bindingType] = $this->getBindingInfo($value, $type);
-<<<<<<< HEAD
                 } else {
                     if (array_key_exists($key, $types)) {
                         Deprecation::trigger(
@@ -1815,13 +1686,6 @@ class Connection
 
                 $stmt->bindValue($bindIndex, $value, $bindingType);
 
-=======
-                    $stmt->bindValue($bindIndex, $value, $bindingType);
-                } else {
-                    $stmt->bindValue($bindIndex, $value);
-                }
-
->>>>>>> stage
                 ++$bindIndex;
             }
         } else {
@@ -1830,7 +1694,6 @@ class Connection
                 if (isset($types[$name])) {
                     $type                  = $types[$name];
                     [$value, $bindingType] = $this->getBindingInfo($value, $type);
-<<<<<<< HEAD
                 } else {
                     if (array_key_exists($name, $types)) {
                         Deprecation::trigger(
@@ -1845,12 +1708,6 @@ class Connection
                 }
 
                 $stmt->bindValue($name, $value, $bindingType);
-=======
-                    $stmt->bindValue($name, $value, $bindingType);
-                } else {
-                    $stmt->bindValue($name, $value);
-                }
->>>>>>> stage
             }
         }
     }
@@ -1922,16 +1779,8 @@ class Connection
      */
     private function expandArrayParameters(string $sql, array $params, array $types): array
     {
-<<<<<<< HEAD
         $this->parser ??= $this->getDatabasePlatform()->createSQLParser();
         $visitor        = new ExpandArrayParameters($params, $types);
-=======
-        if ($this->parser === null) {
-            $this->parser = $this->getDatabasePlatform()->createSQLParser();
-        }
-
-        $visitor = new ExpandArrayParameters($params, $types);
->>>>>>> stage
 
         $this->parser->parse($sql, $visitor);
 
@@ -1969,16 +1818,8 @@ class Connection
         Driver\Exception $driverException,
         ?Query $query
     ): DriverException {
-<<<<<<< HEAD
         $this->exceptionConverter ??= $this->_driver->getExceptionConverter();
         $exception                  = $this->exceptionConverter->convert($driverException, $query);
-=======
-        if ($this->exceptionConverter === null) {
-            $this->exceptionConverter = $this->_driver->getExceptionConverter();
-        }
-
-        $exception = $this->exceptionConverter->convert($driverException, $query);
->>>>>>> stage
 
         if ($exception instanceof ConnectionLost) {
             $this->close();

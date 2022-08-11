@@ -31,17 +31,11 @@ class Exporter
      * @param int               &$objectsCount
      * @param bool              &$valuesAreStatic
      *
-<<<<<<< HEAD
      * @return array
      *
      * @throws NotInstantiableTypeException When a value cannot be serialized
      */
     public static function prepare($values, $objectsPool, &$refsPool, &$objectsCount, &$valuesAreStatic)
-=======
-     * @throws NotInstantiableTypeException When a value cannot be serialized
-     */
-    public static function prepare($values, $objectsPool, &$refsPool, &$objectsCount, &$valuesAreStatic): array
->>>>>>> stage
     {
         $refs = $values;
         foreach ($values as $k => $value) {
@@ -193,11 +187,7 @@ class Exporter
         return $values;
     }
 
-<<<<<<< HEAD
     public static function export($value, $indent = '')
-=======
-    public static function export($value, string $indent = '')
->>>>>>> stage
     {
         switch (true) {
             case \is_int($value) || \is_float($value): return var_export($value, true);

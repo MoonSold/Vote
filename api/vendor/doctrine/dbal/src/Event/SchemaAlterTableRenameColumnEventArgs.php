@@ -18,26 +18,12 @@ class SchemaAlterTableRenameColumnEventArgs extends SchemaEventArgs
     /** @var string */
     private $oldColumnName;
 
-<<<<<<< HEAD
     private Column $column;
     private TableDiff $tableDiff;
     private AbstractPlatform $platform;
 
     /** @var string[] */
     private array $sql = [];
-=======
-    /** @var Column */
-    private $column;
-
-    /** @var TableDiff */
-    private $tableDiff;
-
-    /** @var AbstractPlatform */
-    private $platform;
-
-    /** @var string[] */
-    private $sql = [];
->>>>>>> stage
 
     /**
      * @param string $oldColumnName

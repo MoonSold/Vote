@@ -5,10 +5,7 @@ namespace Doctrine\DBAL\Types;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\ParameterType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 
 use function array_map;
 use function get_class;
@@ -51,12 +48,7 @@ abstract class Type
         Types::TIME_IMMUTABLE       => TimeImmutableType::class,
     ];
 
-<<<<<<< HEAD
     private static ?TypeRegistry $typeRegistry = null;
-=======
-    /** @var TypeRegistry|null */
-    private static $typeRegistry;
->>>>>>> stage
 
     /**
      * @internal Do not instantiate directly - use {@see Type::addType()} method instead.
@@ -110,29 +102,15 @@ abstract class Type
     /**
      * Gets the name of this type.
      *
-<<<<<<< HEAD
      * @deprecated this method will be removed in Doctrine DBAL 4.0.
      *
      * @return string
-=======
-     * @return string
-     *
-     * @todo Needed?
->>>>>>> stage
      */
     abstract public function getName();
 
     final public static function getTypeRegistry(): TypeRegistry
     {
-<<<<<<< HEAD
         return self::$typeRegistry ??= self::createTypeRegistry();
-=======
-        if (self::$typeRegistry === null) {
-            self::$typeRegistry = self::createTypeRegistry();
-        }
-
-        return self::$typeRegistry;
->>>>>>> stage
     }
 
     private static function createTypeRegistry(): TypeRegistry
@@ -291,16 +269,12 @@ abstract class Type
      * one of those types as commented, which will have Doctrine use an SQL
      * comment to typehint the actual Doctrine Type.
      *
-<<<<<<< HEAD
      * @deprecated
      *
-=======
->>>>>>> stage
      * @return bool
      */
     public function requiresSQLCommentHint(AbstractPlatform $platform)
     {
-<<<<<<< HEAD
         Deprecation::triggerIfCalledFromOutside(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5509',
@@ -308,8 +282,6 @@ abstract class Type
             __METHOD__
         );
 
-=======
->>>>>>> stage
         return false;
     }
 }

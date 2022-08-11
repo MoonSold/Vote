@@ -2,18 +2,12 @@
 
 namespace Doctrine\DBAL\Platforms;
 
-<<<<<<< HEAD
 use Doctrine\DBAL\Connection;
-=======
->>>>>>> stage
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Schema\Identifier;
 use Doctrine\DBAL\Schema\Index;
-<<<<<<< HEAD
 use Doctrine\DBAL\Schema\OracleSchemaManager;
-=======
->>>>>>> stage
 use Doctrine\DBAL\Schema\Sequence;
 use Doctrine\DBAL\Schema\Table;
 use Doctrine\DBAL\Schema\TableDiff;
@@ -191,7 +185,6 @@ class OraclePlatform extends AbstractPlatform
     public function getCreatePrimaryKeySQL(Index $index, $table): string
     {
         if ($table instanceof Table) {
-<<<<<<< HEAD
             Deprecation::trigger(
                 'doctrine/dbal',
                 'https://github.com/doctrine/dbal/issues/4798',
@@ -199,8 +192,6 @@ class OraclePlatform extends AbstractPlatform
                 __METHOD__
             );
 
-=======
->>>>>>> stage
             $table = $table->getQuotedName($this);
         }
 
@@ -366,7 +357,6 @@ class OraclePlatform extends AbstractPlatform
     /**
      * {@inheritDoc}
      */
-<<<<<<< HEAD
     protected function getVarcharTypeDeclarationSQLSnippet($length, $fixed/*, $lengthOmitted = false*/)
     {
         if ($length <= 0 || (func_num_args() > 2 && func_get_arg(2))) {
@@ -378,10 +368,6 @@ class OraclePlatform extends AbstractPlatform
             );
         }
 
-=======
-    protected function getVarcharTypeDeclarationSQLSnippet($length, $fixed)
-    {
->>>>>>> stage
         return $fixed ? ($length > 0 ? 'CHAR(' . $length . ')' : 'CHAR(2000)')
                 : ($length > 0 ? 'VARCHAR2(' . $length . ')' : 'VARCHAR2(4000)');
     }
@@ -389,7 +375,6 @@ class OraclePlatform extends AbstractPlatform
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
     protected function getBinaryTypeDeclarationSQLSnippet($length, $fixed/*, $lengthOmitted = false*/)
     {
         if ($length <= 0 || (func_num_args() > 2 && func_get_arg(2))) {
@@ -401,16 +386,11 @@ class OraclePlatform extends AbstractPlatform
             );
         }
 
-=======
-    protected function getBinaryTypeDeclarationSQLSnippet($length, $fixed)
-    {
->>>>>>> stage
         return 'RAW(' . ($length > 0 ? $length : $this->getBinaryMaxLength()) . ')';
     }
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -422,11 +402,6 @@ class OraclePlatform extends AbstractPlatform
             'OraclePlatform::getBinaryMaxLength() is deprecated.'
         );
 
-=======
-     */
-    public function getBinaryMaxLength()
-    {
->>>>>>> stage
         return 2000;
     }
 
@@ -440,11 +415,8 @@ class OraclePlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractSchemaManager} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getListDatabasesSQL()
     {
@@ -453,11 +425,8 @@ class OraclePlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractSchemaManager} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getListSequencesSQL($database)
     {
@@ -500,11 +469,8 @@ class OraclePlatform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      *
      * @link http://ezcomponents.org/docs/api/trunk/DatabaseSchema/ezcDbSchemaOracleReader.html
@@ -545,11 +511,8 @@ class OraclePlatform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTablesSQL()
@@ -559,11 +522,8 @@ class OraclePlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractSchemaManager} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getListViewsSQL($database)
     {
@@ -711,11 +671,8 @@ END;';
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTableForeignKeysSQL($table)
@@ -748,11 +705,8 @@ END;';
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTableConstraintsSQL($table)
@@ -764,11 +718,8 @@ END;';
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTableColumnsSQL($table, $database = null)
@@ -817,7 +768,6 @@ SQL
      */
     public function getDropForeignKeySQL($foreignKey, $table)
     {
-<<<<<<< HEAD
         if ($foreignKey instanceof ForeignKeyConstraint) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -838,13 +788,6 @@ SQL
                 __METHOD__
             );
         } else {
-=======
-        if (! $foreignKey instanceof ForeignKeyConstraint) {
-            $foreignKey = new Identifier($foreignKey);
-        }
-
-        if (! $table instanceof Table) {
->>>>>>> stage
             $table = new Identifier($table);
         }
 
@@ -856,11 +799,8 @@ SQL
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getAdvancedForeignKeyOptionsSQL(ForeignKeyConstraint $foreignKey)
     {
@@ -879,11 +819,8 @@ SQL
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getForeignKeyReferentialActionSQL($action)
     {
@@ -1059,11 +996,8 @@ SQL
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getColumnDeclarationSQL($name, array $column)
     {
@@ -1106,7 +1040,6 @@ SQL
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -1119,21 +1052,13 @@ SQL
             __METHOD__
         );
 
-=======
-     */
-    public function usesSequenceEmulatedIdentityColumns()
-    {
->>>>>>> stage
         return true;
     }
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the OraclePlatform class hierarchy.
-=======
->>>>>>> stage
      */
     public function getIdentitySequenceName($tableName, $columnName)
     {
@@ -1153,11 +1078,8 @@ SQL
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function supportsCommentOnStatement()
     {
@@ -1353,12 +1275,9 @@ SQL
         return 'BLOB';
     }
 
-<<<<<<< HEAD
     /**
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      */
-=======
->>>>>>> stage
     public function getListTableCommentsSQL(string $table, ?string $database = null): string
     {
         $tableCommentsName = 'user_tab_comments';
@@ -1381,12 +1300,9 @@ SQL
             $ownerCondition
         );
     }
-<<<<<<< HEAD
 
     public function createSchemaManager(Connection $connection): OracleSchemaManager
     {
         return new OracleSchemaManager($connection, $this);
     }
-=======
->>>>>>> stage
 }

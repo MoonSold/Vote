@@ -44,12 +44,9 @@ class ObjectHydrator extends AbstractHydrator
     /** @var mixed[] */
     private $initializedCollections = [];
 
-<<<<<<< HEAD
     /** @var array<string, PersistentCollection> */
     private $uninitializedCollections = [];
 
-=======
->>>>>>> stage
     /** @var mixed[] */
     private $existingCollections = [];
 
@@ -118,18 +115,11 @@ class ObjectHydrator extends AbstractHydrator
 
         parent::cleanup();
 
-<<<<<<< HEAD
         $this->identifierMap            =
         $this->initializedCollections   =
         $this->uninitializedCollections =
         $this->existingCollections      =
         $this->resultPointers           = [];
-=======
-        $this->identifierMap          =
-        $this->initializedCollections =
-        $this->existingCollections    =
-        $this->resultPointers         = [];
->>>>>>> stage
 
         if ($eagerLoad) {
             $this->_uow->triggerEagerLoads();
@@ -140,18 +130,11 @@ class ObjectHydrator extends AbstractHydrator
 
     protected function cleanupAfterRowIteration(): void
     {
-<<<<<<< HEAD
         $this->identifierMap            =
         $this->initializedCollections   =
         $this->uninitializedCollections =
         $this->existingCollections      =
         $this->resultPointers           = [];
-=======
-        $this->identifierMap          =
-        $this->initializedCollections =
-        $this->existingCollections    =
-        $this->resultPointers         = [];
->>>>>>> stage
     }
 
     /**
@@ -170,15 +153,12 @@ class ObjectHydrator extends AbstractHydrator
             $coll->takeSnapshot();
         }
 
-<<<<<<< HEAD
         foreach ($this->uninitializedCollections as $coll) {
             if (! $coll->isInitialized()) {
                 $coll->setInitialized(true);
             }
         }
 
-=======
->>>>>>> stage
         return $result;
     }
 
@@ -442,13 +422,8 @@ class ObjectHydrator extends AbstractHydrator
                         }
                     } elseif (! $reflFieldValue) {
                         $this->initRelatedCollection($parentObject, $parentClass, $relationField, $parentAlias);
-<<<<<<< HEAD
                     } elseif ($reflFieldValue instanceof PersistentCollection && $reflFieldValue->isInitialized() === false && ! isset($this->uninitializedCollections[$oid . $relationField])) {
                         $this->uninitializedCollections[$oid . $relationField] = $reflFieldValue;
-=======
-                    } elseif ($reflFieldValue instanceof PersistentCollection && $reflFieldValue->isInitialized() === false) {
-                        $reflFieldValue->setInitialized(true);
->>>>>>> stage
                     }
                 } else {
                     // PATH B: Single-valued association

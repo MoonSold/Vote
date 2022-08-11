@@ -28,6 +28,17 @@ Ext.define('app.view.AdminElementGrid', {
                 renderTo: Ext.getBody(),
                 id: 'choose_window'
             })
+        },
+        beforerender: function(component, eOpts){
+            Ext.Ajax.request({
+                url: 'api/api.php',
+                method: "get",
+                params: {"id":localStorage.getItem('group_id'),"actor":"admin","method":"controllerAdminGetVoteElement"},
+                success: function(response){
+                    let store = Ext.widget('AdminElementGrid').getStore();
+                    store.add(Ext.decode(response.responseText));
+                }
+            });
         }
     }
 });

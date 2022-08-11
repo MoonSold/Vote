@@ -27,10 +27,6 @@ class SubstringFunction extends FunctionNode
     public $secondSimpleArithmeticExpression = null;
 
     /**
-<<<<<<< HEAD
-=======
-     * @override
->>>>>>> stage
      * @inheritdoc
      */
     public function getSql(SqlWalker $sqlWalker)
@@ -48,10 +44,6 @@ class SubstringFunction extends FunctionNode
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * @override
->>>>>>> stage
      * @inheritdoc
      */
     public function parse(Parser $parser)

@@ -14,11 +14,7 @@ use function strtoupper;
 abstract class KeywordList
 {
     /** @var string[]|null */
-<<<<<<< HEAD
     private ?array $keywords = null;
-=======
-    private $keywords;
->>>>>>> stage
 
     /**
      * Checks if the given word is a keyword of this dialect/vendor platform.
@@ -54,11 +50,8 @@ abstract class KeywordList
     /**
      * Returns the name of this keyword list.
      *
-<<<<<<< HEAD
      * @deprecated
      *
-=======
->>>>>>> stage
      * @return string
      */
     abstract public function getName();

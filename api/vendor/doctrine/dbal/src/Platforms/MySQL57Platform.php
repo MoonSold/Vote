@@ -18,7 +18,6 @@ class MySQL57Platform extends MySQLPlatform
 {
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -31,11 +30,6 @@ class MySQL57Platform extends MySQLPlatform
             __METHOD__
         );
 
-=======
-     */
-    public function hasNativeJsonType()
-    {
->>>>>>> stage
         return true;
     }
 

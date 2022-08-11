@@ -13,12 +13,7 @@ use Doctrine\DBAL\Schema\Table;
  */
 class Comparator extends BaseComparator
 {
-<<<<<<< HEAD
     private string $databaseCollation;
-=======
-    /** @var string */
-    private $databaseCollation;
->>>>>>> stage
 
     /**
      * @internal The comparator can be only instantiated by a schema manager.

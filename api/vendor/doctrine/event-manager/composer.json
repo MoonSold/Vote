@@ -23,7 +23,6 @@
         "php": "^7.1 || ^8.0"
     },
     "require-dev": {
-<<<<<<< HEAD
         "doctrine/coding-standard": "^9",
         "phpstan/phpstan": "~1.4.10 || ^1.5.4",
         "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5",
@@ -36,15 +35,6 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         },
-=======
-        "doctrine/coding-standard": "^6.0",
-        "phpunit/phpunit": "^7.0"
-    },
-    "conflict": {
-        "doctrine/common": "<2.9@dev"
-    },
-    "config": {
->>>>>>> stage
         "sort-packages": true
     },
     "autoload": {
@@ -56,13 +46,5 @@
         "psr-4": {
             "Doctrine\\Tests\\": "tests/Doctrine/Tests"
         }
-<<<<<<< HEAD
-=======
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
->>>>>>> stage
     }
 }

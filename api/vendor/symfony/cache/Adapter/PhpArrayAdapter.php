@@ -345,11 +345,7 @@ EOF;
                     $isStaticValue = false;
                 }
                 $value = var_export($value, true);
-<<<<<<< HEAD
             } elseif (!\is_scalar($value)) {
-=======
-            } elseif (!is_scalar($value)) {
->>>>>>> stage
                 throw new InvalidArgumentException(sprintf('Cache key "%s" has non-serializable "%s" value.', $key, get_debug_type($value)));
             } else {
                 $value = var_export($value, true);

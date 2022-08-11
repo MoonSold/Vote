@@ -10,33 +10,19 @@ use Doctrine\DBAL\Schema\Index;
  */
 class SchemaIndexDefinitionEventArgs extends SchemaEventArgs
 {
-<<<<<<< HEAD
     private ?Index $index = null;
-=======
-    /** @var Index|null */
-    private $index;
->>>>>>> stage
 
     /**
      * Raw index data as fetched from the database.
      *
      * @var mixed[]
      */
-<<<<<<< HEAD
     private array $tableIndex;
-=======
-    private $tableIndex;
->>>>>>> stage
 
     /** @var string */
     private $table;
 
-<<<<<<< HEAD
     private Connection $connection;
-=======
-    /** @var Connection */
-    private $connection;
->>>>>>> stage
 
     /**
      * @param mixed[] $tableIndex

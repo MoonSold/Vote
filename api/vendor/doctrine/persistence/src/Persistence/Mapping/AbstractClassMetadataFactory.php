@@ -17,10 +17,7 @@ use function array_reverse;
 use function array_unshift;
 use function assert;
 use function class_exists;
-<<<<<<< HEAD
 use function ltrim;
-=======
->>>>>>> stage
 use function str_replace;
 use function strpos;
 use function strrpos;
@@ -158,7 +155,6 @@ abstract class AbstractClassMetadataFactory implements ClassMetadataFactory
     abstract protected function isEntity(ClassMetadata $class);
 
     /**
-<<<<<<< HEAD
      * Removes the prepended backslash of a class string to conform with how php outputs class names
      *
      * @psalm-param class-string $className
@@ -174,8 +170,6 @@ abstract class AbstractClassMetadataFactory implements ClassMetadataFactory
     }
 
     /**
-=======
->>>>>>> stage
      * {@inheritDoc}
      *
      * @throws ReflectionException
@@ -183,11 +177,8 @@ abstract class AbstractClassMetadataFactory implements ClassMetadataFactory
      */
     public function getMetadataFor(string $className)
     {
-<<<<<<< HEAD
         $className = $this->normalizeClassName($className);
 
-=======
->>>>>>> stage
         if (isset($this->loadedMetadata[$className])) {
             return $this->loadedMetadata[$className];
         }
@@ -259,11 +250,8 @@ abstract class AbstractClassMetadataFactory implements ClassMetadataFactory
      */
     public function hasMetadataFor(string $className)
     {
-<<<<<<< HEAD
         $className = $this->normalizeClassName($className);
 
-=======
->>>>>>> stage
         return isset($this->loadedMetadata[$className]);
     }
 
@@ -272,21 +260,14 @@ abstract class AbstractClassMetadataFactory implements ClassMetadataFactory
      *
      * NOTE: This is only useful in very special cases, like when generating proxy classes.
      *
-<<<<<<< HEAD
      * @psalm-param class-string $className
-=======
->>>>>>> stage
      * @psalm-param CMTemplate $class
      *
      * @return void
      */
     public function setMetadataFor(string $className, ClassMetadata $class)
     {
-<<<<<<< HEAD
         $this->loadedMetadata[$this->normalizeClassName($className)] = $class;
-=======
-        $this->loadedMetadata[$className] = $class;
->>>>>>> stage
     }
 
     /**

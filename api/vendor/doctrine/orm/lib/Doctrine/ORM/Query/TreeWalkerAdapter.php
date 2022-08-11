@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Doctrine\ORM\Query;
 
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\Mapping\ClassMetadata;
@@ -17,12 +16,6 @@ use function is_a;
 use function sprintf;
 
 use const DEBUG_BACKTRACE_IGNORE_ARGS;
-=======
-use Doctrine\ORM\AbstractQuery;
-
-use function array_diff;
-use function array_keys;
->>>>>>> stage
 
 /**
  * An adapter implementation of the TreeWalker interface. The methods in this class
@@ -37,48 +30,30 @@ abstract class TreeWalkerAdapter implements TreeWalker
      *
      * @var AbstractQuery
      */
-<<<<<<< HEAD
     private $query;
-=======
-    private $_query;
->>>>>>> stage
 
     /**
      * The ParserResult of the original query that was produced by the Parser.
      *
      * @var ParserResult
      */
-<<<<<<< HEAD
     private $parserResult;
-=======
-    private $_parserResult;
->>>>>>> stage
 
     /**
      * The query components of the original query (the "symbol table") that was produced by the Parser.
      *
      * @psalm-var array<string, QueryComponent>
      */
-<<<<<<< HEAD
     private $queryComponents;
-=======
-    private $_queryComponents;
->>>>>>> stage
 
     /**
      * {@inheritdoc}
      */
     public function __construct($query, $parserResult, array $queryComponents)
     {
-<<<<<<< HEAD
         $this->query           = $query;
         $this->parserResult    = $parserResult;
         $this->queryComponents = $queryComponents;
-=======
-        $this->_query           = $query;
-        $this->_parserResult    = $parserResult;
-        $this->_queryComponents = $queryComponents;
->>>>>>> stage
     }
 
     /**
@@ -86,7 +61,6 @@ abstract class TreeWalkerAdapter implements TreeWalker
      */
     public function getQueryComponents()
     {
-<<<<<<< HEAD
         return $this->queryComponents;
     }
 
@@ -113,23 +87,12 @@ abstract class TreeWalkerAdapter implements TreeWalker
             );
         }
 
-=======
-        return $this->_queryComponents;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setQueryComponent($dqlAlias, array $queryComponent)
-    {
->>>>>>> stage
         $requiredKeys = ['metadata', 'parent', 'relation', 'map', 'nestingLevel', 'token'];
 
         if (array_diff($requiredKeys, array_keys($queryComponent))) {
             throw QueryException::invalidQueryComponent($dqlAlias);
         }
 
-<<<<<<< HEAD
         $this->queryComponents[$dqlAlias] = $queryComponent;
     }
 
@@ -151,17 +114,6 @@ abstract class TreeWalkerAdapter implements TreeWalker
         );
 
         return $this->queryComponents;
-=======
-        $this->_queryComponents[$dqlAlias] = $queryComponent;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    protected function _getQueryComponents()
-    {
-        return $this->_queryComponents;
->>>>>>> stage
     }
 
     /**
@@ -171,11 +123,7 @@ abstract class TreeWalkerAdapter implements TreeWalker
      */
     protected function _getQuery()
     {
-<<<<<<< HEAD
         return $this->query;
-=======
-        return $this->_query;
->>>>>>> stage
     }
 
     /**
@@ -185,20 +133,9 @@ abstract class TreeWalkerAdapter implements TreeWalker
      */
     protected function _getParserResult()
     {
-<<<<<<< HEAD
         return $this->parserResult;
     }
 
-=======
-        return $this->_parserResult;
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @return void
-     */
->>>>>>> stage
     public function walkSelectStatement(AST\SelectStatement $AST)
     {
     }
@@ -206,7 +143,6 @@ abstract class TreeWalkerAdapter implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkSelectClause($selectClause)
@@ -217,18 +153,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkSelectClause($selectClause)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkFromClause($fromClause)
@@ -239,18 +168,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkFromClause($fromClause)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkFunction($function)
@@ -261,18 +183,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkFunction($function)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkOrderByClause($orderByClause)
@@ -283,18 +198,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkOrderByClause($orderByClause)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkOrderByItem($orderByItem)
@@ -305,18 +213,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkOrderByItem($orderByItem)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkHavingClause($havingClause)
@@ -327,18 +228,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkHavingClause($havingClause)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkJoin($join)
@@ -349,18 +243,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkJoin($join)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkSelectExpression($selectExpression)
@@ -371,18 +258,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkSelectExpression($selectExpression)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkQuantifiedExpression($qExpr)
@@ -393,18 +273,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkQuantifiedExpression($qExpr)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkSubselect($subselect)
@@ -415,18 +288,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkSubselect($subselect)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkSubselectFromClause($subselectFromClause)
@@ -437,18 +303,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkSubselectFromClause($subselectFromClause)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkSimpleSelectClause($simpleSelectClause)
@@ -459,18 +318,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkSimpleSelectClause($simpleSelectClause)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkSimpleSelectExpression($simpleSelectExpression)
@@ -481,22 +333,12 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkSimpleSelectExpression($simpleSelectExpression)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
-=======
-     * @return void
->>>>>>> stage
      */
     public function walkAggregateExpression($aggExpression)
     {
@@ -505,7 +347,6 @@ abstract class TreeWalkerAdapter implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkGroupByClause($groupByClause)
@@ -516,18 +357,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkGroupByClause($groupByClause)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkGroupByItem($groupByItem)
@@ -540,31 +374,10 @@ abstract class TreeWalkerAdapter implements TreeWalker
         );
     }
 
-=======
-     * @return void
-     */
-    public function walkGroupByItem($groupByItem)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @return void
-     */
->>>>>>> stage
     public function walkUpdateStatement(AST\UpdateStatement $AST)
     {
     }
 
-<<<<<<< HEAD
-=======
-    /**
-     * {@inheritdoc}
-     *
-     * @return void
-     */
->>>>>>> stage
     public function walkDeleteStatement(AST\DeleteStatement $AST)
     {
     }
@@ -572,7 +385,6 @@ abstract class TreeWalkerAdapter implements TreeWalker
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkDeleteClause(AST\DeleteClause $deleteClause)
@@ -583,18 +395,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkDeleteClause(AST\DeleteClause $deleteClause)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkUpdateClause($updateClause)
@@ -605,18 +410,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkUpdateClause($updateClause)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkUpdateItem($updateItem)
@@ -627,18 +425,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkUpdateItem($updateItem)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkWhereClause($whereClause)
@@ -649,18 +440,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkWhereClause($whereClause)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkConditionalExpression($condExpr)
@@ -671,18 +455,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkConditionalExpression($condExpr)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkConditionalTerm($condTerm)
@@ -693,18 +470,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkConditionalTerm($condTerm)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkConditionalFactor($factor)
@@ -715,18 +485,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkConditionalFactor($factor)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkConditionalPrimary($primary)
@@ -737,18 +500,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkConditionalPrimary($primary)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkExistsExpression($existsExpr)
@@ -759,18 +515,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkExistsExpression($existsExpr)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkCollectionMemberExpression($collMemberExpr)
@@ -781,18 +530,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkCollectionMemberExpression($collMemberExpr)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkEmptyCollectionComparisonExpression($emptyCollCompExpr)
@@ -803,18 +545,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkEmptyCollectionComparisonExpression($emptyCollCompExpr)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkNullComparisonExpression($nullCompExpr)
@@ -825,18 +560,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkNullComparisonExpression($nullCompExpr)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkInExpression($inExpr)
@@ -847,18 +575,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkInExpression($inExpr)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkInstanceOfExpression($instanceOfExpr)
@@ -869,18 +590,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkInstanceOfExpression($instanceOfExpr)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkLiteral($literal)
@@ -891,18 +605,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkLiteral($literal)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkBetweenExpression($betweenExpr)
@@ -913,18 +620,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkBetweenExpression($betweenExpr)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkLikeExpression($likeExpr)
@@ -935,18 +635,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkLikeExpression($likeExpr)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkStateFieldPathExpression($stateFieldPathExpression)
@@ -957,18 +650,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkStateFieldPathExpression($stateFieldPathExpression)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkComparisonExpression($compExpr)
@@ -979,18 +665,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkComparisonExpression($compExpr)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkInputParameter($inputParam)
@@ -1001,18 +680,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkInputParameter($inputParam)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkArithmeticExpression($arithmeticExpr)
@@ -1023,18 +695,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkArithmeticExpression($arithmeticExpr)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkArithmeticTerm($term)
@@ -1045,18 +710,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkArithmeticTerm($term)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkStringPrimary($stringPrimary)
@@ -1067,18 +725,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkStringPrimary($stringPrimary)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkArithmeticFactor($factor)
@@ -1089,18 +740,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkArithmeticFactor($factor)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkSimpleArithmeticExpression($simpleArithmeticExpr)
@@ -1111,18 +755,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkSimpleArithmeticExpression($simpleArithmeticExpr)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkPathExpression($pathExpr)
@@ -1133,18 +770,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkPathExpression($pathExpr)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function walkResultVariable($resultVariable)
@@ -1155,18 +785,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
             'Method "%s" is deprecated and will be removed in ORM 3.0 without replacement.',
             __METHOD__
         );
-=======
-     * @return void
-     */
-    public function walkResultVariable($resultVariable)
-    {
->>>>>>> stage
     }
 
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated This method will be removed in 3.0.
      */
     public function getExecutor($AST)
@@ -1190,11 +813,5 @@ abstract class TreeWalkerAdapter implements TreeWalker
         }
 
         return $metadata;
-=======
-     * @return void
-     */
-    public function getExecutor($AST)
-    {
->>>>>>> stage
     }
 }

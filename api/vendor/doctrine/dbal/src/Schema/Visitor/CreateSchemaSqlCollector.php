@@ -6,7 +6,6 @@ use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Schema\Sequence;
 use Doctrine\DBAL\Schema\Table;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
 
 use function array_merge;
@@ -38,30 +37,6 @@ class CreateSchemaSqlCollector extends AbstractVisitor
             'CreateSchemaSqlCollector is deprecated. Use CreateSchemaObjectsSQLBuilder instead.'
         );
 
-=======
-
-use function array_merge;
-
-class CreateSchemaSqlCollector extends AbstractVisitor
-{
-    /** @var string[] */
-    private $createNamespaceQueries = [];
-
-    /** @var string[] */
-    private $createTableQueries = [];
-
-    /** @var string[] */
-    private $createSequenceQueries = [];
-
-    /** @var string[] */
-    private $createFkConstraintQueries = [];
-
-    /** @var AbstractPlatform */
-    private $platform;
-
-    public function __construct(AbstractPlatform $platform)
-    {
->>>>>>> stage
         $this->platform = $platform;
     }
 

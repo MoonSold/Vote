@@ -4,10 +4,7 @@ namespace Doctrine\DBAL\Types;
 
 use DateTimeImmutable;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 
 use function date_create_immutable;
 
@@ -64,7 +61,6 @@ class VarDateTimeImmutableType extends VarDateTimeType
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -77,11 +73,6 @@ class VarDateTimeImmutableType extends VarDateTimeType
             __METHOD__
         );
 
-=======
-     */
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
-    {
->>>>>>> stage
         return true;
     }
 }

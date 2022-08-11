@@ -23,12 +23,7 @@ use function sprintf;
  */
 class QueryCacheProfile
 {
-<<<<<<< HEAD
     private ?CacheItemPoolInterface $resultCache = null;
-=======
-    /** @var CacheItemPoolInterface|null */
-    private $resultCache;
->>>>>>> stage
 
     /** @var int */
     private $lifetime;

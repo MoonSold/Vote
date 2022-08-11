@@ -27,12 +27,7 @@ use function strtolower;
  */
 class Comparator
 {
-<<<<<<< HEAD
     private ?AbstractPlatform $platform = null;
-=======
-    /** @var AbstractPlatform|null */
-    private $platform;
->>>>>>> stage
 
     /**
      * @internal The comparator can be only instantiated by a schema manager.
@@ -42,11 +37,7 @@ class Comparator
         if ($platform === null) {
             Deprecation::triggerIfCalledFromOutside(
                 'doctrine/dbal',
-<<<<<<< HEAD
                 'https://github.com/doctrine/dbal/pull/4746',
-=======
-                'https://github.com/doctrine/dbal/pull/4659',
->>>>>>> stage
                 'Not passing a $platform to %s is deprecated.'
                     . ' Use AbstractSchemaManager::createComparator() to instantiate the comparator.',
                 __METHOD__
@@ -77,7 +68,6 @@ class Comparator
             throw new BadMethodCallException(sprintf('Unknown method "%s"', $method));
         }
 
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/4707',
@@ -86,8 +76,6 @@ class Comparator
             $method
         );
 
-=======
->>>>>>> stage
         $comparator = new self();
 
         return $comparator->doCompareSchemas(...$args);
@@ -168,7 +156,6 @@ class Comparator
                 continue;
             }
 
-<<<<<<< HEAD
             foreach ($foreignKeysToTable[$tableName] as $foreignKey) {
                 if (isset($diff->removedTables[strtolower($foreignKey->getLocalTableName())])) {
                     continue;
@@ -176,9 +163,6 @@ class Comparator
 
                 $diff->orphanedForeignKeys[] = $foreignKey;
             }
-=======
-            $diff->orphanedForeignKeys = array_merge($diff->orphanedForeignKeys, $foreignKeysToTable[$tableName]);
->>>>>>> stage
 
             // deleting duplicated foreign keys present on both on the orphanedForeignKey
             // and the removedForeignKeys from changedTables

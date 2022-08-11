@@ -2,28 +2,17 @@
 
 namespace Doctrine\DBAL\Platforms;
 
-<<<<<<< HEAD
 use Doctrine\DBAL\Connection;
-=======
->>>>>>> stage
 use Doctrine\DBAL\Schema\Column;
 use Doctrine\DBAL\Schema\ColumnDiff;
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Schema\Identifier;
 use Doctrine\DBAL\Schema\Index;
-<<<<<<< HEAD
 use Doctrine\DBAL\Schema\PostgreSQLSchemaManager;
-=======
->>>>>>> stage
 use Doctrine\DBAL\Schema\Sequence;
 use Doctrine\DBAL\Schema\TableDiff;
 use Doctrine\DBAL\Types\BinaryType;
 use Doctrine\DBAL\Types\BlobType;
-<<<<<<< HEAD
-=======
-use Doctrine\DBAL\Types\PhpIntegerMappingType;
-use Doctrine\DBAL\Types\Type;
->>>>>>> stage
 use Doctrine\Deprecations\Deprecation;
 use UnexpectedValueException;
 
@@ -49,18 +38,10 @@ use function trim;
  */
 class PostgreSQLPlatform extends AbstractPlatform
 {
-<<<<<<< HEAD
     private bool $useBooleanTrueFalseStrings = true;
 
     /** @var string[][] PostgreSQL booleans literals */
     private array $booleanLiterals = [
-=======
-    /** @var bool */
-    private $useBooleanTrueFalseStrings = true;
-
-    /** @var string[][] PostgreSQL booleans literals */
-    private $booleanLiterals = [
->>>>>>> stage
         'true' => [
             't',
             'true',
@@ -189,7 +170,6 @@ class PostgreSQLPlatform extends AbstractPlatform
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -202,11 +182,6 @@ class PostgreSQLPlatform extends AbstractPlatform
             __METHOD__
         );
 
-=======
-     */
-    public function getDefaultSchemaName()
-    {
->>>>>>> stage
         return 'public';
     }
 
@@ -220,11 +195,8 @@ class PostgreSQLPlatform extends AbstractPlatform
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function supportsPartialIndexes()
     {
@@ -233,7 +205,6 @@ class PostgreSQLPlatform extends AbstractPlatform
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -246,17 +217,11 @@ class PostgreSQLPlatform extends AbstractPlatform
             __METHOD__
         );
 
-=======
-     */
-    public function usesSequenceEmulatedIdentityColumns()
-    {
->>>>>>> stage
         return true;
     }
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -269,21 +234,13 @@ class PostgreSQLPlatform extends AbstractPlatform
             __METHOD__
         );
 
-=======
-     */
-    public function getIdentitySequenceName($tableName, $columnName)
-    {
->>>>>>> stage
         return $tableName . '_' . $columnName . '_seq';
     }
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function supportsCommentOnStatement()
     {
@@ -292,7 +249,6 @@ class PostgreSQLPlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -305,21 +261,13 @@ class PostgreSQLPlatform extends AbstractPlatform
             __METHOD__
         );
 
-=======
-     */
-    public function hasNativeGuidType()
-    {
->>>>>>> stage
         return true;
     }
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractSchemaManager} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getListDatabasesSQL()
     {
@@ -348,7 +296,6 @@ class PostgreSQLPlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractSchemaManager} class hierarchy.
      */
@@ -361,24 +308,12 @@ class PostgreSQLPlatform extends AbstractPlatform
                 FROM   information_schema.sequences
                 WHERE  sequence_catalog = ' . $this->quoteStringLiteral($database) . "
                 AND    sequence_schema NOT LIKE 'pg\_%'
-=======
-     */
-    public function getListSequencesSQL($database)
-    {
-        return "SELECT sequence_name AS relname,
-                       sequence_schema AS schemaname
-                FROM   information_schema.sequences
-                WHERE  sequence_schema NOT LIKE 'pg\_%'
->>>>>>> stage
                 AND    sequence_schema != 'information_schema'";
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTablesSQL()
@@ -395,11 +330,8 @@ class PostgreSQLPlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractSchemaManager} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getListViewsSQL($database)
     {
@@ -411,11 +343,8 @@ class PostgreSQLPlatform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * @param string      $table
      * @param string|null $database
      *
@@ -435,11 +364,8 @@ class PostgreSQLPlatform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTableConstraintsSQL($table)
@@ -467,11 +393,8 @@ SQL
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      *
      * @link http://ezcomponents.org/docs/api/trunk/DatabaseSchema/ezcDbSchemaPgsqlReader.html
@@ -518,11 +441,8 @@ SQL
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTableColumnsSQL($table, $database = null)
@@ -562,11 +482,8 @@ SQL
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getAdvancedForeignKeyOptionsSQL(ForeignKeyConstraint $foreignKey)
     {
@@ -664,11 +581,7 @@ SQL
                 $sql[] = 'ALTER TABLE ' . $diff->getName($this)->getQuotedName($this) . ' ' . $query;
             }
 
-<<<<<<< HEAD
             if ($columnDiff->hasChanged('default')) {
-=======
-            if ($columnDiff->hasChanged('default') || $this->typeChangeBreaksDefaultValue($columnDiff)) {
->>>>>>> stage
                 $defaultClause = $column->getDefault() === null
                     ? ' DROP DEFAULT'
                     : ' SET' . $this->getDefaultValueDeclarationSQL($column->toArray());
@@ -808,11 +721,8 @@ SQL
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getCommentOnColumnSQL($tableName, $columnName, $comment)
     {
@@ -907,11 +817,7 @@ SQL
         }
 
         if (isset($options['foreignKeys'])) {
-<<<<<<< HEAD
             foreach ($options['foreignKeys'] as $definition) {
-=======
-            foreach ((array) $options['foreignKeys'] as $definition) {
->>>>>>> stage
                 $sql[] = $this->getCreateForeignKeySQL($definition, $name);
             }
         }
@@ -1283,7 +1189,6 @@ SQL
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -1295,11 +1200,6 @@ SQL
             'PostgreSQLPlatform::getVarcharMaxLength() is deprecated.'
         );
 
-=======
-     */
-    public function getVarcharMaxLength()
-    {
->>>>>>> stage
         return 65535;
     }
 
@@ -1308,21 +1208,17 @@ SQL
      */
     public function getBinaryMaxLength()
     {
-<<<<<<< HEAD
         Deprecation::triggerIfCalledFromOutside(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/issues/3263',
             'PostgreSQLPlatform::getBinaryMaxLength() is deprecated.'
         );
 
-=======
->>>>>>> stage
         return 0;
     }
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -1334,17 +1230,11 @@ SQL
             'Relying on the default binary column length is deprecated, specify the length explicitly.'
         );
 
-=======
-     */
-    public function getBinaryDefaultLength()
-    {
->>>>>>> stage
         return 0;
     }
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -1357,11 +1247,6 @@ SQL
             __METHOD__
         );
 
-=======
-     */
-    public function hasNativeJsonType()
-    {
->>>>>>> stage
         return true;
     }
 
@@ -1392,19 +1277,12 @@ SQL
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
      */
     public function getDefaultValueDeclarationSQL($column)
     {
         if (isset($column['autoincrement']) && $column['autoincrement'] === true) {
-=======
-     */
-    public function getDefaultValueDeclarationSQL($column)
-    {
-        if ($this->isSerialColumn($column)) {
->>>>>>> stage
             return '';
         }
 
@@ -1413,11 +1291,8 @@ SQL
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function supportsColumnCollation()
     {
@@ -1426,11 +1301,8 @@ SQL
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getColumnCollationDeclarationSQL($collation)
     {
@@ -1449,52 +1321,14 @@ SQL
         return 'JSON';
     }
 
-<<<<<<< HEAD
-=======
-    /**
-     * @param mixed[] $column
-     */
-    private function isSerialColumn(array $column): bool
-    {
-        return isset($column['type'], $column['autoincrement'])
-            && $column['autoincrement'] === true
-            && $this->isIntegerType($column['type']);
-    }
-
-    /**
-     * Check whether the type of a column is changed in a way that invalidates the default value for the column
-     */
-    private function typeChangeBreaksDefaultValue(ColumnDiff $columnDiff): bool
-    {
-        if ($columnDiff->fromColumn === null) {
-            return $columnDiff->hasChanged('type');
-        }
-
-        $oldTypeIsInteger = $this->isIntegerType($columnDiff->fromColumn->getType());
-        $newTypeIsInteger = $this->isIntegerType($columnDiff->column->getType());
-
-        // default should not be changed when switching between integer types and the default comes from a sequence
-        return $columnDiff->hasChanged('type')
-            && ! ($oldTypeIsInteger && $newTypeIsInteger && $columnDiff->column->getAutoincrement());
-    }
-
-    private function isIntegerType(Type $type): bool
-    {
-        return $type instanceof PhpIntegerMappingType;
-    }
-
->>>>>>> stage
     private function getOldColumnComment(ColumnDiff $columnDiff): ?string
     {
         return $columnDiff->fromColumn !== null ? $this->getColumnComment($columnDiff->fromColumn) : null;
     }
 
-<<<<<<< HEAD
     /**
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      */
-=======
->>>>>>> stage
     public function getListTableMetadataSQL(string $table, ?string $schema = null): string
     {
         if ($schema !== null) {
@@ -1509,12 +1343,9 @@ SQL
             $this->quoteStringLiteral($table)
         );
     }
-<<<<<<< HEAD
 
     public function createSchemaManager(Connection $connection): PostgreSQLSchemaManager
     {
         return new PostgreSQLSchemaManager($connection, $this);
     }
-=======
->>>>>>> stage
 }

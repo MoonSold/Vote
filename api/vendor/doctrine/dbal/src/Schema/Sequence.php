@@ -3,10 +3,7 @@
 namespace Doctrine\DBAL\Schema;
 
 use Doctrine\DBAL\Schema\Visitor\Visitor;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 
 use function count;
 use function sprintf;
@@ -143,24 +140,18 @@ class Sequence extends AbstractAsset
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated
      *
-=======
->>>>>>> stage
      * @return void
      */
     public function visit(Visitor $visitor)
     {
-<<<<<<< HEAD
         Deprecation::triggerIfCalledFromOutside(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5435',
             'Sequence::visit() is deprecated.'
         );
 
-=======
->>>>>>> stage
         $visitor->acceptSequence($this);
     }
 }

@@ -4,18 +4,12 @@ declare(strict_types=1);
 
 namespace Doctrine\ORM\Mapping\Builder;
 
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
 
 use function get_class;
 
-=======
-use Doctrine\ORM\Mapping\ClassMetadata;
-use Doctrine\ORM\Mapping\ClassMetadataInfo;
-
->>>>>>> stage
 /**
  * Builder Object for ClassMetadata
  *
@@ -28,7 +22,6 @@ class ClassMetadataBuilder
 
     public function __construct(ClassMetadataInfo $cm)
     {
-<<<<<<< HEAD
         if (! $cm instanceof ClassMetadata) {
             Deprecation::trigger(
                 'doctrine/orm',
@@ -40,8 +33,6 @@ class ClassMetadataBuilder
             );
         }
 
-=======
->>>>>>> stage
         $this->cm = $cm;
     }
 

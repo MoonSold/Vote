@@ -6,10 +6,7 @@ use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Schema\Exception\InvalidTableName;
 use Doctrine\DBAL\Schema\Visitor\Visitor;
 use Doctrine\DBAL\Types\Type;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 
 use function array_filter;
 use function array_keys;
@@ -50,11 +47,7 @@ class Table extends AbstractAsset
     protected $_schemaConfig;
 
     /** @var Index[] */
-<<<<<<< HEAD
     private array $implicitIndexes = [];
-=======
-    private $implicitIndexes = [];
->>>>>>> stage
 
     /**
      * @param Column[]               $columns
@@ -156,21 +149,11 @@ class Table extends AbstractAsset
      */
     public function addIndex(array $columnNames, ?string $indexName = null, array $flags = [], array $options = [])
     {
-<<<<<<< HEAD
         $indexName ??= $this->_generateIdentifierName(
             array_merge([$this->getName()], $columnNames),
             'idx',
             $this->_getMaxIdentifierLength()
         );
-=======
-        if ($indexName === null) {
-            $indexName = $this->_generateIdentifierName(
-                array_merge([$this->getName()], $columnNames),
-                'idx',
-                $this->_getMaxIdentifierLength()
-            );
-        }
->>>>>>> stage
 
         return $this->_addIndex($this->_createIndex($columnNames, $indexName, false, false, $flags, $options));
     }
@@ -188,21 +171,11 @@ class Table extends AbstractAsset
         array $flags = [],
         array $options = []
     ): Table {
-<<<<<<< HEAD
         $indexName ??= $this->_generateIdentifierName(
             array_merge([$this->getName()], $columnNames),
             'uniq',
             $this->_getMaxIdentifierLength()
         );
-=======
-        if ($indexName === null) {
-            $indexName = $this->_generateIdentifierName(
-                array_merge([$this->getName()], $columnNames),
-                'uniq',
-                $this->_getMaxIdentifierLength()
-            );
-        }
->>>>>>> stage
 
         return $this->_addUniqueConstraint($this->_createUniqueConstraint($columnNames, $indexName, $flags, $options));
     }
@@ -255,21 +228,11 @@ class Table extends AbstractAsset
      */
     public function addUniqueIndex(array $columnNames, $indexName = null, array $options = [])
     {
-<<<<<<< HEAD
         $indexName ??= $this->_generateIdentifierName(
             array_merge([$this->getName()], $columnNames),
             'uniq',
             $this->_getMaxIdentifierLength()
         );
-=======
-        if ($indexName === null) {
-            $indexName = $this->_generateIdentifierName(
-                array_merge([$this->getName()], $columnNames),
-                'uniq',
-                $this->_getMaxIdentifierLength()
-            );
-        }
->>>>>>> stage
 
         return $this->_addIndex($this->_createIndex($columnNames, $indexName, true, false, [], $options));
     }
@@ -443,21 +406,11 @@ class Table extends AbstractAsset
         array $options = [],
         $name = null
     ) {
-<<<<<<< HEAD
         $name ??= $this->_generateIdentifierName(
             array_merge([$this->getName()], $localColumnNames),
             'fk',
             $this->_getMaxIdentifierLength()
         );
-=======
-        if ($name === null) {
-            $name = $this->_generateIdentifierName(
-                array_merge((array) $this->getName(), $localColumnNames),
-                'fk',
-                $this->_getMaxIdentifierLength()
-            );
-        }
->>>>>>> stage
 
         if ($foreignTable instanceof Table) {
             foreach ($foreignColumnNames as $columnName) {
@@ -944,26 +897,20 @@ class Table extends AbstractAsset
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated
      *
-=======
->>>>>>> stage
      * @return void
      *
      * @throws SchemaException
      */
     public function visit(Visitor $visitor)
     {
-<<<<<<< HEAD
         Deprecation::triggerIfCalledFromOutside(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5435',
             'Table::visit() is deprecated.'
         );
 
-=======
->>>>>>> stage
         $visitor->acceptTable($this);
 
         foreach ($this->getColumns() as $column) {

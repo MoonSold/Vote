@@ -68,11 +68,7 @@ class Inline
             return '';
         }
 
-<<<<<<< HEAD
         if (2 /* MB_OVERLOAD_STRING */ & (int) \ini_get('mbstring.func_overload')) {
-=======
-        if (2 /* MB_OVERLOAD_STRING */ & (int) ini_get('mbstring.func_overload')) {
->>>>>>> stage
             $mbEncoding = mb_internal_encoding();
             mb_internal_encoding('ASCII');
         }

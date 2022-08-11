@@ -16,7 +16,6 @@ use function substr;
 final class ExpandArrayParameters implements Visitor
 {
     /** @var array<int,mixed>|array<string,mixed> */
-<<<<<<< HEAD
     private array $originalParameters;
 
     /** @var array<int,Type|int|string|null>|array<string,Type|int|string|null> */
@@ -32,24 +31,6 @@ final class ExpandArrayParameters implements Visitor
 
     /** @var array<int,Type|int|string|null> */
     private array $convertedTypes = [];
-=======
-    private $originalParameters;
-
-    /** @var array<int,Type|int|string|null>|array<string,Type|int|string|null> */
-    private $originalTypes;
-
-    /** @var int */
-    private $originalParameterIndex = 0;
-
-    /** @var list<string> */
-    private $convertedSQL = [];
-
-    /** @var list<mixed> */
-    private $convertedParameteres = [];
-
-    /** @var array<int,Type|int|string|null> */
-    private $convertedTypes = [];
->>>>>>> stage
 
     /**
      * @param array<int, mixed>|array<string, mixed>                             $parameters

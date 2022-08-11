@@ -10,12 +10,7 @@ use Psr\Log\LoggerInterface;
 
 final class Middleware implements MiddlewareInterface
 {
-<<<<<<< HEAD
     private LoggerInterface $logger;
-=======
-    /** @var LoggerInterface */
-    private $logger;
->>>>>>> stage
 
     public function __construct(LoggerInterface $logger)
     {

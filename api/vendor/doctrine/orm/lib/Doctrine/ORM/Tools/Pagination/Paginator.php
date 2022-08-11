@@ -157,11 +157,7 @@ class Paginator implements Countable, IteratorAggregate
 
             $this->appendTreeWalker($whereInQuery, WhereInWalker::class);
             $whereInQuery->setHint(WhereInWalker::HINT_PAGINATOR_ID_COUNT, count($ids));
-<<<<<<< HEAD
             $whereInQuery->setFirstResult(0)->setMaxResults(null);
-=======
-            $whereInQuery->setFirstResult(null)->setMaxResults(null);
->>>>>>> stage
             $whereInQuery->setParameter(WhereInWalker::PAGINATOR_ID_ALIAS, $ids);
             $whereInQuery->setCacheable($this->query->isCacheable());
             $whereInQuery->expireQueryCache();
@@ -245,11 +241,7 @@ class Paginator implements Countable, IteratorAggregate
             $this->unbindUnusedQueryParams($countQuery);
         }
 
-<<<<<<< HEAD
         $countQuery->setFirstResult(0)->setMaxResults(null);
-=======
-        $countQuery->setFirstResult(null)->setMaxResults(null);
->>>>>>> stage
 
         return $countQuery;
     }

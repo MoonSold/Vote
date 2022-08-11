@@ -56,15 +56,9 @@
             'dev_requirement' => false,
         ),
         'doctrine/dbal' => array(
-<<<<<<< HEAD
             'pretty_version' => '3.4.0',
             'version' => '3.4.0.0',
             'reference' => '118a360e9437e88d49024f36283c8bcbd76105f5',
-=======
-            'pretty_version' => '3.3.7',
-            'version' => '3.3.7.0',
-            'reference' => '9f79d4650430b582f4598fe0954ef4d52fbc0a8a',
->>>>>>> stage
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/dbal',
             'aliases' => array(),
@@ -80,15 +74,9 @@
             'dev_requirement' => false,
         ),
         'doctrine/event-manager' => array(
-<<<<<<< HEAD
             'pretty_version' => '1.1.2',
             'version' => '1.1.2.0',
             'reference' => 'eb2ecf80e3093e8f3c2769ac838e27d8ede8e683',
-=======
-            'pretty_version' => '1.1.1',
-            'version' => '1.1.1.0',
-            'reference' => '41370af6a30faa9dc0368c4a6814d596e81aba7f',
->>>>>>> stage
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/event-manager',
             'aliases' => array(),
@@ -122,36 +110,23 @@
             'dev_requirement' => false,
         ),
         'doctrine/orm' => array(
-<<<<<<< HEAD
             'pretty_version' => '2.13.1',
             'version' => '2.13.1.0',
             'reference' => '35c44a56677adb3ce796138b6e4934ce93ec6811',
-=======
-            'pretty_version' => '2.12.3',
-            'version' => '2.12.3.0',
-            'reference' => 'c05e1709e9ffb9abe8d37260a78975cc816ee385',
->>>>>>> stage
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/orm',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'doctrine/persistence' => array(
-<<<<<<< HEAD
             'pretty_version' => '3.0.3',
             'version' => '3.0.3.0',
             'reference' => 'ac6fce61f037d7e54dbb2435f5b5648d86548e23',
-=======
-            'pretty_version' => '3.0.2',
-            'version' => '3.0.2.0',
-            'reference' => '25ec98a8cbd1f850e60fdb62c0ef77c162da8704',
->>>>>>> stage
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/persistence',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-<<<<<<< HEAD
         'fpdf/fpdf' => array(
             'pretty_version' => '1.84.0',
             'version' => '1.84.0.0',
@@ -161,8 +136,6 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-=======
->>>>>>> stage
         'psr/cache' => array(
             'pretty_version' => '2.0.0',
             'version' => '2.0.0.0',
@@ -209,15 +182,9 @@
             ),
         ),
         'symfony/cache' => array(
-<<<<<<< HEAD
             'pretty_version' => 'v5.4.11',
             'version' => '5.4.11.0',
             'reference' => '5a0fff46df349f0db3fe242263451fddf5277362',
-=======
-            'pretty_version' => 'v5.4.10',
-            'version' => '5.4.10.0',
-            'reference' => 'c4e387b739022fd4b20abd8edb2143c44c5daa14',
->>>>>>> stage
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/cache',
             'aliases' => array(),
@@ -239,15 +206,9 @@
             ),
         ),
         'symfony/console' => array(
-<<<<<<< HEAD
             'pretty_version' => 'v6.1.3',
             'version' => '6.1.3.0',
             'reference' => '43fcb5c5966b43c56bcfa481368d90d748936ab8',
-=======
-            'pretty_version' => 'v6.1.2',
-            'version' => '6.1.2.0',
-            'reference' => '7a86c1c42fbcb69b59768504c7bca1d3767760b7',
->>>>>>> stage
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/console',
             'aliases' => array(),
@@ -335,45 +296,27 @@
             'dev_requirement' => false,
         ),
         'symfony/string' => array(
-<<<<<<< HEAD
             'pretty_version' => 'v6.1.3',
             'version' => '6.1.3.0',
             'reference' => 'f35241f45c30bcd9046af2bb200a7086f70e1d6b',
-=======
-            'pretty_version' => 'v6.1.2',
-            'version' => '6.1.2.0',
-            'reference' => '1903f2879875280c5af944625e8246d81c2f0604',
->>>>>>> stage
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/string',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'symfony/var-exporter' => array(
-<<<<<<< HEAD
             'pretty_version' => 'v6.1.3',
             'version' => '6.1.3.0',
             'reference' => 'b49350f45cebbba6e5286485264b912f2bcfc9ef',
-=======
-            'pretty_version' => 'v6.1.1',
-            'version' => '6.1.1.0',
-            'reference' => 'ce1452317b1210ddfe18d143fa8a09c18f034b89',
->>>>>>> stage
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/var-exporter',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'symfony/yaml' => array(
-<<<<<<< HEAD
             'pretty_version' => 'v5.4.11',
             'version' => '5.4.11.0',
             'reference' => '05d4ea560f3402c6c116afd99fdc66e60eda227e',
-=======
-            'pretty_version' => 'v5.4.10',
-            'version' => '5.4.10.0',
-            'reference' => '04e42926429d9e8b39c174387ab990bf7817f7a2',
->>>>>>> stage
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/yaml',
             'aliases' => array(),

@@ -32,11 +32,8 @@ use function array_map;
 use function array_shift;
 use function assert;
 use function count;
-<<<<<<< HEAD
 use function func_num_args;
 use function in_array;
-=======
->>>>>>> stage
 use function is_array;
 use function is_numeric;
 use function is_object;
@@ -202,11 +199,7 @@ abstract class AbstractQuery
     }
 
     /**
-<<<<<<< HEAD
      * @return bool TRUE if the query results are enabled for second level cache, FALSE otherwise.
-=======
-     * @return bool TRUE if the query results are enable for second level cache, FALSE otherwise.
->>>>>>> stage
      */
     public function isCacheable()
     {
@@ -334,11 +327,7 @@ abstract class AbstractQuery
     /**
      * Gets a query parameter.
      *
-<<<<<<< HEAD
      * @param int|string $key The key (index or name) of the bound parameter.
-=======
-     * @param mixed $key The key (index or name) of the bound parameter.
->>>>>>> stage
      *
      * @return Parameter|null The value of the bound parameter, or NULL if not available.
      */
@@ -414,12 +403,7 @@ abstract class AbstractQuery
      *
      * @param mixed $value
      *
-<<<<<<< HEAD
      * @return mixed
-=======
-     * @return mixed[]|string|int|float|bool|object|null
-     * @psalm-return array|scalar|object|null
->>>>>>> stage
      *
      * @throws ORMInvalidArgumentException
      */
@@ -564,7 +548,6 @@ abstract class AbstractQuery
     public function setHydrationCacheProfile(?QueryCacheProfile $profile = null)
     {
         if ($profile === null) {
-<<<<<<< HEAD
             if (func_num_args() < 1) {
                 Deprecation::trigger(
                     'doctrine/orm',
@@ -574,8 +557,6 @@ abstract class AbstractQuery
                 );
             }
 
-=======
->>>>>>> stage
             $this->_hydrationCacheProfile = null;
 
             return $this;
@@ -620,7 +601,6 @@ abstract class AbstractQuery
     public function setResultCacheProfile(?QueryCacheProfile $profile = null)
     {
         if ($profile === null) {
-<<<<<<< HEAD
             if (func_num_args() < 1) {
                 Deprecation::trigger(
                     'doctrine/orm',
@@ -630,8 +610,6 @@ abstract class AbstractQuery
                 );
             }
 
-=======
->>>>>>> stage
             $this->_queryCacheProfile = null;
 
             return $this;
@@ -686,7 +664,6 @@ abstract class AbstractQuery
     public function setResultCache(?CacheItemPoolInterface $resultCache = null)
     {
         if ($resultCache === null) {
-<<<<<<< HEAD
             if (func_num_args() < 1) {
                 Deprecation::trigger(
                     'doctrine/orm',
@@ -696,8 +673,6 @@ abstract class AbstractQuery
                 );
             }
 
-=======
->>>>>>> stage
             if ($this->_queryCacheProfile) {
                 $this->_queryCacheProfile = new QueryCacheProfile($this->_queryCacheProfile->getLifetime(), $this->_queryCacheProfile->getCacheKey());
             }
@@ -870,24 +845,15 @@ abstract class AbstractQuery
     /**
      * Change the default fetch mode of an association for this query.
      *
-<<<<<<< HEAD
      * @param class-string $class
      * @param string       $assocName
      * @param int          $fetchMode
      * @psalm-param Mapping\ClassMetadata::FETCH_EAGER|Mapping\ClassMetadata::FETCH_LAZY $fetchMode
-=======
-     * $fetchMode can be one of ClassMetadata::FETCH_EAGER or ClassMetadata::FETCH_LAZY
-     *
-     * @param string $class
-     * @param string $assocName
-     * @param int    $fetchMode
->>>>>>> stage
      *
      * @return $this
      */
     public function setFetchMode($class, $assocName, $fetchMode)
     {
-<<<<<<< HEAD
         if (! in_array($fetchMode, [Mapping\ClassMetadata::FETCH_EAGER, Mapping\ClassMetadata::FETCH_LAZY], true)) {
             Deprecation::trigger(
                 'doctrine/orm',
@@ -895,9 +861,6 @@ abstract class AbstractQuery
                 'Calling %s() with something else than ClassMetadata::FETCH_EAGER or ClassMetadata::FETCH_LAZY is deprecated.',
                 __METHOD__
             );
-=======
-        if ($fetchMode !== Mapping\ClassMetadata::FETCH_EAGER) {
->>>>>>> stage
             $fetchMode = Mapping\ClassMetadata::FETCH_LAZY;
         }
 

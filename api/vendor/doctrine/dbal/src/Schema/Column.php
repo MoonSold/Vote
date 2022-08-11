@@ -4,10 +4,7 @@ namespace Doctrine\DBAL\Schema;
 
 use Doctrine\DBAL\Schema\Exception\UnknownColumnOption;
 use Doctrine\DBAL\Types\Type;
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 
 use function array_merge;
 use function is_numeric;
@@ -54,15 +51,11 @@ class Column extends AbstractAsset
     /** @var string|null */
     protected $_comment;
 
-<<<<<<< HEAD
     /**
      * @deprecated Use {@link $_platformOptions instead}
      *
      * @var mixed[]
      */
-=======
-    /** @var mixed[] */
->>>>>>> stage
     protected $_customSchemaOptions = [];
 
     /**
@@ -386,11 +379,8 @@ class Column extends AbstractAsset
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated Use {@link setPlatformOption() instead}
      *
-=======
->>>>>>> stage
      * @param string $name
      * @param mixed  $value
      *
@@ -398,113 +388,86 @@ class Column extends AbstractAsset
      */
     public function setCustomSchemaOption($name, $value)
     {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5476',
             'Column::setCustomSchemaOption() is deprecated. Use setPlatformOption() instead.'
         );
 
-=======
->>>>>>> stage
         $this->_customSchemaOptions[$name] = $value;
 
         return $this;
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated Use {@link hasPlatformOption() instead}
      *
-=======
->>>>>>> stage
      * @param string $name
      *
      * @return bool
      */
     public function hasCustomSchemaOption($name)
     {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5476',
             'Column::hasCustomSchemaOption() is deprecated. Use hasPlatformOption() instead.'
         );
 
-=======
->>>>>>> stage
         return isset($this->_customSchemaOptions[$name]);
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated Use {@link getPlatformOption() instead}
      *
-=======
->>>>>>> stage
      * @param string $name
      *
      * @return mixed
      */
     public function getCustomSchemaOption($name)
     {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5476',
             'Column::getCustomSchemaOption() is deprecated. Use getPlatformOption() instead.'
         );
 
-=======
->>>>>>> stage
         return $this->_customSchemaOptions[$name];
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated Use {@link setPlatformOptions() instead}
      *
-=======
->>>>>>> stage
      * @param mixed[] $customSchemaOptions
      *
      * @return Column
      */
     public function setCustomSchemaOptions(array $customSchemaOptions)
     {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5476',
             'Column::setCustomSchemaOptions() is deprecated. Use setPlatformOptions() instead.'
         );
 
-=======
->>>>>>> stage
         $this->_customSchemaOptions = $customSchemaOptions;
 
         return $this;
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated Use {@link getPlatformOptions() instead}
      *
-=======
->>>>>>> stage
      * @return mixed[]
      */
     public function getCustomSchemaOptions()
     {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5476',
             'Column::getCustomSchemaOptions() is deprecated. Use getPlatformOptions() instead.'
         );
 
-=======
->>>>>>> stage
         return $this->_customSchemaOptions;
     }
 

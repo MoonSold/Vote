@@ -22,7 +22,6 @@ class ChooseVoteEntity
      */
     private object $user;
     /**
-<<<<<<< HEAD
      * @ORM\Column(type="string",nullable = true,name="choose")
      * @var string
      */
@@ -37,15 +36,6 @@ class ChooseVoteEntity
     {
         return $this->id;
     }
-=======
-     * @ORM\ManyToOne(targetEntity="ChooseEntity")
-     */
-    private object $choose;
-    /**
-     * @ORM\ManyToOne(targetEntity="VoteGroupEntity")
-     */
-    private object $group;
->>>>>>> stage
 
     public function setUser($user): void
     {
@@ -57,25 +47,16 @@ class ChooseVoteEntity
         return $this->user;
     }
 
-<<<<<<< HEAD
     public function setElement($choose): void
-=======
-    public function setChoose($choose): void
->>>>>>> stage
     {
         $this->choose = $choose;
     }
 
-<<<<<<< HEAD
     public function getElement():string
-=======
-    public function getChoose()
->>>>>>> stage
     {
         return $this->choose;
     }
 
-<<<<<<< HEAD
     public function setGroup($group):void
     {
         $this->group = $group;
@@ -85,10 +66,4 @@ class ChooseVoteEntity
     {
         return $this->group;
     }
-=======
-    public function setGroup($group)
-    {
-        $this->group = $group;
-    }
->>>>>>> stage
 }

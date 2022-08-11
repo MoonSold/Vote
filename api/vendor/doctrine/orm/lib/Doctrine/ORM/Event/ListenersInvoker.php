@@ -30,12 +30,6 @@ class ListenersInvoker
      */
     private $eventManager;
 
-<<<<<<< HEAD
-=======
-    /**
-     * Initializes a new ListenersInvoker instance.
-     */
->>>>>>> stage
     public function __construct(EntityManagerInterface $em)
     {
         $this->eventManager = $em->getEventManager();
@@ -49,10 +43,7 @@ class ListenersInvoker
      * @param string        $eventName The entity lifecycle event.
      *
      * @return int Bitmask of subscribed event systems.
-<<<<<<< HEAD
      * @psalm-return int-mask-of<self::INVOKE_*>
-=======
->>>>>>> stage
      */
     public function getSubscribedSystems(ClassMetadata $metadata, $eventName)
     {
@@ -81,10 +72,7 @@ class ListenersInvoker
      * @param object        $entity    The Entity on which the event occurred.
      * @param EventArgs     $event     The Event args.
      * @param int           $invoke    Bitmask to invoke listeners.
-<<<<<<< HEAD
      * @psalm-param int-mask-of<self::INVOKE_*> $invoke
-=======
->>>>>>> stage
      *
      * @return void
      */

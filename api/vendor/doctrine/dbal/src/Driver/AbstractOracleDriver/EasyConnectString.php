@@ -15,12 +15,7 @@ use function sprintf;
  */
 final class EasyConnectString
 {
-<<<<<<< HEAD
     private string $string;
-=======
-    /** @var string */
-    private $string;
->>>>>>> stage
 
     private function __construct(string $string)
     {

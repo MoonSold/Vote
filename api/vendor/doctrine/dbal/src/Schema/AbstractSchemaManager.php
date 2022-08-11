@@ -7,23 +7,16 @@ use Doctrine\DBAL\Event\SchemaColumnDefinitionEventArgs;
 use Doctrine\DBAL\Event\SchemaIndexDefinitionEventArgs;
 use Doctrine\DBAL\Events;
 use Doctrine\DBAL\Exception;
-<<<<<<< HEAD
 use Doctrine\DBAL\Exception\DatabaseRequired;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Result;
-=======
-use Doctrine\DBAL\Platforms\AbstractPlatform;
->>>>>>> stage
 use Doctrine\Deprecations\Deprecation;
 use Throwable;
 
 use function array_filter;
 use function array_intersect;
 use function array_map;
-<<<<<<< HEAD
 use function array_shift;
-=======
->>>>>>> stage
 use function array_values;
 use function assert;
 use function call_user_func_array;
@@ -69,16 +62,12 @@ abstract class AbstractSchemaManager
     /**
      * Returns the associated platform.
      *
-<<<<<<< HEAD
      * @deprecated Use {@link Connection::getDatabasePlatform()} instead.
      *
-=======
->>>>>>> stage
      * @return T
      */
     public function getDatabasePlatform()
     {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5387',
@@ -86,8 +75,6 @@ abstract class AbstractSchemaManager
                 . ' Use Connection::getDatabasePlatform() instead.'
         );
 
-=======
->>>>>>> stage
         return $this->_platform;
     }
 
@@ -193,7 +180,6 @@ abstract class AbstractSchemaManager
     public function listSequences($database = null)
     {
         if ($database === null) {
-<<<<<<< HEAD
             $database = $this->getDatabase(__METHOD__);
         } else {
             Deprecation::trigger(
@@ -201,9 +187,6 @@ abstract class AbstractSchemaManager
                 'https://github.com/doctrine/dbal/issues/5284',
                 'Passing $database to AbstractSchemaManager::listSequences() is deprecated.'
             );
-=======
-            $database = $this->_conn->getDatabase();
->>>>>>> stage
         }
 
         $sql = $this->_platform->getListSequencesSQL($database);
@@ -233,7 +216,6 @@ abstract class AbstractSchemaManager
     public function listTableColumns($table, $database = null)
     {
         if ($database === null) {
-<<<<<<< HEAD
             $database = $this->getDatabase(__METHOD__);
         } else {
             Deprecation::trigger(
@@ -241,9 +223,6 @@ abstract class AbstractSchemaManager
                 'https://github.com/doctrine/dbal/issues/5284',
                 'Passing $database to AbstractSchemaManager::listTableColumns() is deprecated.'
             );
-=======
-            $database = $this->_conn->getDatabase();
->>>>>>> stage
         }
 
         $sql = $this->_platform->getListTableColumnsSQL($table, $database);
@@ -254,7 +233,6 @@ abstract class AbstractSchemaManager
     }
 
     /**
-<<<<<<< HEAD
      * @param string      $table
      * @param string|null $database
      *
@@ -283,8 +261,6 @@ abstract class AbstractSchemaManager
     }
 
     /**
-=======
->>>>>>> stage
      * Lists the indexes for a given table returning an array of Index instances.
      *
      * Keys of the portable indexes list are all lower-cased.
@@ -305,7 +281,6 @@ abstract class AbstractSchemaManager
     }
 
     /**
-<<<<<<< HEAD
      * @param string $table
      *
      * @return Index[]
@@ -326,8 +301,6 @@ abstract class AbstractSchemaManager
     }
 
     /**
-=======
->>>>>>> stage
      * Returns true if all the given tables exist.
      *
      * The usage of a string $tableNames is deprecated. Pass a one-element array instead.
@@ -372,7 +345,6 @@ abstract class AbstractSchemaManager
     }
 
     /**
-<<<<<<< HEAD
      * @return list<string>
      *
      * @throws Exception
@@ -390,8 +362,6 @@ abstract class AbstractSchemaManager
     }
 
     /**
-=======
->>>>>>> stage
      * Filters asset names if they are configured to return only a subset of all
      * the found elements.
      *
@@ -429,7 +399,6 @@ abstract class AbstractSchemaManager
     }
 
     /**
-<<<<<<< HEAD
      * @return list<Table>
      *
      * @throws Exception
@@ -465,8 +434,6 @@ abstract class AbstractSchemaManager
     }
 
     /**
-=======
->>>>>>> stage
      * @param string $name
      *
      * @return Table
@@ -488,7 +455,6 @@ abstract class AbstractSchemaManager
     }
 
     /**
-<<<<<<< HEAD
      * @param string $name
      *
      * @throws Exception
@@ -630,8 +596,6 @@ abstract class AbstractSchemaManager
     }
 
     /**
-=======
->>>>>>> stage
      * Lists the views this connection has.
      *
      * @return View[]
@@ -660,7 +624,6 @@ abstract class AbstractSchemaManager
     public function listTableForeignKeys($table, $database = null)
     {
         if ($database === null) {
-<<<<<<< HEAD
             $database = $this->getDatabase(__METHOD__);
         } else {
             Deprecation::trigger(
@@ -668,9 +631,6 @@ abstract class AbstractSchemaManager
                 'https://github.com/doctrine/dbal/issues/5284',
                 'Passing $database to AbstractSchemaManager::listTableForeignKeys() is deprecated.'
             );
-=======
-            $database = $this->_conn->getDatabase();
->>>>>>> stage
         }
 
         $sql              = $this->_platform->getListTableForeignKeysSQL($table, $database);
@@ -679,7 +639,6 @@ abstract class AbstractSchemaManager
         return $this->_getPortableTableForeignKeysList($tableForeignKeys);
     }
 
-<<<<<<< HEAD
     /**
      * @param string      $table
      * @param string|null $database
@@ -708,8 +667,6 @@ abstract class AbstractSchemaManager
         );
     }
 
-=======
->>>>>>> stage
     /* drop*() Methods */
 
     /**
@@ -765,7 +722,6 @@ abstract class AbstractSchemaManager
     public function dropIndex($index, $table)
     {
         if ($index instanceof Index) {
-<<<<<<< HEAD
             Deprecation::trigger(
                 'doctrine/dbal',
                 'https://github.com/doctrine/dbal/issues/4798',
@@ -787,11 +743,6 @@ abstract class AbstractSchemaManager
             $table = $table->getQuotedName($this->_platform);
         }
 
-=======
-            $index = $index->getQuotedName($this->_platform);
-        }
-
->>>>>>> stage
         $this->_execSql($this->_platform->getDropIndexSQL($index, $table));
     }
 
@@ -808,7 +759,6 @@ abstract class AbstractSchemaManager
      */
     public function dropConstraint(Constraint $constraint, $table)
     {
-<<<<<<< HEAD
         if ($table instanceof Table) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -824,9 +774,6 @@ abstract class AbstractSchemaManager
             $constraint->getQuotedName($this->_platform),
             $table
         ));
-=======
-        $this->_execSql($this->_platform->getDropConstraintSQL($constraint, $table));
->>>>>>> stage
     }
 
     /**
@@ -841,7 +788,6 @@ abstract class AbstractSchemaManager
      */
     public function dropForeignKey($foreignKey, $table)
     {
-<<<<<<< HEAD
         if ($foreignKey instanceof ForeignKeyConstraint) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -865,8 +811,6 @@ abstract class AbstractSchemaManager
             $table = $table->getQuotedName($this->_platform);
         }
 
-=======
->>>>>>> stage
         $this->_execSql($this->_platform->getDropForeignKeySQL($foreignKey, $table));
     }
 
@@ -911,7 +855,6 @@ abstract class AbstractSchemaManager
     /* create*() Methods */
 
     /**
-<<<<<<< HEAD
      * @throws Exception
      */
     public function createSchemaObjects(Schema $schema): void
@@ -920,8 +863,6 @@ abstract class AbstractSchemaManager
     }
 
     /**
-=======
->>>>>>> stage
      * Creates a new database.
      *
      * @param string $database The name of the database to create.
@@ -1032,7 +973,6 @@ abstract class AbstractSchemaManager
     /* dropAndCreate*() Methods */
 
     /**
-<<<<<<< HEAD
      * @throws Exception
      */
     public function dropSchemaObjects(Schema $schema): void
@@ -1041,8 +981,6 @@ abstract class AbstractSchemaManager
     }
 
     /**
-=======
->>>>>>> stage
      * Drops and creates a constraint.
      *
      * @deprecated Use {@see dropIndex()} and {@see createIndex()},
@@ -1541,34 +1479,6 @@ abstract class AbstractSchemaManager
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * @param mixed[][] $users
-     *
-     * @return string[][]
-     */
-    protected function _getPortableUsersList($users)
-    {
-        $list = [];
-        foreach ($users as $value) {
-            $list[] = $this->_getPortableUserDefinition($value);
-        }
-
-        return $list;
-    }
-
-    /**
-     * @param string[] $user
-     *
-     * @return string[]
-     */
-    protected function _getPortableUserDefinition($user)
-    {
-        return $user;
-    }
-
-    /**
->>>>>>> stage
      * @param mixed[][] $views
      *
      * @return View[]
@@ -1620,11 +1530,8 @@ abstract class AbstractSchemaManager
      * @param mixed $tableForeignKey
      *
      * @return ForeignKeyConstraint
-<<<<<<< HEAD
      *
      * @abstract
-=======
->>>>>>> stage
      */
     protected function _getPortableTableForeignKeyDefinition($tableForeignKey)
     {
@@ -1772,7 +1679,6 @@ abstract class AbstractSchemaManager
         return str_replace('(DC2Type:' . $type . ')', '', $comment);
     }
 
-<<<<<<< HEAD
     /**
      * @throws Exception
      */
@@ -1808,10 +1714,5 @@ abstract class AbstractSchemaManager
         }
 
         return $data;
-=======
-    public function createComparator(): Comparator
-    {
-        return new Comparator($this->getDatabasePlatform());
->>>>>>> stage
     }
 }

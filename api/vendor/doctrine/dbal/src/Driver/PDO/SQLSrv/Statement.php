@@ -12,12 +12,7 @@ use function func_num_args;
 
 final class Statement extends AbstractStatementMiddleware
 {
-<<<<<<< HEAD
     private PDOStatement $statement;
-=======
-    /** @var PDOStatement */
-    private $statement;
->>>>>>> stage
 
     /**
      * @internal The statement can be only instantiated by its driver connection.
@@ -32,11 +27,8 @@ final class Statement extends AbstractStatementMiddleware
     /**
      * {@inheritdoc}
      *
-<<<<<<< HEAD
      * @deprecated Use {@see bindValue()} instead.
      *
-=======
->>>>>>> stage
      * @param string|int $param
      * @param mixed      $variable
      * @param int        $type
@@ -50,7 +42,6 @@ final class Statement extends AbstractStatementMiddleware
         $length = null,
         $driverOptions = null
     ): bool {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5563',
@@ -67,8 +58,6 @@ final class Statement extends AbstractStatementMiddleware
             );
         }
 
-=======
->>>>>>> stage
         if (func_num_args() > 4) {
             Deprecation::triggerIfCalledFromOutside(
                 'doctrine/dbal',
@@ -80,13 +69,7 @@ final class Statement extends AbstractStatementMiddleware
         switch ($type) {
             case ParameterType::LARGE_OBJECT:
             case ParameterType::BINARY:
-<<<<<<< HEAD
                 $driverOptions ??= PDO::SQLSRV_ENCODING_BINARY;
-=======
-                if ($driverOptions === null) {
-                    $driverOptions = PDO::SQLSRV_ENCODING_BINARY;
-                }
->>>>>>> stage
 
                 break;
 
@@ -105,7 +88,6 @@ final class Statement extends AbstractStatementMiddleware
      */
     public function bindValue($param, $value, $type = ParameterType::STRING): bool
     {
-<<<<<<< HEAD
         if (func_num_args() < 3) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -115,8 +97,6 @@ final class Statement extends AbstractStatementMiddleware
             );
         }
 
-=======
->>>>>>> stage
         return $this->bindParam($param, $value, $type);
     }
 }

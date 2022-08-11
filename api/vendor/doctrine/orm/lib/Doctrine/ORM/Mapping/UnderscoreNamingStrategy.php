@@ -112,12 +112,9 @@ class UnderscoreNamingStrategy implements NamingStrategy
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @param string       $propertyName
      * @param class-string $className
-=======
->>>>>>> stage
      */
     public function joinColumnName($propertyName, $className = null)
     {

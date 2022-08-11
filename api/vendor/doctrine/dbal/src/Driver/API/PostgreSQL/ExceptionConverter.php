@@ -81,11 +81,7 @@ final class ExceptionConverter implements ExceptionConverterInterface
                 return new ConnectionException($exception, $query);
         }
 
-<<<<<<< HEAD
         // Prior to fixing https://bugs.php.net/bug.php?id=64705 (PHP 7.4.10),
-=======
-        // Prior to fixing https://bugs.php.net/bug.php?id=64705 (PHP 7.3.22 and PHP 7.4.10),
->>>>>>> stage
         // in some cases (mainly connection errors) the PDO exception wouldn't provide a SQLSTATE via its code.
         // We have to match against the SQLSTATE in the error message in these cases.
         if ($exception->getCode() === 7 && strpos($exception->getMessage(), 'SQLSTATE[08006]') !== false) {

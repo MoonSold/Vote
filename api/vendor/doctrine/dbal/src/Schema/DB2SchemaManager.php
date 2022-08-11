@@ -4,26 +4,17 @@ namespace Doctrine\DBAL\Schema;
 
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Platforms\DB2Platform;
-<<<<<<< HEAD
 use Doctrine\DBAL\Result;
-=======
->>>>>>> stage
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\Types;
 
 use function array_change_key_case;
-<<<<<<< HEAD
 use function implode;
-=======
->>>>>>> stage
 use function preg_match;
 use function str_replace;
 use function strpos;
 use function strtolower;
-<<<<<<< HEAD
 use function strtoupper;
-=======
->>>>>>> stage
 use function substr;
 
 use const CASE_LOWER;
@@ -36,7 +27,6 @@ use const CASE_LOWER;
 class DB2SchemaManager extends AbstractSchemaManager
 {
     /**
-<<<<<<< HEAD
      * {@inheritDoc}
      */
     public function listTableNames()
@@ -82,20 +72,6 @@ class DB2SchemaManager extends AbstractSchemaManager
     public function listTableForeignKeys($table, $database = null)
     {
         return $this->doListTableForeignKeys($table, $database);
-=======
-     * {@inheritdoc}
-     *
-     * Apparently creator is the schema not the user who created it:
-     * {@link http://publib.boulder.ibm.com/infocenter/dzichelp/v2r2/index.jsp?topic=/com.ibm.db29.doc.sqlref/db2z_sysibmsystablestable.htm}
-     */
-    public function listTableNames()
-    {
-        $sql = $this->_platform->getListTablesSQL() . ' AND CREATOR = CURRENT_USER';
-
-        $tables = $this->_conn->fetchAllAssociative($sql);
-
-        return $this->filterAssetNames($this->_getPortableTablesList($tables));
->>>>>>> stage
     }
 
     /**
@@ -186,23 +162,11 @@ class DB2SchemaManager extends AbstractSchemaManager
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
     protected function _getPortableTableDefinition($table)
     {
         $table = array_change_key_case($table, CASE_LOWER);
 
         return $table['name'];
-=======
-    protected function _getPortableTablesList($tables)
-    {
-        $tableNames = [];
-        foreach ($tables as $tableRow) {
-            $tableRow     = array_change_key_case($tableRow, CASE_LOWER);
-            $tableNames[] = $tableRow['name'];
-        }
-
-        return $tableNames;
->>>>>>> stage
     }
 
     /**
@@ -297,7 +261,6 @@ class DB2SchemaManager extends AbstractSchemaManager
         return new View($view['name'], $sql);
     }
 
-<<<<<<< HEAD
     protected function normalizeName(string $name): string
     {
         $identifier = new Identifier($name);
@@ -478,23 +441,5 @@ SQL;
         }
 
         return $tableOptions;
-=======
-    /**
-     * {@inheritdoc}
-     */
-    public function listTableDetails($name): Table
-    {
-        $table = parent::listTableDetails($name);
-
-        $sql = $this->_platform->getListTableCommentsSQL($name);
-
-        $tableOptions = $this->_conn->fetchAssociative($sql);
-
-        if ($tableOptions !== false) {
-            $table->addOption('comment', $tableOptions['REMARKS']);
-        }
-
-        return $table;
->>>>>>> stage
     }
 }

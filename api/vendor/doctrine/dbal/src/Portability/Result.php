@@ -9,12 +9,7 @@ use Doctrine\DBAL\Driver\Result as ResultInterface;
 
 final class Result extends AbstractResultMiddleware
 {
-<<<<<<< HEAD
     private Converter $converter;
-=======
-    /** @var Converter */
-    private $converter;
->>>>>>> stage
 
     /**
      * @internal The result can be only instantiated by the portability connection or statement.

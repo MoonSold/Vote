@@ -2,15 +2,10 @@
 
 namespace Doctrine\DBAL\Platforms;
 
-<<<<<<< HEAD
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Schema\ColumnDiff;
 use Doctrine\DBAL\Schema\DB2SchemaManager;
-=======
-use Doctrine\DBAL\Exception;
-use Doctrine\DBAL\Schema\ColumnDiff;
->>>>>>> stage
 use Doctrine\DBAL\Schema\Identifier;
 use Doctrine\DBAL\Schema\Index;
 use Doctrine\DBAL\Schema\TableDiff;
@@ -30,7 +25,6 @@ use function strpos;
 
 class DB2Platform extends AbstractPlatform
 {
-<<<<<<< HEAD
     /**
      * {@inheritdoc}
      *
@@ -44,16 +38,11 @@ class DB2Platform extends AbstractPlatform
             'DB2Platform::getCharMaxLength() is deprecated.'
         );
 
-=======
-    public function getCharMaxLength(): int
-    {
->>>>>>> stage
         return 254;
     }
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -65,17 +54,11 @@ class DB2Platform extends AbstractPlatform
             'DB2Platform::getBinaryMaxLength() is deprecated.'
         );
 
-=======
-     */
-    public function getBinaryMaxLength()
-    {
->>>>>>> stage
         return 32704;
     }
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -87,11 +70,6 @@ class DB2Platform extends AbstractPlatform
             'Relying on the default binary column length is deprecated, specify the length explicitly.'
         );
 
-=======
-     */
-    public function getBinaryDefaultLength()
-    {
->>>>>>> stage
         return 1;
     }
 
@@ -165,7 +143,6 @@ class DB2Platform extends AbstractPlatform
     /**
      * {@inheritDoc}
      */
-<<<<<<< HEAD
     protected function getVarcharTypeDeclarationSQLSnippet($length, $fixed/*, $lengthOmitted = false*/)
     {
         if ($length <= 0 || (func_num_args() > 2 && func_get_arg(2))) {
@@ -177,10 +154,6 @@ class DB2Platform extends AbstractPlatform
             );
         }
 
-=======
-    protected function getVarcharTypeDeclarationSQLSnippet($length, $fixed)
-    {
->>>>>>> stage
         return $fixed ? ($length > 0 ? 'CHAR(' . $length . ')' : 'CHAR(254)')
                 : ($length > 0 ? 'VARCHAR(' . $length . ')' : 'VARCHAR(255)');
     }
@@ -188,7 +161,6 @@ class DB2Platform extends AbstractPlatform
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
     protected function getBinaryTypeDeclarationSQLSnippet($length, $fixed/*, $lengthOmitted = false*/)
     {
         if ($length <= 0 || (func_num_args() > 2 && func_get_arg(2))) {
@@ -200,10 +172,6 @@ class DB2Platform extends AbstractPlatform
             );
         }
 
-=======
-    protected function getBinaryTypeDeclarationSQLSnippet($length, $fixed)
-    {
->>>>>>> stage
         return $this->getVarcharTypeDeclarationSQLSnippet($length, $fixed) . ' FOR BIT DATA';
     }
 
@@ -358,11 +326,8 @@ class DB2Platform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * This code fragment is originally from the Zend_Db_Adapter_Db2 class, but has been edited.
      *
      * @param string $table
@@ -420,29 +385,19 @@ class DB2Platform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTablesSQL()
     {
-<<<<<<< HEAD
         return "SELECT NAME FROM SYSIBM.SYSTABLES WHERE TYPE = 'T' AND CREATOR = CURRENT_USER";
-=======
-        return "SELECT NAME FROM SYSIBM.SYSTABLES WHERE TYPE = 'T'";
->>>>>>> stage
     }
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractSchemaManager} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getListViewsSQL($database)
     {
@@ -450,11 +405,8 @@ class DB2Platform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTableIndexesSQL($table, $database = null)
@@ -479,11 +431,8 @@ class DB2Platform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTableForeignKeysSQL($table)
@@ -519,7 +468,6 @@ class DB2Platform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -532,21 +480,13 @@ class DB2Platform extends AbstractPlatform
             __METHOD__
         );
 
-=======
-     */
-    public function supportsCreateDropDatabase()
-    {
->>>>>>> stage
         return false;
     }
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function supportsCommentOnStatement()
     {
@@ -579,11 +519,8 @@ class DB2Platform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getIndexDeclarationSQL($name, Index $index)
     {
@@ -858,11 +795,8 @@ class DB2Platform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getDefaultValueDeclarationSQL($column)
     {
@@ -1038,12 +972,9 @@ class DB2Platform extends AbstractPlatform
         return Keywords\DB2Keywords::class;
     }
 
-<<<<<<< HEAD
     /**
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      */
-=======
->>>>>>> stage
     public function getListTableCommentsSQL(string $table): string
     {
         return sprintf(
@@ -1056,12 +987,9 @@ SQL
             $this->quoteStringLiteral($table)
         );
     }
-<<<<<<< HEAD
 
     public function createSchemaManager(Connection $connection): DB2SchemaManager
     {
         return new DB2SchemaManager($connection, $this);
     }
-=======
->>>>>>> stage
 }

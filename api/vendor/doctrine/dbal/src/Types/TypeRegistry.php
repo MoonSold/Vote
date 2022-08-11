@@ -16,11 +16,7 @@ use function in_array;
 final class TypeRegistry
 {
     /** @var array<string, Type> Map of type names and their corresponding flyweight objects. */
-<<<<<<< HEAD
     private array $instances;
-=======
-    private $instances;
->>>>>>> stage
 
     /**
      * @param array<string, Type> $instances

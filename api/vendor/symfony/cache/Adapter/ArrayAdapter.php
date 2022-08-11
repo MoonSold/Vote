@@ -349,11 +349,7 @@ class ArrayAdapter implements AdapterInterface, CacheInterface, LoggerAwareInter
             if ('N;' === $value || (isset($value[2]) && ':' === $value[1])) {
                 return serialize($value);
             }
-<<<<<<< HEAD
         } elseif (!\is_scalar($value)) {
-=======
-        } elseif (!is_scalar($value)) {
->>>>>>> stage
             try {
                 $serialized = serialize($value);
             } catch (\Exception $e) {

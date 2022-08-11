@@ -67,10 +67,6 @@ use ReflectionClass;
 use function array_intersect;
 use function array_search;
 use function assert;
-<<<<<<< HEAD
-=======
-use function call_user_func;
->>>>>>> stage
 use function class_exists;
 use function count;
 use function explode;
@@ -3566,11 +3562,7 @@ class Parser
 
         $function = is_string($functionClass)
             ? new $functionClass($functionName)
-<<<<<<< HEAD
             : $functionClass($functionName);
-=======
-            : call_user_func($functionClass, $functionName);
->>>>>>> stage
 
         $function->parse($this);
 
@@ -3611,11 +3603,7 @@ class Parser
 
         $function = is_string($functionClass)
             ? new $functionClass($functionName)
-<<<<<<< HEAD
             : $functionClass($functionName);
-=======
-            : call_user_func($functionClass, $functionName);
->>>>>>> stage
 
         $function->parse($this);
 
@@ -3657,11 +3645,7 @@ class Parser
 
         $function = is_string($functionClass)
             ? new $functionClass($functionName)
-<<<<<<< HEAD
             : $functionClass($functionName);
-=======
-            : call_user_func($functionClass, $functionName);
->>>>>>> stage
 
         $function->parse($this);
 

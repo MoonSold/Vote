@@ -104,11 +104,7 @@ class LimitSubqueryOutputWalker extends SqlWalker
         // Reset limit and offset
         $this->firstResult = $query->getFirstResult();
         $this->maxResults  = $query->getMaxResults();
-<<<<<<< HEAD
         $query->setFirstResult(0)->setMaxResults(null);
-=======
-        $query->setFirstResult(null)->setMaxResults(null);
->>>>>>> stage
 
         $this->em            = $query->getEntityManager();
         $this->quoteStrategy = $this->em->getConfiguration()->getQuoteStrategy();
@@ -159,15 +155,7 @@ class LimitSubqueryOutputWalker extends SqlWalker
     }
 
     /**
-<<<<<<< HEAD
      * {@inheritdoc}
-=======
-     * Walks down a SelectStatement AST node, wrapping it in a SELECT DISTINCT.
-     *
-     * @return string
-     *
-     * @throws RuntimeException
->>>>>>> stage
      */
     public function walkSelectStatement(SelectStatement $AST)
     {

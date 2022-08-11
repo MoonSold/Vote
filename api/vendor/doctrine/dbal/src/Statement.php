@@ -123,11 +123,8 @@ class Statement
      *
      * Binding a parameter by reference does not support DBAL mapping types.
      *
-<<<<<<< HEAD
      * @deprecated Use {@see bindValue()} instead.
      *
-=======
->>>>>>> stage
      * @param string|int $param    The name or position of the parameter.
      * @param mixed      $variable The reference to the variable to bind.
      * @param int        $type     The binding type.
@@ -140,7 +137,6 @@ class Statement
      */
     public function bindParam($param, &$variable, $type = ParameterType::STRING, $length = null)
     {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5563',
@@ -148,8 +144,6 @@ class Statement
             __METHOD__
         );
 
-=======
->>>>>>> stage
         $this->params[$param] = $variable;
         $this->types[$param]  = $type;
 
@@ -213,7 +207,6 @@ class Statement
      */
     public function executeQuery(array $params = []): Result
     {
-<<<<<<< HEAD
         if (func_num_args() > 0) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -223,8 +216,6 @@ class Statement
             );
         }
 
-=======
->>>>>>> stage
         if ($params === []) {
             $params = null; // Workaround as long execute() exists and used internally.
         }
@@ -241,7 +232,6 @@ class Statement
      */
     public function executeStatement(array $params = []): int
     {
-<<<<<<< HEAD
         if (func_num_args() > 0) {
             Deprecation::trigger(
                 'doctrine/dbal',
@@ -251,8 +241,6 @@ class Statement
             );
         }
 
-=======
->>>>>>> stage
         if ($params === []) {
             $params = null; // Workaround as long execute() exists and used internally.
         }

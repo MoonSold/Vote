@@ -2,10 +2,7 @@
 
 namespace Doctrine\DBAL\Platforms;
 
-<<<<<<< HEAD
 use Doctrine\DBAL\Connection;
-=======
->>>>>>> stage
 use Doctrine\DBAL\Driver\API\SQLite\UserDefinedFunctions;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Schema\Column;
@@ -14,10 +11,7 @@ use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Schema\Identifier;
 use Doctrine\DBAL\Schema\Index;
 use Doctrine\DBAL\Schema\SchemaException;
-<<<<<<< HEAD
 use Doctrine\DBAL\Schema\SqliteSchemaManager;
-=======
->>>>>>> stage
 use Doctrine\DBAL\Schema\Table;
 use Doctrine\DBAL\Schema\TableDiff;
 use Doctrine\DBAL\TransactionIsolationLevel;
@@ -47,11 +41,8 @@ use function trim;
  */
 class SqlitePlatform extends AbstractPlatform
 {
-<<<<<<< HEAD
     private bool $schemaEmulationEnabled = true;
 
-=======
->>>>>>> stage
     /**
      * {@inheritDoc}
      */
@@ -262,18 +253,14 @@ class SqlitePlatform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated Use {@see getSmallIntTypeDeclarationSQL()} instead.
      *
-=======
->>>>>>> stage
      * @param array<string, mixed> $column
      *
      * @return string
      */
     public function getTinyIntTypeDeclarationSQL(array $column)
     {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5511',
@@ -281,8 +268,6 @@ class SqlitePlatform extends AbstractPlatform
             __METHOD__
         );
 
-=======
->>>>>>> stage
         // SQLite autoincrement is implicit for INTEGER PKs, but not for TINYINT columns
         if (! empty($column['autoincrement'])) {
             return $this->getIntegerTypeDeclarationSQL($column);
@@ -305,18 +290,14 @@ class SqlitePlatform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated Use {@see getIntegerTypeDeclarationSQL()} instead.
      *
-=======
->>>>>>> stage
      * @param array<string, mixed> $column
      *
      * @return string
      */
     public function getMediumIntTypeDeclarationSQL(array $column)
     {
-<<<<<<< HEAD
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5511',
@@ -324,8 +305,6 @@ class SqlitePlatform extends AbstractPlatform
             __METHOD__
         );
 
-=======
->>>>>>> stage
         // SQLite autoincrement is implicit for INTEGER PKs, but not for MEDIUMINT columns
         if (! empty($column['autoincrement'])) {
             return $this->getIntegerTypeDeclarationSQL($column);
@@ -372,7 +351,6 @@ class SqlitePlatform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * Disables schema emulation.
      *
      * Schema emulation is enabled by default to maintain backwards compatibility.
@@ -396,19 +374,12 @@ class SqlitePlatform extends AbstractPlatform
      * {@inheritDoc}
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
-     * {@inheritDoc}
->>>>>>> stage
      */
     public function getForeignKeyDeclarationSQL(ForeignKeyConstraint $foreignKey)
     {
         return parent::getForeignKeyDeclarationSQL(new ForeignKeyConstraint(
             $foreignKey->getQuotedLocalColumns($this),
-<<<<<<< HEAD
             $this->emulateSchemaNamespacing($foreignKey->getQuotedForeignTableName($this)),
-=======
-            str_replace('.', '__', $foreignKey->getQuotedForeignTableName($this)),
->>>>>>> stage
             $foreignKey->getQuotedForeignColumns($this),
             $foreignKey->getName(),
             $foreignKey->getOptions()
@@ -420,11 +391,7 @@ class SqlitePlatform extends AbstractPlatform
      */
     protected function _getCreateTableSQL($name, array $columns, array $options = [])
     {
-<<<<<<< HEAD
         $name        = $this->emulateSchemaNamespacing($name);
-=======
-        $name        = str_replace('.', '__', $name);
->>>>>>> stage
         $queryFields = $this->getColumnDeclarationListSQL($columns);
 
         if (isset($options['uniqueConstraints']) && ! empty($options['uniqueConstraints'])) {
@@ -511,7 +478,6 @@ class SqlitePlatform extends AbstractPlatform
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -523,17 +489,11 @@ class SqlitePlatform extends AbstractPlatform
             'SqlitePlatform::getBinaryMaxLength() is deprecated.'
         );
 
-=======
-     */
-    public function getBinaryMaxLength()
-    {
->>>>>>> stage
         return 0;
     }
 
     /**
      * {@inheritdoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -545,11 +505,6 @@ class SqlitePlatform extends AbstractPlatform
             'Relying on the default binary column length is deprecated, specify the length explicitly.'
         );
 
-=======
-     */
-    public function getBinaryDefaultLength()
-    {
->>>>>>> stage
         return 0;
     }
 
@@ -562,20 +517,13 @@ class SqlitePlatform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTableConstraintsSQL($table)
     {
-<<<<<<< HEAD
         $table = $this->emulateSchemaNamespacing($table);
-=======
-        $table = str_replace('.', '__', $table);
->>>>>>> stage
 
         return sprintf(
             "SELECT sql FROM sqlite_master WHERE type='index' AND tbl_name = %s AND sql NOT NULL ORDER BY name",
@@ -584,49 +532,32 @@ class SqlitePlatform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTableColumnsSQL($table, $database = null)
     {
-<<<<<<< HEAD
         $table = $this->emulateSchemaNamespacing($table);
-=======
-        $table = str_replace('.', '__', $table);
->>>>>>> stage
 
         return sprintf('PRAGMA table_info(%s)', $this->quoteStringLiteral($table));
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTableIndexesSQL($table, $database = null)
     {
-<<<<<<< HEAD
         $table = $this->emulateSchemaNamespacing($table);
-=======
-        $table = str_replace('.', '__', $table);
->>>>>>> stage
 
         return sprintf('PRAGMA index_list(%s)', $this->quoteStringLiteral($table));
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * {@inheritDoc}
      */
     public function getListTablesSQL()
@@ -642,11 +573,8 @@ class SqlitePlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractSchemaManager} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getListViewsSQL($database)
     {
@@ -655,11 +583,8 @@ class SqlitePlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getAdvancedForeignKeyOptionsSQL(ForeignKeyConstraint $foreignKey)
     {
@@ -683,7 +608,6 @@ class SqlitePlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @deprecated
      */
@@ -696,11 +620,6 @@ class SqlitePlatform extends AbstractPlatform
             __METHOD__
         );
 
-=======
-     */
-    public function supportsCreateDropDatabase()
-    {
->>>>>>> stage
         return false;
     }
 
@@ -714,11 +633,8 @@ class SqlitePlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function supportsColumnCollation()
     {
@@ -727,11 +643,8 @@ class SqlitePlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function supportsInlineColumnComments()
     {
@@ -758,11 +671,7 @@ class SqlitePlatform extends AbstractPlatform
     public function getTruncateTableSQL($tableName, $cascade = false)
     {
         $tableIdentifier = new Identifier($tableName);
-<<<<<<< HEAD
         $tableName       = $this->emulateSchemaNamespacing($tableIdentifier->getQuotedName($this));
-=======
-        $tableName       = str_replace('.', '__', $tableIdentifier->getQuotedName($this));
->>>>>>> stage
 
         return 'DELETE FROM ' . $tableName;
     }
@@ -820,11 +729,8 @@ class SqlitePlatform extends AbstractPlatform
 
     /**
      * {@inheritDoc}
-<<<<<<< HEAD
      *
      * @internal The method should be only used from within the {@see AbstractPlatform} class hierarchy.
-=======
->>>>>>> stage
      */
     public function getInlineColumnCommentSQL($comment)
     {
@@ -899,26 +805,7 @@ class SqlitePlatform extends AbstractPlatform
      */
     protected function getPreAlterTableIndexForeignKeySQL(TableDiff $diff)
     {
-<<<<<<< HEAD
         return [];
-=======
-        if (! $diff->fromTable instanceof Table) {
-            throw new Exception(
-                'Sqlite platform requires for alter table the table diff with reference to original table schema'
-            );
-        }
-
-        $sql = [];
-        foreach ($diff->fromTable->getIndexes() as $index) {
-            if ($index->isPrimary()) {
-                continue;
-            }
-
-            $sql[] = $this->getDropIndexSQL($index, $diff->name);
-        }
-
-        return $sql;
->>>>>>> stage
     }
 
     /**
@@ -977,11 +864,7 @@ class SqlitePlatform extends AbstractPlatform
      */
     public function getTemporaryTableName($tableName)
     {
-<<<<<<< HEAD
         $tableName = $this->emulateSchemaNamespacing($tableName);
-=======
-        $tableName = str_replace('.', '__', $tableName);
->>>>>>> stage
 
         return $tableName;
     }
@@ -1005,17 +888,12 @@ class SqlitePlatform extends AbstractPlatform
             'SqlitePlatform::canEmulateSchemas() is deprecated.'
         );
 
-<<<<<<< HEAD
         return $this->schemaEmulationEnabled;
-=======
-        return true;
->>>>>>> stage
     }
 
     /**
      * {@inheritDoc}
      */
-<<<<<<< HEAD
     public function getCreateTablesSQL(array $tables): array
     {
         $sql = [];
@@ -1039,11 +917,6 @@ class SqlitePlatform extends AbstractPlatform
         }
 
         return $sql;
-=======
-    public function supportsForeignKeyConstraints()
-    {
-        return false;
->>>>>>> stage
     }
 
     /**
@@ -1084,10 +957,7 @@ class SqlitePlatform extends AbstractPlatform
      * {@inheritDoc}
      *
      * @param int|null $createFlags
-<<<<<<< HEAD
      * @psalm-param int-mask-of<AbstractPlatform::CREATE_*>|null $createFlags
-=======
->>>>>>> stage
      */
     public function getCreateTableSQL(Table $table, $createFlags = null)
     {
@@ -1097,11 +967,8 @@ class SqlitePlatform extends AbstractPlatform
     }
 
     /**
-<<<<<<< HEAD
      * @deprecated The SQL used for schema introspection is an implementation detail and should not be relied upon.
      *
-=======
->>>>>>> stage
      * @param string      $table
      * @param string|null $database
      *
@@ -1109,11 +976,7 @@ class SqlitePlatform extends AbstractPlatform
      */
     public function getListTableForeignKeysSQL($table, $database = null)
     {
-<<<<<<< HEAD
         $table = $this->emulateSchemaNamespacing($table);
-=======
-        $table = str_replace('.', '__', $table);
->>>>>>> stage
 
         return sprintf('PRAGMA foreign_key_list(%s)', $this->quoteStringLiteral($table));
     }
@@ -1135,21 +998,12 @@ class SqlitePlatform extends AbstractPlatform
             );
         }
 
-<<<<<<< HEAD
-=======
-        $table = clone $fromTable;
-
->>>>>>> stage
         $columns        = [];
         $oldColumnNames = [];
         $newColumnNames = [];
         $columnSql      = [];
 
-<<<<<<< HEAD
         foreach ($fromTable->getColumns() as $columnName => $column) {
-=======
-        foreach ($table->getColumns() as $columnName => $column) {
->>>>>>> stage
             $columnName                  = strtolower($columnName);
             $columns[$columnName]        = $column;
             $oldColumnNames[$columnName] = $newColumnNames[$columnName] = $column->getQuotedName($this);
@@ -1213,26 +1067,15 @@ class SqlitePlatform extends AbstractPlatform
         $sql      = [];
         $tableSql = [];
         if (! $this->onSchemaAlterTable($diff, $tableSql)) {
-<<<<<<< HEAD
             $dataTable = new Table('__temp__' . $fromTable->getName());
 
             $newTable = new Table(
                 $fromTable->getQuotedName($this),
-=======
-            $dataTable = new Table('__temp__' . $table->getName());
-
-            $newTable = new Table(
-                $table->getQuotedName($this),
->>>>>>> stage
                 $columns,
                 $this->getPrimaryIndexInAlteredTable($diff, $fromTable),
                 [],
                 $this->getForeignKeysInAlteredTable($diff, $fromTable),
-<<<<<<< HEAD
                 $fromTable->getOptions()
-=======
-                $table->getOptions()
->>>>>>> stage
             );
             $newTable->addOption('alter', true);
 
@@ -1242,11 +1085,7 @@ class SqlitePlatform extends AbstractPlatform
                 'CREATE TEMPORARY TABLE %s AS SELECT %s FROM %s',
                 $dataTable->getQuotedName($this),
                 implode(', ', $oldColumnNames),
-<<<<<<< HEAD
                 $fromTable->getQuotedName($this)
-=======
-                $table->getQuotedName($this)
->>>>>>> stage
             );
             $sql[] = $this->getDropTableSQL($fromTable);
 
@@ -1258,11 +1097,7 @@ class SqlitePlatform extends AbstractPlatform
                 implode(', ', $oldColumnNames),
                 $dataTable->getQuotedName($this)
             );
-<<<<<<< HEAD
             $sql[] = $this->getDropTableSQL($dataTable->getQuotedName($this));
-=======
-            $sql[] = $this->getDropTableSQL($dataTable);
->>>>>>> stage
 
             $newName = $diff->getNewName();
 
@@ -1383,13 +1218,8 @@ class SqlitePlatform extends AbstractPlatform
             }
 
             $definition['name'] = $column->getQuotedName($this);
-<<<<<<< HEAD
             if ($type instanceof Types\StringType) {
                 $definition['length'] ??= 255;
-=======
-            if ($type instanceof Types\StringType && $definition['length'] === null) {
-                $definition['length'] = 255;
->>>>>>> stage
             }
 
             $sql[] = 'ALTER TABLE ' . $table->getQuotedName($this) . ' ADD COLUMN '
@@ -1597,12 +1427,9 @@ class SqlitePlatform extends AbstractPlatform
 
         return $primaryIndex;
     }
-<<<<<<< HEAD
 
     public function createSchemaManager(Connection $connection): SqliteSchemaManager
     {
         return new SqliteSchemaManager($connection, $this);
     }
-=======
->>>>>>> stage
 }

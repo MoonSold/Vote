@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Doctrine\ORM\Id;
 
-<<<<<<< HEAD
 use Doctrine\Deprecations\Deprecation;
-=======
->>>>>>> stage
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -31,7 +28,6 @@ class BigIntegerIdentityGenerator extends AbstractIdGenerator
      */
     public function __construct($sequenceName = null)
     {
-<<<<<<< HEAD
         if ($sequenceName !== null) {
             Deprecation::trigger(
                 'doctrine/orm',
@@ -41,8 +37,6 @@ class BigIntegerIdentityGenerator extends AbstractIdGenerator
             );
         }
 
-=======
->>>>>>> stage
         $this->sequenceName = $sequenceName;
     }
 
